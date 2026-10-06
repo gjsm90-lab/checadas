@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Ya cubriste la ley de checadas? · Webinar gratuito 13 de octubre | TFGRUPO × CONTPAQi</title>
+<meta name="description" content="Webinar gratuito en línea · Martes 13 de octubre, 10:00 a.m. La reforma a la LFT obliga a registrar de forma electrónica la entrada y salida de cada trabajador. Te mostramos cómo cumplir con CONTPAQi Colabora®.">
+<meta name="theme-color" content="#061433">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<!-- Vista previa al compartir (WhatsApp, Facebook, LinkedIn): las URL deben ser absolutas -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="¿Ya cubriste la nueva ley de checadas?">
+<meta property="og:description" content="Webinar gratuito · Martes 13 de octubre, 10:00 a.m. · En línea. Registro electrónico de jornada: qué cambia en 2027 y cómo cumplir con CONTPAQi Colabora®.">
+<meta property="og:url" content="https://gjsm90-lab.github.io/checadas/">
+<meta property="og:image" content="https://gjsm90-lab.github.io/checadas/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --n950:#061433; --n900:#0A1F4D; --navy:#0A3071; --blue:#005EB8; --blue-l:#2F86E0;
+  --gold:#F2B101; --gold-d:#D69C00; --maroon:#690136; --pa:#BE1EE3; --pb:#6E00FB;
+  --ink:#0F172A; --slate:#475569; --mute:#64748B; --line:#E2E8F0; --bg:#F5F7FB; --ok:#12B76A; --bad:#E5484D;
+  --r:18px; --sh:0 24px 60px -20px rgba(6,20,51,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--blue)}
+.wrap{width:min(1160px,100% - 32px);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- HÉROE ---------- */
+.hero{position:relative;color:#fff;overflow:hidden;
+  background:
+    radial-gradient(900px 500px at 8% -10%,rgba(0,94,184,.55),transparent 60%),
+    radial-gradient(700px 520px at 105% 85%,rgba(110,0,251,.45),transparent 60%),
+    linear-gradient(180deg,var(--n950),var(--n900));}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;
+  background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);
+  background-size:44px 44px;mask-image:radial-gradient(ellipse at 30% 30%,#000 30%,transparent 75%)}
+.hero::after{content:"2027";position:absolute;right:-2vw;bottom:-6vw;font-weight:800;font-size:clamp(160px,26vw,380px);line-height:1;
+  color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.06);pointer-events:none;letter-spacing:-.04em}
+.top{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0}
+.logos{display:flex;align-items:center;gap:18px}
+.logos img.tfg{height:54px;width:auto}
+.logos .x{opacity:.5;font-weight:300;font-size:22px}
+.logos img.cpq{height:26px;width:auto}
+.top .dist{font-size:12.5px;letter-spacing:.04em;opacity:.8;text-align:right}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.12fr .88fr;grid-template-areas:"txt card" "extra card";column-gap:48px;align-items:start;padding:28px 0 72px}
+.hero-txt{grid-area:txt}.hero-extra{grid-area:extra}.hero-grid .card{grid-area:card}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.dot{width:9px;height:9px;border-radius:50%;background:#FF4D4F;box-shadow:0 0 0 0 rgba(255,77,79,.7);animation:pulso 1.8s infinite}
+@keyframes pulso{70%{box-shadow:0 0 0 10px rgba(255,77,79,0)}100%{box-shadow:0 0 0 0 rgba(255,77,79,0)}}
+h1{font-size:clamp(38px,5.6vw,68px);line-height:1.02;letter-spacing:-.035em;margin:20px 0 18px;font-weight:800}
+h1 .hl{background:linear-gradient(90deg,var(--gold),#FFD666);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(16px,1.6vw,19px);color:#D7E0F2;max-width:620px;margin:0 0 26px}
+.lead b{color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px;padding:0;list-style:none}
+.chips li{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);font-weight:600;font-size:15px}
+.chips small{display:block;font-weight:500;color:#AFC0E0;font-size:12px;margin-top:-2px}
+.cuenta{display:flex;gap:10px;align-items:stretch}
+.cuenta .lbl{align-self:center;font-size:13px;color:#AFC0E0;max-width:120px;line-height:1.3}
+.cuenta .u{min-width:72px;text-align:center;padding:10px 8px;border-radius:12px;background:rgba(6,20,51,.55);border:1px solid rgba(255,255,255,.14)}
+.cuenta .u b{display:block;font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums}
+.cuenta .u span{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#AFC0E0}
+.tz{font-size:12.5px;color:#AFC0E0;margin-top:10px}
+
+/* ---------- TARJETA DE REGISTRO ---------- */
+.card{position:relative;background:#fff;color:var(--ink);border-radius:22px;box-shadow:var(--sh);padding:30px 28px 24px;scroll-margin-top:16px}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;border-radius:22px 22px 0 0;background:linear-gradient(90deg,var(--gold),var(--pa),var(--pb))}
+.card h2{margin:4px 0 4px;font-size:28px;letter-spacing:-.02em}
+.card .sub{margin:0 0 18px;color:var(--slate);font-size:15px}
+.campo{margin-bottom:14px}
+.campo label{display:block;font-weight:700;font-size:13.5px;margin-bottom:6px}
+.campo input{width:100%;font:inherit;font-size:16px;padding:13px 14px;border-radius:12px;border:1.5px solid var(--line);background:#FAFBFE;transition:border-color .15s,box-shadow .15s}
+.campo input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,94,184,.14);background:#fff}
+.campo.err input{border-color:var(--bad);background:#FFF7F7}
+.campo .msg{display:none;color:var(--bad);font-size:12.5px;margin-top:5px;font-weight:600}
+.campo.err .msg{display:block}
+.trampa{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:18px;
+  padding:16px 22px;border-radius:14px;background:var(--gold);color:var(--n950);box-shadow:0 10px 24px -8px rgba(242,177,1,.7);transition:transform .12s,box-shadow .12s,background .12s;text-decoration:none}
+.btn:hover{transform:translateY(-1px);background:#FFC21A}
+.btn:active{transform:translateY(0)}
+.btn[disabled]{opacity:.7;cursor:wait}
+.btn .spin{width:18px;height:18px;border:3px solid rgba(6,20,51,.25);border-top-color:var(--n950);border-radius:50%;animation:gira .8s linear infinite;display:none}
+.btn.cargando .spin{display:block}
+@keyframes gira{to{transform:rotate(360deg)}}
+.privado{margin:12px 0 0;font-size:12px;color:var(--mute);text-align:center}
+.aviso-otro{display:none;margin:0 0 14px;padding:10px 12px;border-radius:10px;background:#EEF5FF;color:var(--navy);font-size:13.5px;font-weight:600}
+.aviso-otro.on{display:block}
+.alerta{display:none;margin:12px 0 0;padding:12px 14px;border-radius:12px;font-size:14px;background:#FFF1F1;color:#8A1C1C}
+.alerta.on{display:block}
+.alerta a{color:#8A1C1C;font-weight:700}
+.exito{display:none;text-align:center;animation:entra .35s ease}
+.exito.on{display:block}
+@keyframes entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.palomita{width:64px;height:64px;margin:6px auto 12px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#12B76A,#0E9F5D);color:#fff;font-size:34px;box-shadow:0 12px 26px -10px rgba(18,183,106,.8)}
+.exito h3{margin:0 0 8px;font-size:23px;letter-spacing:-.01em}
+.exito p{margin:0 0 12px;color:var(--slate);font-size:15px}
+.agenda-cal{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:4px 0 18px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:9px 13px;border-radius:999px;border:1.5px solid var(--line);font-weight:700;font-size:13.5px;color:var(--navy);text-decoration:none;background:#fff;cursor:pointer}
+.pill:hover{border-color:var(--blue)}
+.otro{border-top:1px dashed var(--line);padding-top:16px;margin-top:6px}
+.otro p{color:var(--ink);font-weight:700}
+.btn.sec{background:var(--navy);color:#fff;box-shadow:none;font-size:16px;padding:14px 18px}
+.btn.sec:hover{background:var(--blue)}
+.btn.wa{background:#fff;color:#128C4B;border:1.5px solid #BFE8D2;box-shadow:none;font-size:15px;padding:12px 16px;margin-top:10px}
+.contador{font-size:12.5px;color:var(--mute);margin-top:12px!important}
+
+/* ---------- FRANJA DE DATOS ---------- */
+.datos{background:#fff;border-bottom:1px solid var(--line)}
+.datos .g{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.dato{padding:30px 26px;border-right:1px solid var(--line)}
+.dato:last-child{border-right:0}
+.dato b{display:block;font-size:clamp(26px,3vw,36px);letter-spacing:-.03em;color:var(--navy);line-height:1.1}
+.dato span{display:block;color:var(--slate);font-size:15px;margin-top:6px}
+.fuente{font-size:12px;color:var(--mute);padding:12px 0 18px}
+
+/* ---------- SECCIONES ---------- */
+section{padding:84px 0}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--maroon);margin:0 0 10px}
+h2.t{font-size:clamp(30px,3.8vw,46px);line-height:1.08;letter-spacing:-.03em;margin:0 0 14px}
+.intro{font-size:18px;color:var(--slate);max-width:760px;margin:0 0 34px}
+
+/* Autodiagnóstico */
+.diag{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:start}
+.preg{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 18px;border-radius:14px;background:#fff;border:1.5px solid var(--line);margin-bottom:10px;transition:border-color .15s}
+.preg p{margin:0;font-weight:600;font-size:15.5px}
+.preg .sn{display:flex;gap:6px;flex-shrink:0}
+.preg button{font:inherit;font-weight:800;font-size:14px;padding:9px 16px;border-radius:10px;border:1.5px solid var(--line);background:#fff;cursor:pointer;color:var(--slate)}
+.preg button[aria-pressed="true"].si{background:#E8F8F0;border-color:var(--ok);color:#0B7A47}
+.preg button[aria-pressed="true"].no{background:#FFF1F1;border-color:var(--bad);color:#B42318}
+.resultado{position:sticky;top:20px;border-radius:20px;padding:26px;background:var(--n950);color:#fff;box-shadow:var(--sh)}
+.resultado .score{font-size:56px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.resultado .score small{font-size:22px;opacity:.6}
+.barra{height:10px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden;margin:14px 0 16px}
+.barra i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--bad),var(--gold),var(--ok));transition:width .4s}
+.resultado h3{margin:0 0 8px;font-size:21px}
+.resultado p{margin:0 0 18px;color:#C9D5EE;font-size:15px}
+.nota-legal{font-size:12.5px;color:var(--mute);margin-top:14px}
+
+/* Agenda */
+.agenda{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:a}
+.paso{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:22px}
+.paso .h{display:inline-block;font-weight:800;font-size:13px;color:var(--blue);background:#EEF5FF;padding:5px 10px;border-radius:8px;margin-bottom:12px}
+.paso h3{margin:0 0 8px;font-size:18px;letter-spacing:-.01em}
+.paso p{margin:0;color:var(--slate);font-size:14.5px}
+
+/* Solución */
+.sol{background:linear-gradient(180deg,#0B0A2E,#14093F 60%,#0B0A2E);color:#fff;position:relative;overflow:hidden}
+.sol::before{content:"";position:absolute;width:720px;height:720px;right:-220px;top:-260px;border-radius:50%;background:radial-gradient(circle,rgba(190,30,227,.45),transparent 65%)}
+.sol .eyebrow{color:#E192FD}
+.sol .intro{color:#CFC6F2}
+.sol-g{position:relative;display:grid;grid-template-columns:1fr 330px;gap:48px;align-items:center}
+.feats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.feat{padding:20px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.feat .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:21px;background:linear-gradient(135deg,var(--pa),var(--pb));margin-bottom:12px}
+.feat h3{margin:0 0 6px;font-size:17px}
+.feat p{margin:0;color:#CFC6F2;font-size:14.5px}
+.incluido{margin-top:22px;padding:20px 22px;border-radius:16px;background:linear-gradient(90deg,rgba(242,177,1,.16),rgba(242,177,1,.04));border:1px solid rgba(242,177,1,.45)}
+.incluido b{color:var(--gold)}
+.incluido p{margin:0}
+.incluido small{display:block;color:#B9B0DE;margin-top:6px;font-size:12px}
+.colabora-nombre{font-weight:800;background:linear-gradient(90deg,#E192FD,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Teléfono ilustrativo */
+.tel{width:300px;margin-inline:auto;border-radius:44px;padding:12px;background:#0C0C12;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),inset 0 0 0 2px #2A2A35}
+.pantalla{border-radius:34px;overflow:hidden;background:#F6F4FF;color:var(--ink);height:640px;position:relative}
+.isla{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:92px;height:26px;border-radius:20px;background:#0C0C12;z-index:3}
+.p-top{padding:46px 18px 14px;background:linear-gradient(135deg,var(--pa),var(--pb));color:#fff}
+.p-top small{opacity:.85;font-size:12px}
+.p-top b{display:block;font-size:19px;margin-top:2px}
+.mapa{height:150px;margin:14px;border-radius:18px;position:relative;overflow:hidden;
+  background:
+   linear-gradient(115deg,transparent 46%,#fff 46%,#fff 50%,transparent 50%),
+   linear-gradient(25deg,transparent 60%,#fff 60%,#fff 63%,transparent 63%),
+   linear-gradient(160deg,#DDEBDD,#CFE3F5)}
+.geo{position:absolute;left:50%;top:52%;width:130px;height:130px;transform:translate(-50%,-50%);border-radius:50%;background:rgba(110,0,251,.14);border:2px dashed rgba(110,0,251,.55)}
+.pin{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:22px;height:22px;border-radius:50% 50% 50% 0;rotate:-45deg;background:var(--pb);box-shadow:0 0 0 5px rgba(110,0,251,.2)}
+.ok-geo{margin:0 14px;padding:10px 12px;border-radius:12px;background:#E8F8F0;color:#0B7A47;font-weight:700;font-size:13px}
+.checar{margin:14px;padding:16px;border-radius:16px;text-align:center;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--pa),var(--pb));box-shadow:0 14px 26px -12px rgba(110,0,251,.7)}
+.ultima{margin:0 14px;font-size:12.5px;color:var(--mute);display:flex;justify-content:space-between}
+.ilus{text-align:center;font-size:11px;color:#9C94C9;margin-top:10px}
+.semana{margin:14px;padding:10px 12px;border-radius:14px;background:#fff;box-shadow:0 4px 14px -8px rgba(30,0,80,.25);font-size:12.5px}
+.semana p{margin:0 0 6px;font-weight:800;font-size:12px;color:#6E00FB;text-transform:uppercase;letter-spacing:.08em}
+.semana div{display:grid;grid-template-columns:1fr auto 18px;gap:8px;padding:5px 0;border-top:1px solid #F0ECFB}
+.semana div span:first-child{font-weight:700}
+.semana .v{color:var(--ok)} .semana .a{color:var(--gold-d)}
+.nav{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-around;padding:8px 6px 14px;background:#fff;border-top:1px solid #ECE8F8;font-size:17px}
+.nav span{display:flex;flex-direction:column;align-items:center;gap:2px;opacity:.55}
+.nav span.on{opacity:1}
+.nav i{font-style:normal;font-size:10px;font-weight:700;color:#4B4470}
+
+/* Para quién */
+.quien{display:flex;flex-wrap:wrap;gap:10px}
+.quien span{padding:12px 16px;border-radius:999px;background:#fff;border:1.5px solid var(--line);font-weight:700}
+
+/* FAQ */
+.faq{max-width:860px}
+details{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:0 20px;margin-bottom:10px}
+summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:700;font-size:16.5px;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;line-height:1;color:var(--blue);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:0 0 18px;color:var(--slate)}
+
+/* Cierre */
+.cierre{background:linear-gradient(135deg,var(--n950),var(--navy));color:#fff;text-align:center;border-radius:28px;padding:56px 24px;position:relative;overflow:hidden}
+.cierre h2{font-size:clamp(28px,3.6vw,44px);letter-spacing:-.03em;margin:0 0 10px;line-height:1.1}
+.cierre p{color:#C9D5EE;margin:0 auto 24px;max-width:620px}
+.cierre .btn{width:auto;padding:16px 30px}
+
+footer{padding:40px 0 110px;color:var(--mute);font-size:13px}
+.pie{display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between}
+.pie .logos img.tfg{height:54px}
+.pie .logos img.cpq{height:30px}
+.pie p{margin:6px 0}
+.legal{margin-top:18px;font-size:11.5px;line-height:1.6}
+
+/* Botones flotantes */
+.wa-flot{position:fixed;right:18px;bottom:18px;z-index:40;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 12px 28px -8px rgba(0,0,0,.45)}
+.wa-flot svg{width:30px;height:30px;fill:#fff}
+.barra-movil{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 88px 10px 14px;background:rgba(6,20,51,.94);backdrop-filter:blur(8px);transform:translateY(110%);transition:transform .25s}
+.barra-movil.on{transform:none}
+.barra-movil .btn{font-size:16px;padding:13px 16px}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;grid-template-areas:"txt" "card" "extra";row-gap:26px;padding-bottom:56px}
+  .ilus{display:none}
+  .diag,.sol-g{grid-template-columns:1fr}
+  .resultado{position:static}
+  .agenda{grid-template-columns:repeat(2,1fr)}
+  .tel{display:none}
+}
+@media (max-width:640px){
+  .top .dist{display:none}
+  .logos img.tfg{height:38px} .logos img.cpq{height:20px}
+  .datos .g{grid-template-columns:1fr}
+  .dato{border-right:0;border-bottom:1px solid var(--line);padding:22px 4px}
+  .agenda,.feats{grid-template-columns:1fr}
+  section{padding:60px 0}
+  .card{padding:26px 18px 20px}
+  .preg{flex-direction:column;align-items:flex-start}
+  .cuenta .u{min-width:0;flex:1}
+  .cuenta .lbl{display:none}
+  .chips{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px}
+  .chips li{padding:9px 11px;font-size:14px}
+  .lead{margin-bottom:18px}
+}
+@media (min-width:981px){ .barra-movil{display:none} }
+@media (prefers-reduced-motion:reduce){ *{animation:none!important;transition:none!important;scroll-behavior:auto!important} }
+</style>
+</head>
+<body>
+
+<!-- ===================== HÉROE + REGISTRO ===================== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <div class="logos">
+        <img class="tfg" src="img/logo-tfg-blanco.png" alt="TFG Sistemas · TFGRUPO" width="720" height="298">
+        <span class="x" aria-hidden="true">×</span>
+        <img class="cpq" src="img/logo-contpaqi-marca-blanco.png" alt="CONTPAQi" width="483" height="73">
+      </div>
+      <div class="dist">Distribuidor certificado<br><b>CONTPAQi®</b></div>
+    </div>
+
+    <div class="hero-grid">
+      <div class="hero-txt">
+        <span class="badge"><span class="dot"></span>Webinar gratuito · En línea</span>
+        <h1>¿Ya cubriste la nueva <span class="hl">ley de checadas</span>?</h1>
+        <p class="lead">La reforma a la Ley Federal del Trabajo obliga a <b>registrar de forma electrónica la entrada y salida de cada trabajador</b>, y el <b>1 de enero de 2027</b> entran en vigor las reglas de la STPS. En 1 hora te explicamos qué cambia, qué riesgos tienes y cómo cumplir sin complicarte con <b>CONTPAQi Colabora®</b>.</p>
+        <ul class="chips">
+          <li>📅 <span>Martes 13 de octubre</span></li>
+          <li>🕙 <span>10:00 a.m.<small>hora del centro de México</small></span></li>
+          <li>⏱️ <span>Duración: 1 hora</span></li>
+          <li>💻 <span>Evento en línea</span></li>
+        </ul>
+      </div>
+      <div class="hero-extra">
+        <div class="cuenta" id="cuenta" aria-live="polite">
+          <div class="lbl" id="cuentaLbl">Comenzamos en</div>
+          <div class="u"><b id="cD">--</b><span>días</span></div>
+          <div class="u"><b id="cH">--</b><span>horas</span></div>
+          <div class="u"><b id="cM">--</b><span>min</span></div>
+          <div class="u"><b id="cS">--</b><span>seg</span></div>
+        </div>
+        <p class="tz" id="tzNota" hidden></p>
+      </div>
+
+      <!-- Tarjeta de registro -->
+      <div class="card" id="registro">
+        <form id="form" novalidate>
+          <h2 id="formTitulo">Regístrate aquí</h2>
+          <p class="sub" id="formSub">Es gratis. Te mandamos la liga para entrar a tu correo.</p>
+          <div class="aviso-otro" id="avisoOtro"></div>
+          <div class="campo" data-campo="nombre">
+            <label for="nombre">Nombre completo</label>
+            <input id="nombre" name="nombre" autocomplete="name" maxlength="100" placeholder="Ej. Ana López Ruiz" required>
+            <div class="msg">Escribe tu nombre completo.</div>
+          </div>
+          <div class="campo" data-campo="empresa">
+            <label for="empresa">Empresa</label>
+            <input id="empresa" name="empresa" autocomplete="organization" maxlength="120" placeholder="Nombre de tu empresa" required>
+            <div class="msg">Escribe el nombre de tu empresa.</div>
+          </div>
+          <div class="campo" data-campo="telefono">
+            <label for="telefono">Teléfono (WhatsApp)</label>
+            <input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="10 dígitos" required>
+            <div class="msg">Escribe un teléfono de 10 dígitos.</div>
+          </div>
+          <div class="campo" data-campo="correo">
+            <label for="correo">Correo electrónico</label>
+            <input id="correo" name="correo" type="email" inputmode="email" autocomplete="email" maxlength="150" placeholder="tu@empresa.com" required>
+            <div class="msg">Revisa tu correo: ahí te llega la liga.</div>
+          </div>
+          <div class="trampa" aria-hidden="true">
+            <label for="sitio_web">No llenar</label>
+            <input id="sitio_web" name="sitio_web" tabindex="-1" autocomplete="off">
+          </div>
+          <button class="btn" id="btnEnviar" type="submit"><span class="spin" aria-hidden="true"></span><span id="btnTexto">Quiero mi lugar →</span></button>
+          <div class="alerta" id="alerta" role="alert"></div>
+          <p class="privado">🔒 Solo usamos tus datos para este evento. <a href="https://tfgrupo.com.mx/aviso-de-privacidad/" target="_blank" rel="noopener">Aviso de privacidad</a></p>
+        </form>
+
+        <div class="exito" id="exito" aria-live="polite">
+          <div class="palomita" aria-hidden="true">✓</div>
+          <h3 id="exitoTitulo">¡Listo! Tu lugar está apartado.</h3>
+          <p id="exitoTexto"></p>
+          <div class="agenda-cal">
+            <a class="pill" id="calGoogle" target="_blank" rel="noopener">📅 Google Calendar</a>
+            <button class="pill" id="calIcs" type="button">🗓️ Outlook / iPhone</button>
+          </div>
+          <div class="otro">
+            <p>¿Quieres registrar a alguien más?<br><span style="font-weight:500;color:var(--slate)">RH, nómina, tu contador o el dueño de la empresa.</span></p>
+            <button class="btn sec" id="btnOtro" type="button">Sí, registrar a otra persona</button>
+            <a class="btn wa" id="btnCompartir" target="_blank" rel="noopener">Compartir invitación por WhatsApp</a>
+          </div>
+          <p class="contador" id="contador" hidden></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== DATOS DUROS ===================== -->
+<div class="datos">
+  <div class="wrap">
+    <div class="g">
+      <div class="dato"><b>1 de enero de 2027</b><span>Entran en vigor las reglas de la STPS para el registro electrónico de la jornada.</span></div>
+      <div class="dato"><b>46 horas</b><span>Nueva jornada máxima semanal en 2027 (hoy son 48; en 2030 serán 40).</span></div>
+      <div class="dato"><b>250 a 5,000 UMA</b><span>Multa por no llevar el registro: de $29,327 a $586,550 con la UMA 2026.</span></div>
+    </div>
+    <div class="fuente">Fuente: Decreto de reforma a la Ley Federal del Trabajo en materia de reducción de la jornada laboral, DOF 1 de mayo de 2026 (arts. 132 fr. XXXIV, 994 fr. IV Bis y transitorios). UMA 2026: $117.31.</div>
+  </div>
+</div>
+
+<!-- ===================== AUTODIAGNÓSTICO ===================== -->
+<section id="diagnostico">
+  <div class="wrap">
+    <p class="eyebrow">Autodiagnóstico de 20 segundos</p>
+    <h2 class="t">Si mañana te piden tu registro de jornada, ¿lo tienes?</h2>
+    <p class="intro">Responde con honestidad. En un juicio laboral, si el patrón no exhibe sus controles de asistencia, se presumen ciertos los hechos que alega el trabajador, salvo prueba en contrario (arts. 804 y 805 LFT).</p>
+    <div class="diag">
+      <div id="preguntas">
+        <div class="preg"><p>¿Cada trabajador registra su entrada y salida de forma electrónica (no en papel ni en un Excel que se llena a mano)?</p><div class="sn"><button class="si" type="button">Sí</button><button class="no" type="button">No</button></div></div>
+        <div class="preg"><p>¿Puedes entregar ese registro a la autoridad el mismo día que te lo pidan?</p><div class="sn"><button class="si" type="button">Sí</button><button class="no" type="button">No</button></div></div>
+        <div class="preg"><p>¿Tus trabajadores aceptaron por escrito el método de registro? (así el registro hace prueba plena)</p><div class="sn"><button class="si" type="button">Sí</button><button class="no" type="button">No</button></div></div>
+        <div class="preg"><p>¿Las horas extra que pagas salen de ese mismo registro?</p><div class="sn"><button class="si" type="button">Sí</button><button class="no" type="button">No</button></div></div>
+        <div class="preg"><p>¿Tu personal en campo, en sucursales o en home office también checa?</p><div class="sn"><button class="si" type="button">Sí</button><button class="no" type="button">No</button></div></div>
+      </div>
+      <aside class="resultado" aria-live="polite">
+        <div class="score"><span id="score">0</span><small>/5</small></div>
+        <div class="barra"><i id="barra"></i></div>
+        <h3 id="resTitulo">Responde las 5 preguntas</h3>
+        <p id="resTexto">Al terminar te decimos qué tan lista está tu empresa para el registro electrónico de jornada.</p>
+        <a class="btn" href="#registro">Resolverlo en el webinar →</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AGENDA ===================== -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">Lo que vas a ver</p>
+    <h2 class="t">60 minutos que te ahorran multas y dolores de cabeza</h2>
+    <p class="intro">Sin tecnicismos: lo que exige la ley, lo que todavía falta que defina la STPS y cómo dejarlo resuelto en tu empresa.</p>
+    <div class="agenda">
+      <div class="paso"><span class="h">10:00</span><h3>La reforma en simple</h3><p>Qué exige el art. 132-XXXIV, qué falta que publique la STPS y cómo cambia la jornada a 46 horas.</p></div>
+      <div class="paso"><span class="h">10:15</span><h3>Riesgos reales</h3><p>Multas, inspecciones y juicios por horas extra: lo que tu registro debe poder demostrar.</p></div>
+      <div class="paso"><span class="h">10:30</span><h3>Demo en vivo</h3><p>CONTPAQi Colabora®: checadas desde el celular con geocerca, retardos e incidencias directo a tu nómina.</p></div>
+      <div class="paso"><span class="h">10:50</span><h3>Plan y preguntas</h3><p>Cómo activarlo si ya tienes CONTPAQi Nóminas y tu plan para llegar listo al 1 de enero.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOLUCIÓN ===================== -->
+<section class="sol">
+  <div class="wrap">
+    <div class="sol-g">
+      <div>
+        <p class="eyebrow">Nosotros tenemos la solución</p>
+        <h2 class="t">El checador ya está en el bolsillo de tu equipo: <span class="colabora-nombre">CONTPAQi Colabora®</span></h2>
+        <p class="intro">Tus colaboradores registran entrada y salida desde su celular, el sistema valida la ubicación y las incidencias pasan directo a CONTPAQi Nóminas.</p>
+        <div class="feats">
+          <div class="feat"><div class="ic">📍</div><h3>Checada con geocerca</h3><p>Entrada y salida desde el celular con mapa en tiempo real; valida que estén en su centro de trabajo o en su home office registrado.</p></div>
+          <div class="feat"><div class="ic">🔐</div><h3>Huella o rostro, opcional</h3><p>Usa la biometría del propio celular para confirmar quién checa. Colabora no almacena los datos biométricos.</p></div>
+          <div class="feat"><div class="ic">⏱️</div><h3>Retardos e incidencias solos</h3><p>Tolerancias configurables; faltas y retardos pasan directo a CONTPAQi Nóminas.</p></div>
+          <div class="feat"><div class="ic">📊</div><h3>Reporte en Excel en segundos</h3><p>Entradas, salidas, ubicación GPS y totales por colaborador, para entregarlo cuando te lo pidan.</p></div>
+          <div class="feat"><div class="ic">🏖️</div><h3>Vacaciones, permisos y recibos</h3><p>Solicitudes con aprobación del líder y de RH, saldos al día y recibos CFDI disponibles 24/7.</p></div>
+          <div class="feat"><div class="ic">💬</div><h3>También por WhatsApp</h3><p>Un asistente para checar, consultar recibos y hacer solicitudes desde WhatsApp.</p></div>
+        </div>
+        <div class="incluido">
+          <p>💡 <b>¿Ya tienes CONTPAQi Nóminas?</b> Colabora ya viene incluido sin costo adicional*. Como distribuidores certificados, te ayudamos a configurarlo: centros de trabajo, geocercas, turnos y conexión con tu nómina.</p>
+          <small>*Hasta 1,000 colaboradores, conforme a las condiciones comerciales y de licenciamiento vigentes de CONTPAQi.</small>
+        </div>
+      </div>
+      <div aria-hidden="true">
+        <div class="tel">
+          <div class="pantalla">
+            <div class="isla"></div>
+            <div class="p-top"><small>Martes 08:58 a.m.</small><b>Hola, Ana 👋</b></div>
+            <div class="mapa"><div class="geo"></div><div class="pin"></div></div>
+            <div class="ok-geo">✓ Dentro de la geocerca · Planta Toluca</div>
+            <div class="checar">Checar entrada</div>
+            <div class="ultima"><span>Última salida: lun 6:02 p.m.</span><span>Turno 9–18 h</span></div>
+            <div class="semana">
+              <p>Mi semana</p>
+              <div><span>Lun</span><span>08:57 → 18:02</span><b class="v">✓</b></div>
+              <div><span>Mar</span><span>08:58 → en curso</span><b class="a">●</b></div>
+              <div><span>Saldo vacaciones</span><span>12 días</span><b></b></div>
+            </div>
+            <div class="nav"><span class="on">⏱️<i>Asistencia</i></span><span>🧾<i>Recibos</i></span><span>🏖️<i>Solicitudes</i></span><span>👤<i>Perfil</i></span></div>
+          </div>
+        </div>
+        <p class="ilus">Imagen ilustrativa</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PARA QUIÉN + FAQ ===================== -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">¿Para quién es?</p>
+    <h2 class="t">Para quien responde por la nómina y el personal</h2>
+    <div class="quien" style="margin-bottom:64px">
+      <span>👔 Dueños y directores</span><span>🧑‍💼 Recursos Humanos</span><span>🧾 Nómina</span><span>📚 Contadores y despachos</span><span>🏭 Empresas con turnos, campo o sucursales</span>
+    </div>
+
+    <p class="eyebrow">Preguntas frecuentes</p>
+    <div class="faq">
+      <details><summary>¿El webinar tiene costo?</summary><p>No. Es gratuito; solo regístrate con tus datos para mandarte la liga.</p></details>
+      <details><summary>¿Cómo me conecto?</summary><p>Es en línea. 15 minutos después de registrarte te llega a tu correo la liga para entrar, y te la recordamos un día antes y una hora antes del evento. Puedes conectarte desde tu computadora o celular.</p></details>
+      <details><summary>¿Ya es obligatorio el registro electrónico?</summary><p>La obligación está en la Ley Federal del Trabajo desde la reforma publicada en el DOF el 1 de mayo de 2026 (art. 132, fracción XXXIV). Las disposiciones de la STPS que definen a quién aplica y sus excepciones entran en vigor el 1 de enero de 2027. En el webinar te explicamos qué se sabe hoy y cómo prepararte sin esperar al último momento.</p></details>
+      <details><summary>¿La ley exige un checador o una marca específica?</summary><p>No. La ley pide que el registro sea electrónico e incluya el horario de inicio y de finalización de la jornada de cada trabajador, y que lo entregues a la autoridad cuando te lo pida. No impone marca ni dispositivo.</p></details>
+      <details><summary>¿Necesito tener CONTPAQi?</summary><p>No para asistir. Si ya usas CONTPAQi Nóminas, te mostramos cómo activar Colabora, que viene incluido sin costo adicional conforme a las condiciones de licenciamiento vigentes de CONTPAQi.</p></details>
+      <details><summary>¿Puedo invitar a mi equipo o a mi contador?</summary><p>Sí. Al terminar tu registro te damos la opción de registrar a otra persona o de compartir la invitación por WhatsApp.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CIERRE ===================== -->
+<div class="wrap">
+  <div class="cierre">
+    <h2>El 1 de enero de 2027 está a la vuelta.<br>Tu lugar, a un clic.</h2>
+    <p>Martes 13 de octubre · 10:00 a.m. (hora del centro) · 1 hora · En línea · Sin costo</p>
+    <a class="btn" href="#registro">Quiero mi lugar →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="pie">
+      <div class="logos">
+        <img class="tfg" src="img/logo-tfg.png" alt="TFG Sistemas · TFGRUPO" width="720" height="404">
+        <img class="cpq" src="img/logo-contpaqi.png" alt="CONTPAQi" width="483" height="110">
+      </div>
+      <div>
+        <p><b>TFGRUPO</b> · Distribuidor certificado CONTPAQi®</p>
+        <p>WhatsApp <a href="https://wa.me/525565805408">55 6580 5408</a> · <a href="mailto:gabriel.salas@tfgrupo.com.mx">gabriel.salas@tfgrupo.com.mx</a> · <a href="https://tfgrupo.com.mx" target="_blank" rel="noopener">tfgrupo.com.mx</a></p>
+      </div>
+    </div>
+    <p class="legal">CONTPAQi®, CONTPAQi Nóminas® y CONTPAQi Colabora® son marcas registradas de Computación en Acción, S.A. de C.V. La información legal de esta página es de carácter informativo y no sustituye asesoría jurídica. <a href="https://tfgrupo.com.mx/aviso-de-privacidad/" target="_blank" rel="noopener">Aviso de privacidad</a>.</p>
+  </div>
+</footer>
+
+<a class="wa-flot" id="waFlot" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.2.6 4.4 1.7 6.3L3.2 29l7.3-1.9c1.8 1 3.9 1.5 6 1.5 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm0 23.1c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.3 1.1 1.2-4.2-.3-.4a10.4 10.4 0 0 1-1.6-5.4C5.2 9.8 10 5.1 16 5.1s10.8 4.7 10.8 10.5S22 26.1 16 26.1zm5.9-7.8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+<div class="barra-movil" id="barraMovil"><a class="btn" href="#registro">Regístrate gratis →</a></div>
+
+<script>
+/* =====================================================================
+   CONFIGURACIÓN — lo único que hay que tocar
+   ENDPOINT: URL de la aplicación web de Apps Script (termina en /exec).
+   Mientras esté vacío, la página funciona en MODO DEMO (no guarda nada).
+   ===================================================================== */
+const CONFIG = {
+  ENDPOINT: 'https://script.google.com/macros/s/AKfycbyH-sPxHo0JcGnlTXwz-N8QlUoKCYPGURNDhBZoq9cGzH02VbN654IbH-FyH24Zt4u8tw/exec',
+  EVENTO_INICIO: '2026-10-13T10:00:00-06:00',
+  DURACION_MIN: 60,
+  TITULO: 'Webinar: Ley de checadas 2027 · CONTPAQi Colabora®',
+  WHATSAPP: '525565805408',
+  MINUTOS_LIGA: 15
+};
+
+(function () {
+  const $ = s => document.querySelector(s);
+  const inicio = new Date(CONFIG.EVENTO_INICIO).getTime();
+  const fin = inicio + CONFIG.DURACION_MIN * 60000;
+  const params = new URLSearchParams(location.search);
+  const fuente = (params.get('utm_source') || params.get('src') || params.get('fuente') || 'directo').toLowerCase().replace(/[^a-z0-9_\-]/g, '').slice(0, 40) || 'directo';
+  const urlLimpia = location.origin + location.pathname;
+  const waTexto = encodeURIComponent('Hola, tengo una duda sobre el webinar de la ley de checadas del 13 de octubre');
+  $('#waFlot').href = 'https://wa.me/' + CONFIG.WHATSAPP + '?text=' + waTexto;
+
+  /* ---------- cuenta regresiva ---------- */
+  const pad = n => String(n).padStart(2, '0');
+  function tic() {
+    const ahora = Date.now();
+    if (ahora >= fin) { modoTerminado(); return; }
+    if (ahora >= inicio) { $('#cuentaLbl').textContent = '¡Estamos en vivo!'; ['#cD', '#cH', '#cM', '#cS'].forEach(s => $(s).textContent = '00'); return; }
+    let s = Math.floor((inicio - ahora) / 1000);
+    $('#cD').textContent = pad(Math.floor(s / 86400)); s %= 86400;
+    $('#cH').textContent = pad(Math.floor(s / 3600)); s %= 3600;
+    $('#cM').textContent = pad(Math.floor(s / 60));
+    $('#cS').textContent = pad(s % 60);
+  }
+  tic(); const reloj = setInterval(tic, 1000);
+
+  function modoTerminado() {
+    clearInterval(reloj);
+    $('#cuenta').hidden = true;
+    $('#formTitulo').textContent = '¿Te lo perdiste?';
+    $('#formSub').textContent = 'El webinar ya terminó. Déjanos tus datos y un asesor te contacta para explicarte cómo cumplir.';
+    $('#btnTexto').textContent = 'Quiero que me contacten →';
+  }
+
+  // Hora local si el visitante no está en la zona centro (p. ej. Tijuana, Cancún, Hermosillo)
+  try {
+    const zonaCentro = new Intl.DateTimeFormat('es-MX', { timeZone: 'America/Mexico_City', hour: 'numeric', minute: '2-digit' }).format(inicio);
+    const local = new Intl.DateTimeFormat('es-MX', { hour: 'numeric', minute: '2-digit' }).format(inicio);
+    if (zonaCentro !== local) { $('#tzNota').textContent = 'En tu zona horaria comienza a las ' + local + '.'; $('#tzNota').hidden = false; }
+  } catch (e) { /* navegador sin Intl */ }
+
+  /* ---------- calendario ---------- */
+  const utc = t => new Date(t).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  const detalle = 'La liga para entrar te llega por correo ' + CONFIG.MINUTOS_LIGA + ' minutos después de registrarte. Organiza: TFGRUPO · Distribuidor certificado CONTPAQi.';
+  $('#calGoogle').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(CONFIG.TITULO) +
+    '&dates=' + utc(inicio) + '/' + utc(fin) + '&details=' + encodeURIComponent(detalle) + '&location=' + encodeURIComponent('En línea (liga por correo)');
+  $('#calIcs').addEventListener('click', () => {
+    const e = s => s.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,');
+    const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//TFGRUPO//Webinar//ES', 'METHOD:PUBLISH', 'BEGIN:VEVENT',
+      'UID:webinar-checadas-' + inicio + '@tfgrupo.com.mx', 'DTSTAMP:' + utc(Date.now()), 'DTSTART:' + utc(inicio), 'DTEND:' + utc(fin),
+      'SUMMARY:' + e(CONFIG.TITULO), 'DESCRIPTION:' + e(detalle), 'LOCATION:' + e('En línea (liga por correo)'),
+      'BEGIN:VALARM', 'TRIGGER:-PT15M', 'ACTION:DISPLAY', 'DESCRIPTION:Webinar en 15 minutos', 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
+    a.download = 'webinar-ley-checadas.ics';
+    document.body.appendChild(a); a.click(); a.remove();
+  });
+
+  /* ---------- formulario ---------- */
+  const form = $('#form'), btn = $('#btnEnviar'), alerta = $('#alerta');
+  let invitadoPor = '', primero = null, registrados = 0;
+  const MSG = {
+    nombre: 'Escribe tu nombre completo.', empresa: 'Escribe el nombre de tu empresa.',
+    telefono: 'Escribe un teléfono de 10 dígitos.', correo: 'Revisa tu correo: ahí te llega la liga.'
+  };
+
+  function validar(d) {
+    const err = {};
+    if (d.nombre.trim().length < 3) err.nombre = 1;
+    if (d.empresa.trim().length < 2) err.empresa = 1;
+    const dig = d.telefono.replace(/\D/g, '');
+    if (dig.length < 10 || dig.length > 13) err.telefono = 1;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.correo.trim())) err.correo = 1;
+    return err;
+  }
+  function marcar(errores) {
+    document.querySelectorAll('.campo').forEach(c => c.classList.toggle('err', !!errores[c.dataset.campo]));
+    const primeroErr = Object.keys(errores)[0];
+    if (primeroErr) $('#' + primeroErr).focus();
+  }
+  form.querySelectorAll('input').forEach(i => i.addEventListener('input', () => i.closest('.campo') && i.closest('.campo').classList.remove('err')));
+
+  async function enviar(datos) {
+    if (!CONFIG.ENDPOINT) {                       // MODO DEMO
+      console.warn('MODO DEMO: falta CONFIG.ENDPOINT; el registro no se guarda.');
+      await new Promise(r => setTimeout(r, 700));
+      return { ok: true, estado: 'registrado', minutos: CONFIG.MINUTOS_LIGA, demo: true };
+    }
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 25000);
+    try {
+      // Sin cabecera Content-Type (va como text/plain): así no hay verificación previa CORS con Apps Script.
+      const r = await fetch(CONFIG.ENDPOINT, { method: 'POST', body: JSON.stringify(datos), signal: ctrl.signal });
+      return await r.json();
+    } finally { clearTimeout(t); }
+  }
+
+  function error(texto) {
+    alerta.innerHTML = texto + ' Si el problema sigue, <a href="https://wa.me/' + CONFIG.WHATSAPP + '?text=' +
+      encodeURIComponent('Hola, quiero registrarme al webinar de la ley de checadas del 13 de octubre') + '" target="_blank" rel="noopener">regístrate por WhatsApp</a>.';
+    alerta.classList.add('on');
+  }
+
+  form.addEventListener('submit', async ev => {
+    ev.preventDefault();
+    alerta.classList.remove('on');
+    const d = {
+      nombre: $('#nombre').value.trim(), empresa: $('#empresa').value.trim(), telefono: $('#telefono').value.trim(),
+      correo: $('#correo').value.trim().toLowerCase(), fuente: fuente, invitado_por: invitadoPor,
+      sitio_web: $('#sitio_web').value, pagina: urlLimpia
+    };
+    const errores = validar(d);
+    marcar(errores);
+    if (Object.keys(errores).length) return;
+
+    btn.disabled = true; btn.classList.add('cargando'); $('#btnTexto').textContent = 'Apartando tu lugar…';
+    try {
+      const r = await enviar(d);
+      if (r && r.ok) { exito(r, d); }
+      else if (r && MSG[r.error]) { marcar({ [r.error]: 1 }); }
+      else if (r && r.error === 'ocupado') { error('Hay mucha demanda en este momento; intenta de nuevo en unos segundos.'); }
+      else { error('No pudimos guardar tu registro.'); }
+    } catch (e) {
+      error('No pudimos conectar con el registro (revisa tu internet).');
+    } finally {
+      btn.disabled = false; btn.classList.remove('cargando');
+      $('#btnTexto').textContent = Date.now() >= fin ? 'Quiero que me contacten →' : (invitadoPor ? 'Registrar a esta persona →' : 'Quiero mi lugar →');
+    }
+  });
+
+  function exito(r, d) {
+    const nombre = d.nombre.split(/\s+/)[0];
+    const nombreCap = nombre.charAt(0).toUpperCase() + nombre.slice(1);
+    if (!primero) primero = d;
+    if (r.estado !== 'duplicado') registrados++;
+    let titulo, texto;
+    if (r.estado === 'duplicado') {
+      titulo = nombreCap + ', ya estabas registrado(a).';
+      texto = r.reenviado
+        ? 'Te volvimos a mandar la liga a <b>' + esc(d.correo) + '</b>. Revisa también Promociones o Spam.'
+        : 'La liga para entrar llega a <b>' + esc(d.correo) + '</b> ' + CONFIG.MINUTOS_LIGA + ' minutos después de tu registro. Revisa también Promociones o Spam.';
+    } else if (r.estado === 'post') {
+      titulo = '¡Gracias, ' + nombreCap + '!';
+      texto = 'El webinar ya terminó, pero guardamos tus datos: un asesor te contactará para explicarte cómo cumplir.';
+    } else {
+      titulo = '¡Listo, ' + nombreCap + '! Tu lugar está apartado.';
+      texto = 'En <b>' + (r.minutos || CONFIG.MINUTOS_LIGA) + ' minutos</b> te llega a <b>' + esc(d.correo) + '</b> la liga para entrar. Si no la ves, revisa Promociones o Spam.';
+    }
+    $('#exitoTitulo').textContent = titulo;
+    $('#exitoTexto').innerHTML = texto;
+    $('#contador').hidden = registrados < 2;
+    $('#contador').textContent = 'Personas registradas desde aquí: ' + registrados;
+    const invita = 'Te invito al webinar gratuito «¿Ya cubriste la nueva ley de checadas?»: martes 13 de octubre, 10:00 a.m. (hora del centro), en línea. Regístrate aquí: ' + urlLimpia + '?utm_source=referido_whatsapp';
+    $('#btnCompartir').href = 'https://wa.me/?text=' + encodeURIComponent(invita);
+    form.style.display = 'none';
+    $('#exito').classList.add('on');
+    $('#registro').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  $('#btnOtro').addEventListener('click', () => {
+    invitadoPor = primero.nombre + ' (' + primero.correo + ')';
+    const empresa = primero.empresa;
+    form.reset();
+    $('#empresa').value = empresa;
+    $('#avisoOtro').textContent = 'Registrando a otra persona de ' + empresa + '. Le llegará su propia liga a su correo.';
+    $('#avisoOtro').classList.add('on');
+    $('#formTitulo').textContent = 'Registra a otra persona';
+    $('#btnTexto').textContent = 'Registrar a esta persona →';
+    $('#exito').classList.remove('on');
+    form.style.display = '';
+    $('#nombre').focus();
+  });
+
+  function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+
+  /* ---------- autodiagnóstico ---------- */
+  const resp = {};
+  document.querySelectorAll('.preg').forEach((p, i) => {
+    p.querySelectorAll('button').forEach(b => {
+      b.setAttribute('aria-pressed', 'false');
+      b.addEventListener('click', () => {
+        p.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+        resp[i] = b.classList.contains('si');
+        calificar();
+      });
+    });
+  });
+  function calificar() {
+    const n = Object.keys(resp).length, si = Object.values(resp).filter(Boolean).length;
+    $('#score').textContent = si;
+    $('#barra').style.width = (si / 5 * 100) + '%';
+    if (n < 5) { $('#resTitulo').textContent = 'Llevas ' + n + ' de 5'; return; }
+    if (si === 5) { $('#resTitulo').textContent = '¡Vas muy bien!'; $('#resTexto').textContent = 'Ven a confirmar que tu registro cumple lo que pedirá la STPS y a ver cómo automatizar incidencias y horas extra.'; }
+    else if (si >= 3) { $('#resTitulo').textContent = 'Vas avanzado, pero hay huecos'; $('#resTexto').textContent = 'Cada "no" es un punto débil en una inspección o en un juicio. En el webinar te mostramos cómo cerrarlos antes del 1 de enero.'; }
+    else { $('#resTitulo').textContent = 'Tu empresa está en riesgo'; $('#resTexto').textContent = 'Hoy tu registro no te protege. En 1 hora te mostramos cómo dejarlo resuelto, paso a paso y sin complicarte.'; }
+  }
+
+  /* ---------- barra fija en celular ---------- */
+  const barra = $('#barraMovil');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(es => es.forEach(e => barra.classList.toggle('on', !e.isIntersecting && !$('#exito').classList.contains('on'))), { threshold: 0 })
+      .observe($('#registro'));
+  }
+})();
+</script>
+</body>
+</html>
