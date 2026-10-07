@@ -146,6 +146,13 @@ h2.t{font-size:clamp(30px,3.8vw,46px);line-height:1.08;letter-spacing:-.03em;mar
 .resultado h3{margin:0 0 8px;font-size:21px}
 .resultado p{margin:0 0 18px;color:#C9D5EE;font-size:15px}
 .nota-legal{font-size:12.5px;color:var(--mute);margin-top:14px}
+[hidden]{display:none!important}
+.btn.wa-res{background:#25D366;color:#fff;margin-top:10px;box-shadow:none;font-size:16px}
+.btn.wa-res:hover{background:#1EBE5A}
+.lnk-check{display:block;margin-top:14px;color:#FFE7A3;font-weight:700;font-size:14.5px;text-decoration:none}
+.lnk-check:hover{text-decoration:underline}
+.check-exito{margin-top:4px!important;font-size:14px!important}
+.check-exito a{font-weight:700}
 
 /* Agenda */
 .agenda{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:a}
@@ -340,6 +347,7 @@ footer{padding:40px 0 110px;color:var(--mute);font-size:13px}
             <a class="pill" id="calGoogle" target="_blank" rel="noopener">📅 Google Calendar</a>
             <button class="pill" id="calIcs" type="button">🗓️ Outlook / iPhone</button>
           </div>
+          <p class="check-exito">📄 Mientras llega tu liga: <a href="checklist-ley-checadas-2027.pdf" target="_blank" rel="noopener">descarga el checklist de 10 pasos</a></p>
           <div class="otro">
             <p>¿Quieres registrar a alguien más?<br><span style="font-weight:500;color:var(--slate)">RH, nómina, tu contador o el dueño de la empresa.</span></p>
             <button class="btn sec" id="btnOtro" type="button">Sí, registrar a otra persona</button>
@@ -384,6 +392,8 @@ footer{padding:40px 0 110px;color:var(--mute);font-size:13px}
         <h3 id="resTitulo">Responde las 5 preguntas</h3>
         <p id="resTexto">Al terminar te decimos qué tan lista está tu empresa para el registro electrónico de jornada.</p>
         <a class="btn" href="#registro">Resolverlo en el webinar →</a>
+        <a class="btn wa-res" id="btnCompartirRes" target="_blank" rel="noopener" hidden>📲 Reta a otro empresario con tu resultado</a>
+        <a class="lnk-check" href="checklist-ley-checadas-2027.pdf" target="_blank" rel="noopener">⬇ Descarga gratis el checklist de 10 pasos (PDF)</a>
       </aside>
     </div>
   </div>
@@ -705,6 +715,10 @@ const CONFIG = {
     $('#score').textContent = si;
     $('#barra').style.width = (si / 5 * 100) + '%';
     if (n < 5) { $('#resTitulo').textContent = 'Llevas ' + n + ' de 5'; return; }
+    const reto = 'Hice el autodiagnóstico de la nueva ley de checadas y mi empresa sacó ' + si + '/5 😬 ¿Y la tuya? Te toma 20 segundos: ' +
+      urlLimpia + '?utm_source=quiz#diagnostico';
+    $('#btnCompartirRes').href = 'https://wa.me/?text=' + encodeURIComponent(reto);
+    $('#btnCompartirRes').hidden = false;
     if (si === 5) { $('#resTitulo').textContent = '¡Vas muy bien!'; $('#resTexto').textContent = 'Ven a confirmar que tu registro cumple lo que pedirá la STPS y a ver cómo automatizar incidencias y horas extra.'; }
     else if (si >= 3) { $('#resTitulo').textContent = 'Vas avanzado, pero hay huecos'; $('#resTexto').textContent = 'Cada "no" es un punto débil en una inspección o en un juicio. En el webinar te mostramos cómo cerrarlos antes del 1 de enero.'; }
     else { $('#resTitulo').textContent = 'Tu empresa está en riesgo'; $('#resTexto').textContent = 'Hoy tu registro no te protege. En 1 hora te mostramos cómo dejarlo resuelto, paso a paso y sin complicarte.'; }
