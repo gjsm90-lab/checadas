@@ -9,14 +9,14 @@
 <meta name="theme-color" content="#061433">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <meta property="og:title" content="¿Colabora o Tempo Control? Arma tu cotización en 1 minuto">
-<meta property="og:description" content="Te decimos qué te conviene para cumplir la ley de checadas y te mandamos la cotización al instante. Implementación por TFGRUPO, distribuidor certificado CONTPAQi.">
+<meta property="og:description" content="Te decimos qué te conviene para el registro electrónico de jornada y te mandamos la cotización al instante. Implementación por TFGRUPO, distribuidor certificado CONTPAQi.">
 <meta property="og:image" content="https://gjsm90-lab.github.io/checadas/img/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--n950:#061433;--n900:#0A1F4D;--navy:#0A3071;--blue:#005EB8;--gold:#F2B101;--maroon:#690136;--pa:#BE1EE3;--pb:#6E00FB;
-  --ink:#0F172A;--slate:#475569;--mute:#64748B;--line:#E2E8F0;--bg:#F5F7FB;--ok:#12B76A;--bad:#E5484D}
+  --ink:#0F172A;--slate:#475569;--mute:#55657A;--line:#E2E8F0;--bg:#F5F7FB;--ok:#12B76A;--bad:#E5484D}
 *{box-sizing:border-box}
 body{margin:0;font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
@@ -43,11 +43,16 @@ header p b{color:#fff}
 .opc label:has(input:checked){border-color:var(--blue);background:#EEF5FF}
 .opc input{position:absolute;opacity:0;width:0;height:0}
 .num{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.num label{font-weight:700;font-size:14px;display:block}
-.num label small{display:block;font-weight:500;color:var(--mute);font-size:12px;margin-bottom:6px}
+.num .lbl{font-weight:700;font-size:14px;display:block}
+.num .lbl small{display:block;font-weight:500;color:var(--mute);font-size:12px;margin-bottom:6px}
 .cont{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:12px;overflow:hidden;width:150px;background:#fff}
 .cont button{border:0;background:#F1F5F9;width:42px;height:44px;font-size:20px;cursor:pointer;color:var(--navy);font-weight:800}
 .cont input{border:0;width:66px;height:44px;text-align:center;font:inherit;font-weight:800;font-size:17px;outline:none}
+.cont:focus-within{border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,94,184,.2)}
+.cont button:focus-visible{outline:3px solid var(--blue);outline-offset:-3px}
+.opc label:has(input:focus-visible){outline:3px solid var(--blue);outline-offset:2px}
+.chk label:has(input:focus-visible){outline:3px solid var(--blue);outline-offset:2px}
+.btn:focus-visible,a:focus-visible,.sel:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
 .chk{display:grid;gap:8px}
 .chk label{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;cursor:pointer;background:#FAFBFE}
 .chk label:has(input:checked){border-color:var(--pb);background:#F6EEFF}
@@ -55,13 +60,18 @@ header p b{color:#fff}
 .chk b{display:block;font-size:14.5px}
 .chk small{color:var(--mute);font-size:12.5px}
 .precio-tag{margin-left:auto;font-weight:800;color:var(--navy);white-space:nowrap;font-size:13.5px}
+.sel{font:inherit;font-size:16px;font-weight:700;padding:12px 13px;border-radius:11px;border:1.5px solid var(--line);background:#FAFBFE;min-width:230px;max-width:100%;color:var(--ink)}
+.sel:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,94,184,.14);background:#fff}
+.opc label:has(input:disabled){opacity:.4;cursor:not-allowed}
 .datos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .datos .c{display:flex;flex-direction:column;gap:5px}
 .datos .c.full{grid-column:1/-1}
 .datos label{font-weight:700;font-size:13.5px}
-.datos input,.datos textarea{font:inherit;font-size:15.5px;padding:12px 13px;border-radius:11px;border:1.5px solid var(--line);background:#FAFBFE}
+.datos input,.datos textarea{font:inherit;font-size:16px;padding:12px 13px;border-radius:11px;border:1.5px solid var(--line);background:#FAFBFE}
 .datos input:focus,.datos textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,94,184,.14);background:#fff}
 .datos .err input{border-color:var(--bad);background:#FFF7F7}
+.errmsg{color:#B42318;font-size:12.5px;font-weight:600}
+.errmsg:empty{display:none}
 .trampa{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
 .resumen{position:sticky;top:16px;background:#fff;border-radius:20px;box-shadow:0 24px 60px -24px rgba(6,20,51,.35);overflow:hidden}
 .resumen .cab{background:linear-gradient(135deg,var(--n950),var(--navy));color:#fff;padding:18px 22px}
@@ -74,6 +84,9 @@ header p b{color:#fff}
 .tot{padding:10px 22px 16px;font-size:13.5px;color:var(--slate)}
 .tot div{display:flex;justify-content:space-between;padding:3px 0}
 .tot .t{font-weight:800;color:var(--navy);font-size:15px;border-top:1.5px solid var(--line);margin-top:6px;padding-top:8px}
+#recurrente{display:block}
+#recurrente>div{display:flex;justify-content:space-between;gap:12px;padding:3px 0}
+#recurrente>div span:last-child{white-space:nowrap;text-align:right}
 .notas{padding:0 22px 14px;font-size:12.5px;color:#0B2E5E}
 .notas p{margin:0 0 6px;padding:8px 10px;border-radius:9px;background:#EEF5FF}
 .razones{margin:12px 22px 0;padding:10px 12px;border-radius:10px;background:#E8F8F0;border-left:4px solid var(--ok);font-size:12.5px;color:#0B3D2A}
@@ -86,7 +99,7 @@ header p b{color:#fff}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:17px;padding:15px 20px;border-radius:13px;background:var(--gold);color:var(--n950);box-shadow:0 10px 24px -8px rgba(242,177,1,.7);text-decoration:none}
 .btn:hover{background:#FFC21A}
 .btn[disabled]{opacity:.7;cursor:wait}
-.btn.wa{background:#25D366;color:#fff;box-shadow:none;margin-top:10px}
+.btn.wa{background:#25D366;color:var(--n950);box-shadow:none;margin-top:10px}
 .pie-res{padding:14px 22px 18px;font-size:12px;color:var(--mute)}
 .alerta{display:none;margin:0 22px 14px;padding:10px 12px;border-radius:10px;font-size:13px;background:#FFF1F1;color:#8A1C1C}
 .alerta.on{display:block}
@@ -100,6 +113,7 @@ header p b{color:#fff}
 .incluye ul{margin:0;padding-left:18px;color:var(--slate);font-size:14px;line-height:1.6}
 footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
 @media (max-width:900px){.grid{grid-template-columns:1fr}.resumen{position:static}.datos{grid-template-columns:1fr}}
+@media (max-width:520px){.top{flex-wrap:wrap}.logos{min-width:0}.logos .tfg{height:40px}.logos .cpq{height:18px}}
 </style>
 </head>
 <body>
@@ -121,19 +135,19 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
       <div>
         <h2>📱 CONTPAQi Colabora® · desde <span id="precioBase">$3,900</span> + IVA</h2>
         <ul>
-          <li>Checan desde <b>su celular</b>, con geocerca y huella o rostro del teléfono. Ideal para campo, home office y sucursales.</li>
-          <li><b>1 empresa</b> conectada a CONTPAQi Nóminas, 1 centro con geocerca, 2 horarios, 5 colaboradores configurados contigo.</li>
+          <li><b>Funciona en celulares Android e iOS</b> (y plataforma web de administración). Checan con geocerca y huella o rostro del teléfono: ideal para campo, home office y sucursales.</li>
+          <li><b>Incluye:</b> 1 empresa conectada a CONTPAQi Nóminas, 1 centro con geocerca, 1 horario, alta de 5 colaboradores contigo, pruebas, capacitación para RH y guía. Hasta 10 horas remotas. Del segundo en adelante, costo adicional.</li>
           <li>Retardos y faltas directo a nómina. Vacaciones, recibos y WhatsApp opcionales.</li>
-          <li>El software <b>viene incluido</b> con CONTPAQi Nóminas (no hay licencia extra).</li>
+          <li>El software <b>viene incluido</b> con CONTPAQi Nóminas, conforme a las condiciones de licenciamiento vigentes de CONTPAQi.</li>
         </ul>
       </div>
       <div>
         <h2>🕐 Tempo Control · desde <span id="precioBaseTc">$6,400</span> + IVA</h2>
         <ul>
-          <li><b>Reloj biométrico MB160ID</b> en la entrada: huella, rostro o tarjeta. No depende del celular de nadie.</li>
-          <li><b>1 empresa</b> conectada a CONTPAQi Nóminas, 1 reloj configurado a distancia, hasta 3 turnos (rotativos, por horas, abiertos), 5 colaboradores dados de alta contigo.</li>
-          <li>Más el reloj (<span id="precioReloj">$5,800</span>, se envía listo para conectarse) y la <b>licencia anual</b> según tus empleados.</li>
-          <li>Funciona aunque no tengas Nóminas. Todo el servicio es remoto.</li>
+          <li><b>Reloj biométrico MB160ID / ADMS</b> en la entrada: huella, rostro o tarjeta. <b>Funciona con app Android, checador web y WhatsApp</b> (no hay app para iPhone).</li>
+          <li><b>Incluye:</b> instalación y activación en 1 equipo, checador móvil, 1 reloj vinculado, 1 horario normal estándar, interfaz con CONTPAQi Nóminas (hasta 10 empleados), pruebas, capacitación básica y manual web. Hasta 10 horas remotas. Del segundo en adelante, costo adicional.</li>
+          <li><b>No incluye</b> instalación física, cableado ni montaje del reloj, ni horarios rotativos o especiales (se cotizan aparte).</li>
+          <li>Más el reloj (<span id="precioReloj">$5,800</span>, se envía a tu domicilio) y la <b>licencia anual</b> según tus empleados.</li>
         </ul>
       </div>
     </div>
@@ -152,42 +166,42 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
         <label><input type="radio" name="preferencia" value="celular">Desde su celular<small>App con geocerca</small></label>
       </div>
       <div class="num">
-        <label>Colaboradores en total<small>Para calcular la licencia de Tempo Control</small>
-          <div class="cont"><button type="button" data-m="empleados" data-d="-5">−</button><input id="empleados" name="empleados" type="number" min="1" max="5000" value="20"><button type="button" data-m="empleados" data-d="5">+</button></div></label>
-        <label>¿Turnos rotativos, por horas o abiertos?<small>Tempo Control los maneja de forma nativa</small>
-          <div class="opc"><label><input type="radio" name="rotativos" value="no" checked>No</label><label><input type="radio" name="rotativos" value="si">Sí</label></div></label>
+        <div class="fld"><label class="lbl" for="empleados">Colaboradores en total<small>Mismos rangos que la licencia de Tempo Control</small></label>
+          <select id="empleados" name="empleados" class="sel"></select></div>
+        <div class="fld"><span class="lbl" id="rotTxt">¿Turnos rotativos, por horas o abiertos?<small>Tempo Control los soporta; su configuración avanzada se cotiza aparte</small></span>
+          <div class="opc" role="radiogroup" aria-labelledby="rotTxt"><label><input type="radio" name="rotativos" value="no" checked>No</label><label><input type="radio" name="rotativos" value="si">Sí</label></div></div>
       </div>
     </section>
 
     <section class="paso">
       <h2><i>2</i>¿Tienes CONTPAQi Nóminas?</h2>
-      <p class="ayuda">Colabora funciona junto con CONTPAQi Nóminas (de escritorio o en la nube).</p>
+      <p class="ayuda">Colabora se incluye con CONTPAQi Nóminas o Personia (de escritorio o en la nube). Nuestros paquetes se conectan con Nóminas.</p>
       <div class="opc">
         <label><input type="radio" name="nominas" value="actual" checked>Sí, versión actual<small>Colabora ya viene incluido</small></label>
         <label><input type="radio" name="nominas" value="anterior">Sí, versión anterior<small>Hay que actualizarla</small></label>
-        <label><input type="radio" name="nominas" value="no">No<small>Colabora la necesita; Tempo no</small></label>
+        <label><input type="radio" name="nominas" value="no">No<small>Sin Nóminas ni Personia</small></label>
         <label><input type="radio" name="nominas" value="nose">No sé<small>Lo revisamos contigo</small></label>
       </div>
     </section>
 
     <section class="paso">
       <h2><i>3</i>Tu operación</h2>
-      <p class="ayuda">Cada empresa incluye 1 centro de trabajo y 2 horarios (3 turnos en Tempo Control). Con Tempo Control, cada centro lleva su propio reloj.</p>
+      <p class="ayuda">Cada empresa incluye 1 centro de trabajo y 1 horario; a partir del segundo se cotizan por pieza. Con Tempo Control, cada centro lleva su propio reloj.</p>
       <div class="num">
-        <label>Empresas (RFC) a configurar<small>Razones sociales con nómina</small>
-          <div class="cont"><button type="button" data-m="empresas" data-d="-1">−</button><input id="empresas" name="empresas" type="number" min="1" max="20" value="1"><button type="button" data-m="empresas" data-d="1">+</button></div></label>
-        <label>Centros de trabajo<small>Sucursales, plantas, obras o home office</small>
-          <div class="cont"><button type="button" data-m="centros" data-d="-1">−</button><input id="centros" name="centros" type="number" min="1" max="60" value="1"><button type="button" data-m="centros" data-d="1">+</button></div></label>
-        <label>Horarios o turnos<small>Distintos entre sí</small>
-          <div class="cont"><button type="button" data-m="horarios" data-d="-1">−</button><input id="horarios" name="horarios" type="number" min="1" max="60" value="2"><button type="button" data-m="horarios" data-d="1">+</button></div></label>
+        <div class="fld"><label class="lbl" for="empresas">Empresas (RFC) a configurar<small>Razones sociales con nómina</small></label>
+          <div class="cont"><button type="button" data-m="empresas" data-d="-1" aria-label="Menos empresas">−</button><input id="empresas" name="empresas" type="number" min="1" max="20" value="1"><button type="button" data-m="empresas" data-d="1" aria-label="Más empresas">+</button></div></div>
+        <div class="fld"><label class="lbl" for="centros">Centros de trabajo<small>Sucursales, plantas, obras o home office</small></label>
+          <div class="cont"><button type="button" data-m="centros" data-d="-1" aria-label="Menos centros de trabajo">−</button><input id="centros" name="centros" type="number" min="1" max="60" value="1"><button type="button" data-m="centros" data-d="1" aria-label="Más centros de trabajo">+</button></div></div>
+        <div class="fld"><label class="lbl" for="horarios">Horarios o turnos<small>Distintos entre sí</small></label>
+          <div class="cont"><button type="button" data-m="horarios" data-d="-1" aria-label="Menos horarios">−</button><input id="horarios" name="horarios" type="number" min="1" max="60" value="1"><button type="button" data-m="horarios" data-d="1" aria-label="Más horarios">+</button></div></div>
       </div>
     </section>
 
     <section class="paso">
       <h2><i>4</i>¿Cuántos colaboradores quieres que dejemos cargados?</h2>
-      <p class="ayuda">Alta en Colabora, vinculación con Nóminas e invitación a la app. Con el paquete aprendes a cargar a los demás tú mismo.</p>
+      <p class="ayuda">Alta en el sistema, vinculación con Nóminas e invitación a la app. Lo que exceda el paquete lo cargas tú o te lo cotizamos.</p>
       <div class="opc" id="opcColab">
-        <label><input type="radio" name="colaboradores" value="5" checked>Solo los 5 del paquete<small>Yo cargo el resto</small></label>
+        <label><input type="radio" name="colaboradores" value="5" checked>Solo los del paquete<small>5 en Colabora · 10 en Tempo. Yo cargo el resto</small></label>
         <label><input type="radio" name="colaboradores" value="25">Hasta 25<small id="pColab25"></small></label>
         <label><input type="radio" name="colaboradores" value="100">De 26 a 100<small id="pColab100"></small></label>
         <label><input type="radio" name="colaboradores" value="300">De 101 a 300<small id="pColab300"></small></label>
@@ -207,30 +221,22 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
     </section>
 
     <section class="paso">
-      <h2><i>6</i>Capacitación y modalidad</h2>
-      <p class="ayuda">El paquete incluye 1 sesión remota para RH. Agrega sesiones para líderes o para colaboradores, o pide que vayamos a tu empresa.</p>
-      <div class="num" style="margin-bottom:14px">
-        <label>Sesiones adicionales de capacitación<small>1.5 h cada una, remotas</small>
-          <div class="cont"><button type="button" data-m="sesiones" data-d="-1">−</button><input id="sesiones" name="sesiones" type="number" min="0" max="6" value="0"><button type="button" data-m="sesiones" data-d="1">+</button></div></label>
-      </div>
-      <div class="opc">
-        <label><input type="radio" name="modalidad" value="remota" checked>Remota<small>Videollamada y acceso remoto</small></label>
-        <label><input type="radio" name="modalidad" value="presencial">Presencial<small>CDMX y área metropolitana</small></label>
-      </div>
-      <div class="num" id="diasBox" style="margin-top:12px;display:none">
-        <label>Días de visita presencial<small id="pPresencial"></small>
-          <div class="cont"><button type="button" data-m="dias" data-d="-1">−</button><input id="dias" name="dias" type="number" min="1" max="5" value="1"><button type="button" data-m="dias" data-d="1">+</button></div></label>
+      <h2><i>6</i>Capacitación</h2>
+      <p class="ayuda">Todo el servicio es remoto (videollamada y acceso remoto). El paquete incluye 1 sesión para RH; agrega sesiones para líderes o para colaboradores.</p>
+      <div class="num">
+        <div class="fld"><label class="lbl" for="sesiones">Sesiones adicionales de capacitación<small>1.5 h cada una, remotas</small></label>
+          <div class="cont"><button type="button" data-m="sesiones" data-d="-1" aria-label="Menos sesiones">−</button><input id="sesiones" name="sesiones" type="number" min="0" max="6" value="0"><button type="button" data-m="sesiones" data-d="1" aria-label="Más sesiones">+</button></div></div>
       </div>
     </section>
 
     <section class="paso">
       <h2><i>7</i>Extras</h2>
       <div class="chk">
-        <label><input type="checkbox" name="kit" value="si"><span><b>Kit de evidencia</b><small>Formato de aceptación del método de registro para firma de colaboradores (así el registro hace prueba plena) y reporte de asistencia listo para la autoridad.</small></span><span class="precio-tag" data-p="KIT_EVIDENCIA"></span></label>
+        <label><input type="checkbox" name="kit" value="si"><span><b>Kit de evidencia</b><small>Formato para que cada colaborador acepte por escrito el método de registro (la LFT da valor de prueba plena al registro solo si se acredita ese acuerdo) y reporte de asistencia exportable. Apoyo documental: no sustituye asesoría legal ni garantiza el cumplimiento ante la STPS.</small></span><span class="precio-tag" data-p="KIT_EVIDENCIA"></span></label>
       </div>
-      <p class="ayuda" style="margin:14px 0 8px">Póliza de soporte y acompañamiento después de los 30 días incluidos:</p>
+      <p class="ayuda" style="margin:14px 0 8px">Póliza de soporte y acompañamiento posterior a la implementación (opcional):</p>
       <div class="opc">
-        <label><input type="radio" name="poliza" value="ninguna" checked>Sin póliza<small>Solo los 30 días incluidos</small></label>
+        <label><input type="radio" name="poliza" value="ninguna" checked>Sin póliza<small>El soporte posterior se cotiza por separado</small></label>
         <label><input type="radio" name="poliza" value="mensual">Mensual<small id="pPolizaMes"></small></label>
         <label><input type="radio" name="poliza" value="anual">Anual<small id="pPolizaAnual"></small></label>
       </div>
@@ -238,7 +244,7 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
 
     <section class="paso" id="contacto">
       <h2><i>✓</i>¿A dónde te mandamos la cotización?</h2>
-      <p class="ayuda">Te llega al instante por correo, en PDF, con folio y vigencia de 30 días.</p>
+      <p class="ayuda">Te llega al instante por correo, en PDF, con folio y vigencia de <span class="vig">30</span> días.</p>
       <div class="datos">
         <div class="c"><label for="nombre">Nombre completo</label><input id="nombre" name="nombre" autocomplete="name" maxlength="100" required></div>
         <div class="c"><label for="empresa">Empresa</label><input id="empresa" name="empresa" autocomplete="organization" maxlength="120" required></div>
@@ -295,7 +301,6 @@ let PRECIOS = {
   MOD_COMUNICADOS: { concepto: 'Comunicados y «Mi equipo»', precio: 500 },
   MOD_WHATSAPP: { concepto: 'Asistente de WhatsApp', precio: 400 },
   CAP_SESION: { concepto: 'Sesión adicional de capacitación (1.5 h)', precio: 900 },
-  PRESENCIAL: { concepto: 'Visita presencial (CDMX), por día', precio: 1500 },
   KIT_EVIDENCIA: { concepto: 'Kit de evidencia', precio: 900 },
   ACTUALIZACION: { concepto: 'Actualización de CONTPAQi Nóminas a la versión actual', precio: 800 },
   POLIZA_MES: { concepto: 'Póliza de soporte (mensual)', precio: 600 },
@@ -304,7 +309,7 @@ let PRECIOS = {
   TC_RELOJ_ADIC_INST: { concepto: 'Configuración remota de reloj adicional', precio: 350 },
   TC_ENVIO: { concepto: 'Envío de relojes', precio: 450 }
 };
-let IVA = 16, TC = 20;
+let IVA = 16, TC = 20, VIG = 30;
 let TEMPO_USD = { RELOJ: 290,
   LICENCIA: [[10, 154], [25, 172], [50, 194], [75, 216], [100, 238], [125, 260], [150, 282], [200, 325], [250, 369], [300, 413], [400, 479], [500, 545], [600, 611], [750, 698], [900, 786], [1050, 873], [0, 1339]],
   RENOVACION: [[10, 115], [25, 130], [50, 145], [75, 162], [100, 179], [125, 195], [150, 212], [200, 244], [250, 278], [300, 310], [400, 360], [500, 409], [600, 458], [750, 524], [900, 590], [1050, 656], [0, 1005]] };
@@ -315,6 +320,7 @@ const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
   const form = $('#form');
   const params = new URLSearchParams(location.search);
   const pesos = n => '$' + (Math.round(n * 100) / 100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const fuente = (params.get('utm_source') || 'cotizador').toLowerCase().replace(/[^a-z0-9_\-]/g, '').slice(0, 40);
   const idReg = (params.get('id') || '').replace(/[^A-Za-z0-9]/g, '').slice(0, 12);
   const DEMO = params.get('demo') === '1';   // ?demo=1: calcula y simula el envío, no guarda ni manda nada
@@ -323,16 +329,24 @@ const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
   // Prellenar desde el correo de agradecimiento
   const pre = { nombre: params.get('n'), empresa: params.get('e'), correo: params.get('c'), telefono: params.get('t') };
   Object.keys(pre).forEach(k => { if (pre[k]) $('#' + k).value = pre[k]; });
-  if (pre.nombre) $('#titulo').innerHTML = (pre.nombre.split(' ')[0]) + ', arma tu cotización de <span>CONTPAQi Colabora®</span> en 1 minuto';
+  if (pre.nombre) {   // el nombre viene de la URL: se inserta como texto, nunca como HTML
+    const nom = pre.nombre.trim().split(/\s+/)[0].replace(/[^\p{L}\p{N}.'\-]/gu, '').slice(0, 40);
+    if (nom) {
+      const t = $('#titulo'), a = document.createElement('span'), b = document.createElement('span');
+      a.textContent = 'Colabora'; b.textContent = 'Tempo Control';
+      t.textContent = nom + ', ¿';
+      t.append(a, ' o ', b, '? Arma tu cotización en 1 minuto');
+    }
+  }
 
   function leer() {
     const fd = new FormData(form);
     const n = (k, min, max) => Math.min(max, Math.max(min, parseInt(fd.get(k), 10) || min));
     return {
-      nominas: fd.get('nominas'), lugar: fd.get('lugar'), preferencia: fd.get('preferencia'), empleados: n('empleados', 1, 5000), rotativos: fd.get('rotativos') === 'si',
+      nominas: fd.get('nominas'), lugar: fd.get('lugar'), preferencia: fd.get('preferencia'), empleados: parseInt(fd.get('empleados'), 10) || 25, rotativos: fd.get('rotativos') === 'si',
       empresas: n('empresas', 1, 20), centros: n('centros', 1, 60), horarios: n('horarios', 1, 60),
       colaboradores: fd.get('colaboradores'), modulos: fd.getAll('modulos'), sesiones: n('sesiones', 0, 6),
-      modalidad: fd.get('modalidad'), dias: n('dias', 1, 5), kit: fd.get('kit') === 'si', poliza: fd.get('poliza')
+      modalidad: 'remota', dias: 0, kit: fd.get('kit') === 'si', poliza: fd.get('poliza')
     };
   }
 
@@ -343,24 +357,24 @@ const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
     add('BASE_BASICO', 1);
     if (r.empresas > 1) add('EMPRESA_ADIC', r.empresas - 1);
     add('CENTRO_ADIC', Math.max(0, r.centros - r.empresas));
-    add('HORARIO_ADIC', Math.max(0, r.horarios - 2 * r.empresas));
+    add('HORARIO_ADIC', Math.max(0, r.horarios - r.empresas));
     if (r.colaboradores === '25') add('COLAB_25', 1);
     if (r.colaboradores === '100') add('COLAB_100', 1);
     if (r.colaboradores === '300') add('COLAB_300', 1);
     if (r.colaboradores === 'mas') notas.push('Más de 300 colaboradores: la carga se cotiza aparte con una propuesta especial.');
+    if (r.empleados > 1000) notas.push('CONTPAQi incluye Colabora con Nóminas hasta 1,000 colaboradores; con más, se confirma contigo el licenciamiento.');
     if (r.modulos.includes('vacaciones')) add('MOD_VACACIONES', 1);
     if (r.modulos.includes('recibos')) add('MOD_RECIBOS', 1);
     if (r.modulos.includes('comunicados')) add('MOD_COMUNICADOS', 1);
     if (r.modulos.includes('whatsapp')) add('MOD_WHATSAPP', 1);
     add('CAP_SESION', r.sesiones);
-    if (r.modalidad === 'presencial') add('PRESENCIAL', r.dias);
     if (r.kit) add('KIT_EVIDENCIA', 1);
     if (r.nominas === 'anterior') add('ACTUALIZACION', 1);
-    if (r.nominas === 'no') notas.push('No incluye la licencia de CONTPAQi Nóminas®, necesaria para Colabora; te la cotizamos aparte.');
+    if (r.nominas === 'no') notas.push('No incluye la licencia de CONTPAQi Nóminas® (o Personia), con la que Colabora se incluye; te la cotizamos aparte.');
     if (r.nominas === 'nose') notas.push('Revisamos contigo si tu CONTPAQi Nóminas® es compatible antes de empezar.');
     if (r.poliza === 'anual') add('POLIZA_ANUAL', 1);
     if (r.poliza === 'mensual' && PRECIOS.POLIZA_MES) recurrentes.push({ concepto: PRECIOS.POLIZA_MES.concepto, importe: PRECIOS.POLIZA_MES.precio });
-    if (r.modalidad === 'presencial') notas.push('Visita presencial en CDMX y área metropolitana; fuera de la zona se cotizan viáticos.');
+    notas.push('Todo el servicio es remoto. La app de Colabora está disponible para Android e iOS.');
     const subtotal = lineas.reduce((s, l) => s + l.importe, 0);
     const iva = Math.round(subtotal * IVA) / 100;
     return { lineas, recurrentes, notas, subtotal, iva, total: subtotal + iva };
@@ -380,19 +394,24 @@ const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
     add('TC_ENVIO', 1);
     const lic = nivel(TEMPO_USD.LICENCIA, r.empleados), ren = nivel(TEMPO_USD.RENOVACION, r.empleados);
     const tope = lic[0] ? 'hasta ' + lic[0] + ' empleados' : 'empleados ilimitados';
-    add('TC_LICENCIA', 1, { concepto: 'Licencia anual Tempo Control (' + tope + ')', precio: usd(lic[1]) });
+    add('TC_LICENCIA', 1, { concepto: 'Licencia anual Tempo Control (' + tope + ') · app Android, web y WhatsApp', precio: usd(lic[1]) });
     recurrentes.push({ concepto: 'Renovación anual de licencia (desde el 2º año)', importe: usd(ren[1]), periodo: 'año' });
-    add('HORARIO_ADIC', Math.max(0, r.horarios - 3 * r.empresas));
-    if (r.colaboradores === '25') add('COLAB_25', 1);
-    if (r.colaboradores === '100') add('COLAB_100', 1);
-    if (r.colaboradores === '300') add('COLAB_300', 1);
+    add('HORARIO_ADIC', Math.max(0, r.horarios - r.empresas));
+    if (r.empleados > 10) {   // el paquete de Tempo ya sincroniza hasta 10 empleados
+      if (r.colaboradores === '25') add('COLAB_25', 1);
+      if (r.colaboradores === '100') add('COLAB_100', 1);
+      if (r.colaboradores === '300') add('COLAB_300', 1);
+    }
     if (r.colaboradores === 'mas') notas.push('Más de 300 colaboradores: la carga se cotiza aparte.');
-    if (r.modulos.length) notas.push('Vacaciones, recibos, comunicados y WhatsApp solo existen en Colabora; no aplican a Tempo Control.');
+    if (r.modulos.length) notas.push('Vacaciones y permisos, recibos en la app, comunicados y el asistente de WhatsApp de Colabora solo existen en CONTPAQi Colabora®; en Tempo Control, la checada por WhatsApp ya viene con su licencia.');
     add('CAP_SESION', r.sesiones);
-    if (r.modalidad === 'presencial') add('PRESENCIAL', r.dias);
     if (r.kit) add('KIT_EVIDENCIA', 1);
     if (r.nominas === 'anterior') add('ACTUALIZACION', 1);
-    if (r.nominas === 'no') notas.push('Tempo Control funciona sin CONTPAQi Nóminas; si después la adquieres, se integra.');
+    if (r.nominas === 'no') notas.push('Sin CONTPAQi Nóminas no se realiza la interfaz con nómina; el resto del paquete aplica igual.');
+    if (r.rotativos) notas.push('Los horarios rotativos, mixtos o especiales no entran en el paquete básico (incluye 1 horario normal estándar); se cotizan por separado.');
+    if (r.empresas > 1) notas.push('Con más de una empresa validamos contigo cómo se manejan en Tempo Control antes de iniciar.');
+    if (r.empleados > 10 && r.colaboradores === '5') notas.push('El paquete sincroniza hasta 10 empleados; la carga del resto la haces tú o la cotizamos aparte (opción «Carga de colaboradores»).');
+    if (r.empleados <= 10 && r.colaboradores !== '5') notas.push('Tus empleados (hasta 10) ya van incluidos en el paquete; no se cobra carga adicional.');
     if (r.poliza === 'anual') add('POLIZA_ANUAL', 1);
     if (r.poliza === 'mensual' && PRECIOS.POLIZA_MES) recurrentes.push({ concepto: PRECIOS.POLIZA_MES.concepto, importe: PRECIOS.POLIZA_MES.precio, periodo: 'mes' });
     notas.push('Todo el servicio es remoto: el reloj se envía a tu domicilio y lo configuramos a distancia. Solo vendemos y configuramos el MB160ID / ADMS.');
@@ -410,10 +429,10 @@ const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
       let t = 0, c = 0; const rt = [], rc = [];
       if (r.lugar === 'fijo') { t += 2; rt.push('Todos checan en un lugar fijo: un reloj biométrico en la puerta es lo más simple.'); }
       if (r.lugar === 'mixto') { c += 2; rc.push('Tienes personal fijo y en campo: Colabora cubre a ambos desde el celular.'); }
-      if (r.rotativos) { t += 1; rt.push('Manejas turnos rotativos o por horas: Tempo Control los maneja de forma nativa.'); }
-      if (r.nominas === 'no') { t += 1; rt.push('No tienes CONTPAQi Nóminas: Colabora la necesita; Tempo Control funciona solo.'); }
+      if (r.rotativos) { t += 1; rt.push('Manejas turnos rotativos o por horas: Tempo Control los soporta (su configuración avanzada se cotiza aparte).'); }
+      if (r.nominas === 'no') { t += 1; rt.push('No tienes CONTPAQi Nóminas: Tempo Control funciona solo (Colabora se incluye con Nóminas o Personia).'); }
       if (r.nominas === 'actual') { c += 1; rc.push('Ya tienes CONTPAQi Nóminas: Colabora viene incluido.'); }
-      if (r.modulos.length) { c += 2; rc.push('Quieres vacaciones, recibos o WhatsApp: solo existen en Colabora.'); }
+      if (r.modulos.length) { c += 2; rc.push('Quieres vacaciones y permisos, recibos en la app o el asistente de WhatsApp de Colabora: solo existen en Colabora.'); }
       if (r.centros >= 3) { c += 1; rc.push('Con ' + r.centros + ' centros, Tempo Control necesita un reloj por sitio y encarece.'); }
       producto = t > c ? 'tempo' : (c > t ? 'colabora' : (cT.total < cC.total ? 'tempo' : 'colabora'));
       (producto === 'tempo' ? rt : rc).forEach(x => razones.push(x));
@@ -423,21 +442,38 @@ const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
     return { producto, razones };
   }
 
+  function armarEmpleados() {
+    const sel = $('#empleados'), previo = sel.value || '25';
+    sel.innerHTML = TEMPO_USD.LICENCIA.map(t => '<option value="' + (t[0] || 5000) + '">' + (t[0] ? 'Hasta ' + t[0] : 'Más de 1,050 (ilimitada)') + '</option>').join('');
+    sel.value = [...sel.options].some(o => o.value === previo) ? previo : '25';
+  }
+
+  // La carga de colaboradores no puede pasar del rango de empleados elegido (mismo criterio que el servidor).
+  function ajustarCarga() {
+    const e = parseInt($('#empleados').value, 10) || 25;
+    const piso = { '25': 5, '100': 25, '300': 100, 'mas': 300 };
+    document.querySelectorAll('input[name=colaboradores]').forEach(i => { i.disabled = piso[i.value] !== undefined && e <= piso[i.value]; });
+    const orden = ['5', '25', '100', '300', 'mas'], act = document.querySelector('input[name=colaboradores]:checked');
+    if (act && act.disabled) {
+      for (let k = orden.indexOf(act.value); k >= 0; k--) { const i = document.querySelector('input[name=colaboradores][value="' + orden[k] + '"]'); if (!i.disabled) { i.checked = true; break; } }
+    }
+  }
+
   function pintar() {
+    ajustarCarga();
     const r = leer();
-    $('#diasBox').style.display = r.modalidad === 'presencial' ? '' : 'none';
     const cC = cotizar(r), cT = cotizarTempo(r);
     const rec = recomendar(r, cC, cT);
     const c = rec.producto === 'tempo' ? cT : cC, alt = rec.producto === 'tempo' ? cC : cT;
     $('#recLbl').textContent = 'Te va mejor · ' + NOMBRE[rec.producto];
-    $('#razones').innerHTML = rec.razones.map(x => '<p>✓ ' + x + '</p>').join('');
-    $('#lineas').innerHTML = c.lineas.map(l => '<div class="lin"><span>' + l.concepto + (l.cantidad > 1 ? ' × ' + l.cantidad : '') + '</span><span>' + pesos(l.importe) + '</span></div>').join('');
+    $('#razones').innerHTML = rec.razones.map(x => '<p>✓ ' + esc(x) + '</p>').join('');
+    $('#lineas').innerHTML = c.lineas.map(l => '<div class="lin"><span>' + esc(l.concepto) + (l.cantidad > 1 ? ' × ' + l.cantidad : '') + '</span><span>' + pesos(l.importe) + '</span></div>').join('');
     $('#st').textContent = pesos(c.subtotal); $('#iv').textContent = pesos(c.iva); $('#tt').textContent = pesos(c.total);
     $('#total').textContent = pesos(c.total); $('#subtotalTxt').textContent = pesos(c.subtotal) + ' + IVA';
     const recEl = $('#recurrente');
     recEl.style.display = c.recurrentes.length ? '' : 'none';
-    recEl.innerHTML = c.recurrentes.map(l => '<div><span>' + l.concepto + '</span><span>' + pesos(l.importe) + ' + IVA / ' + (l.periodo || 'mes') + '</span></div>').join('');
-    $('#notas').innerHTML = c.notas.map(n => '<p>ℹ️ ' + n + '</p>').join('');
+    recEl.innerHTML = c.recurrentes.map(l => '<div><span>' + esc(l.concepto) + '</span><span>' + pesos(l.importe) + ' + IVA / ' + (l.periodo || 'mes') + '</span></div>').join('');
+    $('#notas').innerHTML = c.notas.map(n => '<p>ℹ️ ' + esc(n) + '</p>').join('');
     $('#alt').innerHTML = '<span>Alternativa · ' + NOMBRE[rec.producto === 'tempo' ? 'colabora' : 'tempo'] + ' (va en la cotización para comparar)</span><b>' + pesos(alt.total) + '</b>';
     return { c, rec, cC, cT };
   }
@@ -450,15 +486,16 @@ const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
     document.querySelectorAll('.precio-tag').forEach(el => { const p = PRECIOS[el.dataset.p]; el.textContent = p ? '+ ' + pesos(p.precio).replace('.00', '') : ''; });
     const t = (id, k, suf) => { const p = PRECIOS[k]; if (p) $(id).textContent = '+ ' + pesos(p.precio).replace('.00', '') + (suf || ''); };
     t('#pColab25', 'COLAB_25'); t('#pColab100', 'COLAB_100'); t('#pColab300', 'COLAB_300');
-    t('#pPresencial', 'PRESENCIAL', ' por día'); t('#pPolizaMes', 'POLIZA_MES', ' al mes'); t('#pPolizaAnual', 'POLIZA_ANUAL', ' al año');
+    t('#pPolizaMes', 'POLIZA_MES', ' al mes'); t('#pPolizaAnual', 'POLIZA_ANUAL', ' al año');
     pintar();
   }
+  armarEmpleados();
   pintarPrecios();
 
   // Precios reales desde la hoja
   if (CONFIG.ENDPOINT) {
     fetch(CONFIG.ENDPOINT + '?accion=precios').then(r => r.json()).then(d => {
-      if (d && d.ok && d.precios && d.precios.BASE_BASICO) { PRECIOS = d.precios; IVA = Number(d.iva) || 16; TC = Number(d.tipoCambio) || 20; if (d.tempoUsd && d.tempoUsd.LICENCIA) TEMPO_USD = d.tempoUsd; pintarPrecios(); }
+      if (d && d.ok && d.precios && d.precios.BASE_BASICO) { PRECIOS = d.precios; IVA = Number(d.iva) || 16; TC = Number(d.tipoCambio) || 20; if (d.tempoUsd && d.tempoUsd.LICENCIA) { TEMPO_USD = d.tempoUsd; armarEmpleados(); } VIG = Number(d.vigencia) || 30; document.querySelectorAll('.vig').forEach(e => { e.textContent = VIG; }); pintarPrecios(); }
     }).catch(() => { /* se quedan los de respaldo */ });
   }
 
@@ -470,13 +507,26 @@ const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
 
   const MSG = { nombre: 'Escribe tu nombre completo.', empresa: 'Escribe el nombre de tu empresa.', telefono: 'Escribe un teléfono de 10 dígitos.', correo: 'Revisa tu correo: ahí te llega la cotización.' };
   function marcar(err) {
-    ['nombre', 'empresa', 'correo', 'telefono'].forEach(k => $('#' + k).closest('.c').classList.toggle('err', !!err[k]));
+    ['nombre', 'empresa', 'correo', 'telefono'].forEach(k => {
+      const i = $('#' + k), c = i.closest('.c');
+      let m = c.querySelector('.errmsg');
+      if (!m) { m = document.createElement('small'); m.className = 'errmsg'; m.id = 'err-' + k; m.setAttribute('role', 'alert'); c.appendChild(m); i.setAttribute('aria-describedby', m.id); }
+      c.classList.toggle('err', !!err[k]);
+      i.setAttribute('aria-invalid', err[k] ? 'true' : 'false');
+      m.textContent = err[k] ? MSG[k] : '';
+    });
     const k = Object.keys(err)[0];
     if (k) { $('#' + k).focus(); $('#contacto').scrollIntoView({ behavior: 'smooth', block: 'center' }); }
   }
+  ['nombre', 'empresa', 'correo', 'telefono'].forEach(k => $('#' + k).addEventListener('input', () => {
+    const i = $('#' + k), c = i.closest('.c'), m = c.querySelector('.errmsg');
+    c.classList.remove('err'); i.setAttribute('aria-invalid', 'false'); if (m) m.textContent = '';
+  }));
+  let enviado = false;   // después de enviar, Enter no vuelve a mandar la misma cotización
 
   form.addEventListener('submit', async ev => {
     ev.preventDefault();
+    if (enviado) return;
     const alerta = $('#alerta'); alerta.classList.remove('on');
     const d = Object.assign(leer(), {
       accion: 'cotizacion', nombre: $('#nombre').value.trim(), empresa: $('#empresa').value.trim(), correo: $('#correo').value.trim().toLowerCase(),
@@ -486,7 +536,7 @@ const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
     const err = {};
     if (d.nombre.length < 3) err.nombre = 1;
     if (d.empresa.length < 2) err.empresa = 1;
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.correo)) err.correo = 1;
+    if (!/^[A-Za-z0-9][A-Za-z0-9._%+\-]*@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$/.test(d.correo)) err.correo = 1;
     const dig = d.telefono.replace(/\D/g, ''); if (dig.length < 10 || dig.length > 13) err.telefono = 1;
     marcar(err); if (Object.keys(err).length) return;
     const btn = $('#btnEnviar'); btn.disabled = true; btn.textContent = 'Generando tu cotización…';
@@ -498,21 +548,24 @@ const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
         const resp = await fetch(CONFIG.ENDPOINT, { method: 'POST', body: JSON.stringify(d), signal: ctrl.signal });
         clearTimeout(t); r = await resp.json();
       }
-      if (r && r.ok) {
+      if (r && r.ok && r.folio) {
         $('#exTitulo').textContent = r.enviado ? '¡Listo! Cotización ' + r.folio : 'Cotización ' + r.folio + ' registrada';
-        $('#exTexto').innerHTML = (r.enviado ? 'Te la mandamos a <b>' + d.correo.replace(/</g, '&lt;') + '</b> con el PDF adjunto. ' : 'Hubo un detalle al enviar el correo; te la mandamos nosotros en breve. ')
-          + 'Te va mejor <b>' + (NOMBRE[r.producto] || '') + '</b>: <b>' + pesos(r.total) + ' MXN</b> (IVA incluido). La alternativa va en el mismo correo. Vigencia 30 días.';
+        $('#exTexto').innerHTML = (r.enviado ? 'Te la mandamos a <b>' + esc(d.correo) + '</b> con el PDF adjunto. ' : 'Hubo un detalle al enviar el correo; te la mandamos nosotros en breve. ')
+          + 'Te va mejor <b>' + esc(NOMBRE[r.producto] || '') + '</b>: <b>' + pesos(r.total) + ' MXN</b> (IVA incluido). La alternativa va en el mismo correo. Vigencia ' + VIG + ' días.';
+        enviado = true;
         $('#btnWa').href = 'https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent('Hola Gabriel, quiero contratar la cotización ' + r.folio + ' (' + d.empresa + ')');
         $('#vivo').style.display = 'none'; $('#exito').classList.add('on');
         $('#resumen').scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else if (r && MSG[r.error]) { marcar({ [r.error]: 1 }); }
+      else if (r && r.error === 'repetida') { alerta.textContent = 'Ya te mandamos una cotización a este correo hace unos minutos. Revisa tu bandeja (y Promociones o Spam); si quieres otra, espera 10 minutos.'; alerta.classList.add('on'); }
+      else if (r && r.error === 'ocupado') { alerta.textContent = 'Hay mucha demanda en este momento; intenta de nuevo en unos segundos.'; alerta.classList.add('on'); }
       else { alerta.textContent = 'No pudimos generar la cotización. Intenta de nuevo o escríbenos por WhatsApp al 55 6580 5408.'; alerta.classList.add('on'); }
     } catch (e) {
       alerta.textContent = 'No pudimos conectar (revisa tu internet). También puedes escribirnos por WhatsApp al 55 6580 5408.'; alerta.classList.add('on');
     } finally { btn.disabled = false; btn.textContent = 'Enviar mi cotización a mi correo →'; }
   });
 
-  $('#btnOtra').addEventListener('click', e => { e.preventDefault(); $('#exito').classList.remove('on'); $('#vivo').style.display = ''; });
+  $('#btnOtra').addEventListener('click', e => { e.preventDefault(); enviado = false; $('#exito').classList.remove('on'); $('#vivo').style.display = ''; });
 })();
 </script>
 </body>
