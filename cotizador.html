@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arma tu cotización de CONTPAQi Colabora® · TFGRUPO</title>
+<meta name="description" content="Responde 6 preguntas y recibe al instante la cotización para dejar CONTPAQi Colabora® funcionando en tu empresa: checadas desde el celular con geocerca, conectadas a tu nómina.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#061433">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<meta property="og:title" content="Arma tu cotización de CONTPAQi Colabora® en 1 minuto">
+<meta property="og:description" content="Implementación, configuración y capacitación por TFGRUPO, distribuidor certificado CONTPAQi. Paquete Básico desde $3,900 + IVA.">
+<meta property="og:image" content="https://gjsm90-lab.github.io/checadas/img/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--n950:#061433;--n900:#0A1F4D;--navy:#0A3071;--blue:#005EB8;--gold:#F2B101;--maroon:#690136;--pa:#BE1EE3;--pb:#6E00FB;
+  --ink:#0F172A;--slate:#475569;--mute:#64748B;--line:#E2E8F0;--bg:#F5F7FB;--ok:#12B76A;--bad:#E5484D}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--blue)}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+header{background:radial-gradient(800px 400px at 10% -20%,rgba(0,94,184,.5),transparent 60%),radial-gradient(600px 400px at 100% 100%,rgba(110,0,251,.4),transparent 60%),linear-gradient(180deg,var(--n950),var(--n900));color:#fff;padding:22px 0 44px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:26px}
+.logos{display:flex;align-items:center;gap:16px}
+.logos .tfg{height:48px}.logos .cpq{height:24px}.logos .x{opacity:.5;font-weight:300;font-size:20px}
+.top a{color:#AFC0E0;font-size:13.5px;text-decoration:none;font-weight:600}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 13px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(30px,4.4vw,46px);line-height:1.05;letter-spacing:-.03em;margin:14px 0 10px;font-weight:800;max-width:760px}
+h1 span{color:var(--gold)}
+header p{color:#D7E0F2;max-width:680px;margin:0;font-size:16px}
+header p b{color:#fff}
+.grid{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start;margin-top:-22px;padding-bottom:70px}
+.paso{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:22px 24px;margin-bottom:14px}
+.paso h2{margin:0 0 4px;font-size:18px;letter-spacing:-.01em;display:flex;gap:10px;align-items:center}
+.paso h2 i{font-style:normal;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:var(--navy);color:#fff;font-size:13px;font-weight:800;flex-shrink:0}
+.paso .ayuda{margin:0 0 14px;color:var(--mute);font-size:13.5px}
+.opc{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.opc label{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;cursor:pointer;font-weight:700;font-size:14.5px;background:#FAFBFE;transition:border-color .12s,background .12s}
+.opc label small{font-weight:500;color:var(--mute);font-size:12px}
+.opc label:has(input:checked){border-color:var(--blue);background:#EEF5FF}
+.opc input{position:absolute;opacity:0;width:0;height:0}
+.num{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.num label{font-weight:700;font-size:14px;display:block}
+.num label small{display:block;font-weight:500;color:var(--mute);font-size:12px;margin-bottom:6px}
+.cont{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:12px;overflow:hidden;width:150px;background:#fff}
+.cont button{border:0;background:#F1F5F9;width:42px;height:44px;font-size:20px;cursor:pointer;color:var(--navy);font-weight:800}
+.cont input{border:0;width:66px;height:44px;text-align:center;font:inherit;font-weight:800;font-size:17px;outline:none}
+.chk{display:grid;gap:8px}
+.chk label{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;cursor:pointer;background:#FAFBFE}
+.chk label:has(input:checked){border-color:var(--pb);background:#F6EEFF}
+.chk input{margin-top:3px;width:18px;height:18px;accent-color:var(--pb)}
+.chk b{display:block;font-size:14.5px}
+.chk small{color:var(--mute);font-size:12.5px}
+.precio-tag{margin-left:auto;font-weight:800;color:var(--navy);white-space:nowrap;font-size:13.5px}
+.datos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.datos .c{display:flex;flex-direction:column;gap:5px}
+.datos .c.full{grid-column:1/-1}
+.datos label{font-weight:700;font-size:13.5px}
+.datos input,.datos textarea{font:inherit;font-size:15.5px;padding:12px 13px;border-radius:11px;border:1.5px solid var(--line);background:#FAFBFE}
+.datos input:focus,.datos textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,94,184,.14);background:#fff}
+.datos .err input{border-color:var(--bad);background:#FFF7F7}
+.trampa{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.resumen{position:sticky;top:16px;background:#fff;border-radius:20px;box-shadow:0 24px 60px -24px rgba(6,20,51,.35);overflow:hidden}
+.resumen .cab{background:linear-gradient(135deg,var(--n950),var(--navy));color:#fff;padding:18px 22px}
+.resumen .cab small{display:block;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#AFC0E0;font-weight:700}
+.resumen .cab b{display:block;font-size:34px;letter-spacing:-.03em;line-height:1.1;margin-top:4px}
+.resumen .cab span{font-size:12.5px;color:#C9D5EE}
+.lineas{padding:14px 22px 6px;max-height:300px;overflow:auto}
+.lin{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;padding:7px 0;border-bottom:1px dashed var(--line)}
+.lin span:last-child{font-weight:700;white-space:nowrap}
+.tot{padding:10px 22px 16px;font-size:13.5px;color:var(--slate)}
+.tot div{display:flex;justify-content:space-between;padding:3px 0}
+.tot .t{font-weight:800;color:var(--navy);font-size:15px;border-top:1.5px solid var(--line);margin-top:6px;padding-top:8px}
+.notas{padding:0 22px 14px;font-size:12.5px;color:#0B2E5E}
+.notas p{margin:0 0 6px;padding:8px 10px;border-radius:9px;background:#EEF5FF}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:17px;padding:15px 20px;border-radius:13px;background:var(--gold);color:var(--n950);box-shadow:0 10px 24px -8px rgba(242,177,1,.7);text-decoration:none}
+.btn:hover{background:#FFC21A}
+.btn[disabled]{opacity:.7;cursor:wait}
+.btn.wa{background:#25D366;color:#fff;box-shadow:none;margin-top:10px}
+.pie-res{padding:14px 22px 18px;font-size:12px;color:var(--mute)}
+.alerta{display:none;margin:0 22px 14px;padding:10px 12px;border-radius:10px;font-size:13px;background:#FFF1F1;color:#8A1C1C}
+.alerta.on{display:block}
+.exito{display:none;padding:26px 22px;text-align:center}
+.exito.on{display:block}
+.palomita{width:60px;height:60px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#12B76A,#0E9F5D);color:#fff;font-size:32px}
+.exito h3{margin:0 0 6px;font-size:21px}
+.exito p{margin:0 0 12px;color:var(--slate);font-size:14.5px}
+.incluye{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:20px 24px;margin-bottom:14px}
+.incluye h2{margin:0 0 8px;font-size:17px}
+.incluye ul{margin:0;padding-left:18px;color:var(--slate);font-size:14px;line-height:1.6}
+footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.resumen{position:static}.datos{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <div class="logos"><img class="tfg" src="img/logo-tfg-blanco.png" alt="TFG Sistemas · TFGRUPO"><span class="x">×</span><img class="cpq" src="img/logo-contpaqi-marca-blanco.png" alt="CONTPAQi"></div>
+      <a href="index.html">← Página del webinar</a>
+    </div>
+    <span class="badge">Cotización al instante · sin compromiso</span>
+    <h1 id="titulo">Arma tu cotización de <span>CONTPAQi Colabora®</span> en 1 minuto</h1>
+    <p>Responde estas preguntas y te mandamos la cotización a tu correo <b>al momento</b>. Nosotros dejamos Colabora funcionando en tu empresa: configuración, conexión con tu nómina y capacitación. <b>Si ya tienes CONTPAQi Nóminas, Colabora viene incluido</b>; cotizamos el servicio de implementación.</p>
+  </div>
+</header>
+
+<main class="wrap grid">
+  <form id="form" novalidate>
+    <div class="incluye">
+      <h2>🎁 Todo parte del Paquete Básico · <span id="precioBase">$3,900</span> + IVA</h2>
+      <ul>
+        <li><b>1 empresa</b> en Colabora, conectada con CONTPAQi Nóminas.</li>
+        <li><b>1 centro de trabajo con geocerca</b> y <b>2 horarios</b> con sus tolerancias.</li>
+        <li><b>5 colaboradores configurados contigo</b>: aprendes a dar de alta a los demás (no hay límite de colaboradores en el sistema).</li>
+        <li>Retardos y faltas conectados a tu nómina, validación por huella o rostro (opcional).</li>
+        <li>1 sesión de capacitación remota (2 h) para RH o nómina, guía para colaboradores y 30 días de soporte.</li>
+      </ul>
+    </div>
+
+    <section class="paso">
+      <h2><i>1</i>¿Tienes CONTPAQi Nóminas?</h2>
+      <p class="ayuda">Colabora funciona junto con CONTPAQi Nóminas (de escritorio o en la nube).</p>
+      <div class="opc">
+        <label><input type="radio" name="nominas" value="actual" checked>Sí, versión actual<small>Colabora ya viene incluido</small></label>
+        <label><input type="radio" name="nominas" value="anterior">Sí, versión anterior<small>Hay que actualizarla</small></label>
+        <label><input type="radio" name="nominas" value="no">No<small>Te cotizamos la licencia aparte</small></label>
+        <label><input type="radio" name="nominas" value="nose">No sé<small>Lo revisamos contigo</small></label>
+      </div>
+    </section>
+
+    <section class="paso">
+      <h2><i>2</i>Tu operación</h2>
+      <p class="ayuda">Cada empresa incluye 1 centro de trabajo y 2 horarios. Lo que pase de ahí se cotiza por pieza.</p>
+      <div class="num">
+        <label>Empresas (RFC) a configurar<small>Razones sociales con nómina</small>
+          <div class="cont"><button type="button" data-m="empresas" data-d="-1">−</button><input id="empresas" name="empresas" type="number" min="1" max="20" value="1"><button type="button" data-m="empresas" data-d="1">+</button></div></label>
+        <label>Centros de trabajo<small>Sucursales, plantas, obras o home office</small>
+          <div class="cont"><button type="button" data-m="centros" data-d="-1">−</button><input id="centros" name="centros" type="number" min="1" max="60" value="1"><button type="button" data-m="centros" data-d="1">+</button></div></label>
+        <label>Horarios o turnos<small>Distintos entre sí</small>
+          <div class="cont"><button type="button" data-m="horarios" data-d="-1">−</button><input id="horarios" name="horarios" type="number" min="1" max="60" value="2"><button type="button" data-m="horarios" data-d="1">+</button></div></label>
+      </div>
+    </section>
+
+    <section class="paso">
+      <h2><i>3</i>¿Cuántos colaboradores quieres que dejemos cargados?</h2>
+      <p class="ayuda">Alta en Colabora, vinculación con Nóminas e invitación a la app. Con el paquete aprendes a cargar a los demás tú mismo.</p>
+      <div class="opc" id="opcColab">
+        <label><input type="radio" name="colaboradores" value="5" checked>Solo los 5 del paquete<small>Yo cargo el resto</small></label>
+        <label><input type="radio" name="colaboradores" value="25">Hasta 25<small id="pColab25"></small></label>
+        <label><input type="radio" name="colaboradores" value="100">De 26 a 100<small id="pColab100"></small></label>
+        <label><input type="radio" name="colaboradores" value="300">De 101 a 300<small id="pColab300"></small></label>
+        <label><input type="radio" name="colaboradores" value="mas">Más de 300<small>Propuesta especial</small></label>
+      </div>
+    </section>
+
+    <section class="paso">
+      <h2><i>4</i>Módulos adicionales</h2>
+      <p class="ayuda">Marca los que quieras dejar configurados desde el inicio.</p>
+      <div class="chk">
+        <label><input type="checkbox" name="modulos" value="vacaciones"><span><b>Vacaciones y permisos</b><small>Políticas, saldos, flujo de aprobación líder → RH y capacitación.</small></span><span class="precio-tag" data-p="MOD_VACACIONES"></span></label>
+        <label><input type="checkbox" name="modulos" value="recibos"><span><b>Recibos de nómina en la app</b><small>Tus colaboradores ven y descargan sus CFDI 24/7.</small></span><span class="precio-tag" data-p="MOD_RECIBOS"></span></label>
+        <label><input type="checkbox" name="modulos" value="comunicados"><span><b>Comunicados y «Mi equipo»</b><small>Canal oficial de avisos y tablero para líderes.</small></span><span class="precio-tag" data-p="MOD_COMUNICADOS"></span></label>
+        <label><input type="checkbox" name="modulos" value="whatsapp"><span><b>Asistente de WhatsApp</b><small>Checar, consultar recibos y pedir permisos por WhatsApp.</small></span><span class="precio-tag" data-p="MOD_WHATSAPP"></span></label>
+      </div>
+    </section>
+
+    <section class="paso">
+      <h2><i>5</i>Capacitación y modalidad</h2>
+      <p class="ayuda">El paquete incluye 1 sesión remota para RH. Agrega sesiones para líderes o para colaboradores, o pide que vayamos a tu empresa.</p>
+      <div class="num" style="margin-bottom:14px">
+        <label>Sesiones adicionales de capacitación<small>1.5 h cada una, remotas</small>
+          <div class="cont"><button type="button" data-m="sesiones" data-d="-1">−</button><input id="sesiones" name="sesiones" type="number" min="0" max="6" value="0"><button type="button" data-m="sesiones" data-d="1">+</button></div></label>
+      </div>
+      <div class="opc">
+        <label><input type="radio" name="modalidad" value="remota" checked>Remota<small>Videollamada y acceso remoto</small></label>
+        <label><input type="radio" name="modalidad" value="presencial">Presencial<small>CDMX y área metropolitana</small></label>
+      </div>
+      <div class="num" id="diasBox" style="margin-top:12px;display:none">
+        <label>Días de visita presencial<small id="pPresencial"></small>
+          <div class="cont"><button type="button" data-m="dias" data-d="-1">−</button><input id="dias" name="dias" type="number" min="1" max="5" value="1"><button type="button" data-m="dias" data-d="1">+</button></div></label>
+      </div>
+    </section>
+
+    <section class="paso">
+      <h2><i>6</i>Extras</h2>
+      <div class="chk">
+        <label><input type="checkbox" name="kit" value="si"><span><b>Kit de evidencia</b><small>Formato de aceptación del método de registro para firma de colaboradores (así el registro hace prueba plena) y reporte de asistencia listo para la autoridad.</small></span><span class="precio-tag" data-p="KIT_EVIDENCIA"></span></label>
+      </div>
+      <p class="ayuda" style="margin:14px 0 8px">Póliza de soporte y acompañamiento después de los 30 días incluidos:</p>
+      <div class="opc">
+        <label><input type="radio" name="poliza" value="ninguna" checked>Sin póliza<small>Solo los 30 días incluidos</small></label>
+        <label><input type="radio" name="poliza" value="mensual">Mensual<small id="pPolizaMes"></small></label>
+        <label><input type="radio" name="poliza" value="anual">Anual<small id="pPolizaAnual"></small></label>
+      </div>
+    </section>
+
+    <section class="paso" id="contacto">
+      <h2><i>✓</i>¿A dónde te mandamos la cotización?</h2>
+      <p class="ayuda">Te llega al instante por correo, en PDF, con folio y vigencia de 30 días.</p>
+      <div class="datos">
+        <div class="c"><label for="nombre">Nombre completo</label><input id="nombre" name="nombre" autocomplete="name" maxlength="100" required></div>
+        <div class="c"><label for="empresa">Empresa</label><input id="empresa" name="empresa" autocomplete="organization" maxlength="120" required></div>
+        <div class="c"><label for="correo">Correo</label><input id="correo" name="correo" type="email" autocomplete="email" maxlength="150" required></div>
+        <div class="c"><label for="telefono">Teléfono (WhatsApp)</label><input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" required></div>
+        <div class="c full"><label for="comentarios">¿Algo que debamos saber? (opcional)</label><textarea id="comentarios" name="comentarios" rows="2" maxlength="500" placeholder="Ej. tenemos personal en campo, o usamos Nóminas en la nube"></textarea></div>
+      </div>
+      <div class="trampa" aria-hidden="true"><label for="sitio_web">No llenar</label><input id="sitio_web" name="sitio_web" tabindex="-1" autocomplete="off"></div>
+    </section>
+  </form>
+
+  <aside class="resumen" id="resumen">
+    <div class="cab"><small>Tu inversión estimada</small><b id="total">$4,524.00</b><span>MXN, IVA incluido · <span id="subtotalTxt">$3,900.00 + IVA</span></span></div>
+    <div id="vivo">
+      <div class="lineas" id="lineas"></div>
+      <div class="tot"><div><span>Subtotal</span><span id="st">$3,900.00</span></div><div><span>IVA <span id="ivaPct">16</span>%</span><span id="iv">$624.00</span></div><div class="t"><span>Total</span><span id="tt">$4,524.00</span></div><div id="recurrente" style="display:none;color:var(--navy);font-weight:700"></div></div>
+      <div class="notas" id="notas"></div>
+      <div class="alerta" id="alerta"></div>
+      <div style="padding:0 22px 8px"><button class="btn" id="btnEnviar" type="submit" form="form">Enviar mi cotización a mi correo →</button></div>
+      <div class="pie-res">🔒 Sin compromiso. Solo usamos tus datos para esta cotización. <a href="https://tfgrupo.com.mx/aviso-de-privacidad/" target="_blank" rel="noopener">Aviso de privacidad</a></div>
+    </div>
+    <div class="exito" id="exito">
+      <div class="palomita">✓</div>
+      <h3 id="exTitulo">¡Enviada!</h3>
+      <p id="exTexto"></p>
+      <a class="btn wa" id="btnWa" target="_blank" rel="noopener">Quiero contratar · WhatsApp</a>
+      <p style="margin-top:12px;font-size:12.5px">¿Quieres cambiar algo? <a href="#" id="btnOtra">Arma otra cotización</a></p>
+    </div>
+  </aside>
+</main>
+
+<footer class="wrap">
+  Precios en pesos mexicanos más IVA. Esta cotización cubre el servicio de implementación, configuración y capacitación por TFGRUPO; CONTPAQi Colabora® se incluye sin costo adicional con CONTPAQi Nóminas® conforme a las condiciones de licenciamiento vigentes de CONTPAQi (hasta 1,000 colaboradores). CONTPAQi®, CONTPAQi Nóminas® y CONTPAQi Colabora® son marcas registradas de Computación en Acción, S.A. de C.V. TFGRUPO · Distribuidor certificado CONTPAQi® · WhatsApp 55 6580 5408 · gabriel.salas@tfgrupo.com.mx
+</footer>
+
+<script>
+const CONFIG = {
+  ENDPOINT: 'https://script.google.com/macros/s/AKfycbyH-sPxHo0JcGnlTXwz-N8QlUoKCYPGURNDhBZoq9cGzH02VbN654IbH-FyH24Zt4u8tw/exec',
+  WHATSAPP: '525565805408'
+};
+// Precios de respaldo (los reales se leen de la hoja «Precios» al abrir la página)
+let PRECIOS = {
+  BASE_BASICO: { concepto: 'Paquete Básico · Implementación de CONTPAQi Colabora®', precio: 3900 },
+  EMPRESA_ADIC: { concepto: 'Empresa (RFC) adicional', precio: 1500 },
+  CENTRO_ADIC: { concepto: 'Centro de trabajo o geocerca adicional', precio: 350 },
+  HORARIO_ADIC: { concepto: 'Horario o turno adicional', precio: 250 },
+  COLAB_25: { concepto: 'Carga de colaboradores: hasta 25', precio: 900 },
+  COLAB_100: { concepto: 'Carga de colaboradores: de 26 a 100', precio: 2400 },
+  COLAB_300: { concepto: 'Carga de colaboradores: de 101 a 300', precio: 4900 },
+  MOD_VACACIONES: { concepto: 'Módulo Vacaciones y permisos', precio: 1200 },
+  MOD_RECIBOS: { concepto: 'Recibos de nómina en la app', precio: 600 },
+  MOD_COMUNICADOS: { concepto: 'Comunicados y «Mi equipo»', precio: 500 },
+  MOD_WHATSAPP: { concepto: 'Asistente de WhatsApp', precio: 400 },
+  CAP_SESION: { concepto: 'Sesión adicional de capacitación (1.5 h)', precio: 900 },
+  PRESENCIAL: { concepto: 'Visita presencial (CDMX), por día', precio: 1500 },
+  KIT_EVIDENCIA: { concepto: 'Kit de evidencia', precio: 900 },
+  ACTUALIZACION: { concepto: 'Actualización de CONTPAQi Nóminas', precio: 800 },
+  POLIZA_MES: { concepto: 'Póliza de soporte (mensual)', precio: 600 },
+  POLIZA_ANUAL: { concepto: 'Póliza de soporte (anual)', precio: 6000 }
+};
+let IVA = 16;
+
+(function () {
+  const $ = s => document.querySelector(s);
+  const form = $('#form');
+  const params = new URLSearchParams(location.search);
+  const pesos = n => '$' + (Math.round(n * 100) / 100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const fuente = (params.get('utm_source') || 'cotizador').toLowerCase().replace(/[^a-z0-9_\-]/g, '').slice(0, 40);
+  const idReg = (params.get('id') || '').replace(/[^A-Za-z0-9]/g, '').slice(0, 12);
+
+  // Prellenar desde el correo de agradecimiento
+  const pre = { nombre: params.get('n'), empresa: params.get('e'), correo: params.get('c'), telefono: params.get('t') };
+  Object.keys(pre).forEach(k => { if (pre[k]) $('#' + k).value = pre[k]; });
+  if (pre.nombre) $('#titulo').innerHTML = (pre.nombre.split(' ')[0]) + ', arma tu cotización de <span>CONTPAQi Colabora®</span> en 1 minuto';
+
+  function leer() {
+    const fd = new FormData(form);
+    const n = (k, min, max) => Math.min(max, Math.max(min, parseInt(fd.get(k), 10) || min));
+    return {
+      nominas: fd.get('nominas'), empresas: n('empresas', 1, 20), centros: n('centros', 1, 60), horarios: n('horarios', 1, 60),
+      colaboradores: fd.get('colaboradores'), modulos: fd.getAll('modulos'), sesiones: n('sesiones', 0, 6),
+      modalidad: fd.get('modalidad'), dias: n('dias', 1, 5), kit: fd.get('kit') === 'si', poliza: fd.get('poliza')
+    };
+  }
+
+  // Misma lógica que el servidor (cotizar_ en Codigo.gs); el total oficial lo calcula el servidor.
+  function cotizar(r) {
+    const lineas = [], recurrentes = [], notas = [];
+    const add = (k, c) => { const p = PRECIOS[k]; if (p && c) lineas.push({ k, concepto: p.concepto, cantidad: c, importe: p.precio * c }); };
+    add('BASE_BASICO', 1);
+    if (r.empresas > 1) add('EMPRESA_ADIC', r.empresas - 1);
+    add('CENTRO_ADIC', Math.max(0, r.centros - r.empresas));
+    add('HORARIO_ADIC', Math.max(0, r.horarios - 2 * r.empresas));
+    if (r.colaboradores === '25') add('COLAB_25', 1);
+    if (r.colaboradores === '100') add('COLAB_100', 1);
+    if (r.colaboradores === '300') add('COLAB_300', 1);
+    if (r.colaboradores === 'mas') notas.push('Más de 300 colaboradores: la carga se cotiza aparte con una propuesta especial.');
+    if (r.modulos.includes('vacaciones')) add('MOD_VACACIONES', 1);
+    if (r.modulos.includes('recibos')) add('MOD_RECIBOS', 1);
+    if (r.modulos.includes('comunicados')) add('MOD_COMUNICADOS', 1);
+    if (r.modulos.includes('whatsapp')) add('MOD_WHATSAPP', 1);
+    add('CAP_SESION', r.sesiones);
+    if (r.modalidad === 'presencial') add('PRESENCIAL', r.dias);
+    if (r.kit) add('KIT_EVIDENCIA', 1);
+    if (r.nominas === 'anterior') add('ACTUALIZACION', 1);
+    if (r.nominas === 'no') notas.push('No incluye la licencia de CONTPAQi Nóminas®, necesaria para Colabora; te la cotizamos aparte.');
+    if (r.nominas === 'nose') notas.push('Revisamos contigo si tu CONTPAQi Nóminas® es compatible antes de empezar.');
+    if (r.poliza === 'anual') add('POLIZA_ANUAL', 1);
+    if (r.poliza === 'mensual' && PRECIOS.POLIZA_MES) recurrentes.push({ concepto: PRECIOS.POLIZA_MES.concepto, importe: PRECIOS.POLIZA_MES.precio });
+    if (r.modalidad === 'presencial') notas.push('Visita presencial en CDMX y área metropolitana; fuera de la zona se cotizan viáticos.');
+    const subtotal = lineas.reduce((s, l) => s + l.importe, 0);
+    const iva = Math.round(subtotal * IVA) / 100;
+    return { lineas, recurrentes, notas, subtotal, iva, total: subtotal + iva };
+  }
+
+  function pintar() {
+    const r = leer();
+    $('#diasBox').style.display = r.modalidad === 'presencial' ? '' : 'none';
+    const c = cotizar(r);
+    $('#lineas').innerHTML = c.lineas.map(l => '<div class="lin"><span>' + l.concepto + (l.cantidad > 1 ? ' × ' + l.cantidad : '') + '</span><span>' + pesos(l.importe) + '</span></div>').join('');
+    $('#st').textContent = pesos(c.subtotal); $('#iv').textContent = pesos(c.iva); $('#tt').textContent = pesos(c.total);
+    $('#total').textContent = pesos(c.total); $('#subtotalTxt').textContent = pesos(c.subtotal) + ' + IVA';
+    const rec = $('#recurrente');
+    rec.style.display = c.recurrentes.length ? '' : 'none';
+    rec.innerHTML = c.recurrentes.map(l => '<span>' + l.concepto + '</span><span>' + pesos(l.importe) + ' + IVA / mes</span>').join('');
+    $('#notas').innerHTML = c.notas.map(n => '<p>ℹ️ ' + n + '</p>').join('');
+    return c;
+  }
+
+  function pintarPrecios() {
+    $('#ivaPct').textContent = IVA;
+    $('#precioBase').textContent = pesos(PRECIOS.BASE_BASICO.precio).replace('.00', '');
+    document.querySelectorAll('.precio-tag').forEach(el => { const p = PRECIOS[el.dataset.p]; el.textContent = p ? '+ ' + pesos(p.precio).replace('.00', '') : ''; });
+    const t = (id, k, suf) => { const p = PRECIOS[k]; if (p) $(id).textContent = '+ ' + pesos(p.precio).replace('.00', '') + (suf || ''); };
+    t('#pColab25', 'COLAB_25'); t('#pColab100', 'COLAB_100'); t('#pColab300', 'COLAB_300');
+    t('#pPresencial', 'PRESENCIAL', ' por día'); t('#pPolizaMes', 'POLIZA_MES', ' al mes'); t('#pPolizaAnual', 'POLIZA_ANUAL', ' al año');
+    pintar();
+  }
+  pintarPrecios();
+
+  // Precios reales desde la hoja
+  if (CONFIG.ENDPOINT) {
+    fetch(CONFIG.ENDPOINT + '?accion=precios').then(r => r.json()).then(d => {
+      if (d && d.ok && d.precios && d.precios.BASE_BASICO) { PRECIOS = d.precios; IVA = Number(d.iva) || 16; pintarPrecios(); }
+    }).catch(() => { /* se quedan los de respaldo */ });
+  }
+
+  form.addEventListener('input', pintar);
+  form.addEventListener('change', pintar);
+  document.querySelectorAll('.cont button').forEach(b => b.addEventListener('click', () => {
+    const i = $('#' + b.dataset.m); i.value = Math.min(+i.max, Math.max(+i.min, (parseInt(i.value, 10) || 0) + (+b.dataset.d))); pintar();
+  }));
+
+  const MSG = { nombre: 'Escribe tu nombre completo.', empresa: 'Escribe el nombre de tu empresa.', telefono: 'Escribe un teléfono de 10 dígitos.', correo: 'Revisa tu correo: ahí te llega la cotización.' };
+  function marcar(err) {
+    ['nombre', 'empresa', 'correo', 'telefono'].forEach(k => $('#' + k).closest('.c').classList.toggle('err', !!err[k]));
+    const k = Object.keys(err)[0];
+    if (k) { $('#' + k).focus(); $('#contacto').scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  }
+
+  form.addEventListener('submit', async ev => {
+    ev.preventDefault();
+    const alerta = $('#alerta'); alerta.classList.remove('on');
+    const d = Object.assign(leer(), {
+      accion: 'cotizacion', nombre: $('#nombre').value.trim(), empresa: $('#empresa').value.trim(), correo: $('#correo').value.trim().toLowerCase(),
+      telefono: $('#telefono').value.trim(), comentarios: $('#comentarios').value.trim(), sitio_web: $('#sitio_web').value, fuente, id: idReg
+    });
+    d.modulos = d.modulos.join(','); d.kit = d.kit ? 'si' : 'no';
+    const err = {};
+    if (d.nombre.length < 3) err.nombre = 1;
+    if (d.empresa.length < 2) err.empresa = 1;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.correo)) err.correo = 1;
+    const dig = d.telefono.replace(/\D/g, ''); if (dig.length < 10 || dig.length > 13) err.telefono = 1;
+    marcar(err); if (Object.keys(err).length) return;
+    const btn = $('#btnEnviar'); btn.disabled = true; btn.textContent = 'Generando tu cotización…';
+    try {
+      let r;
+      if (!CONFIG.ENDPOINT) { await new Promise(x => setTimeout(x, 600)); r = { ok: true, folio: 'COT-CHK-DEMO', total: cotizar(leer()).total, enviado: true, demo: true }; }
+      else {
+        const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 30000);
+        const resp = await fetch(CONFIG.ENDPOINT, { method: 'POST', body: JSON.stringify(d), signal: ctrl.signal });
+        clearTimeout(t); r = await resp.json();
+      }
+      if (r && r.ok) {
+        $('#exTitulo').textContent = r.enviado ? '¡Listo! Cotización ' + r.folio : 'Cotización ' + r.folio + ' registrada';
+        $('#exTexto').innerHTML = (r.enviado ? 'Te la mandamos a <b>' + d.correo.replace(/</g, '&lt;') + '</b> con el PDF adjunto. ' : 'Hubo un detalle al enviar el correo; te la mandamos nosotros en breve. ')
+          + 'Total estimado: <b>' + pesos(r.total) + ' MXN</b> (IVA incluido). Vigencia 30 días.';
+        $('#btnWa').href = 'https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent('Hola Gabriel, quiero contratar la cotización ' + r.folio + ' (' + d.empresa + ')');
+        $('#vivo').style.display = 'none'; $('#exito').classList.add('on');
+        $('#resumen').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else if (r && MSG[r.error]) { marcar({ [r.error]: 1 }); }
+      else { alerta.textContent = 'No pudimos generar la cotización. Intenta de nuevo o escríbenos por WhatsApp al 55 6580 5408.'; alerta.classList.add('on'); }
+    } catch (e) {
+      alerta.textContent = 'No pudimos conectar (revisa tu internet). También puedes escribirnos por WhatsApp al 55 6580 5408.'; alerta.classList.add('on');
+    } finally { btn.disabled = false; btn.textContent = 'Enviar mi cotización a mi correo →'; }
+  });
+
+  $('#btnOtra').addEventListener('click', e => { e.preventDefault(); $('#exito').classList.remove('on'); $('#vivo').style.display = ''; });
+})();
+</script>
+</body>
+</html>
