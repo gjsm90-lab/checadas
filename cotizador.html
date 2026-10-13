@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Arma tu cotización de CONTPAQi Colabora® · TFGRUPO</title>
-<meta name="description" content="Responde 6 preguntas y recibe al instante la cotización para dejar CONTPAQi Colabora® funcionando en tu empresa: checadas desde el celular con geocerca, conectadas a tu nómina.">
+<title>¿Colabora o Tempo Control? Arma tu cotización · TFGRUPO</title>
+<meta name="description" content="Responde unas preguntas y te decimos al instante qué te conviene para el registro electrónico de jornada: CONTPAQi Colabora® (checada desde el celular) o Tempo Control (reloj biométrico), con la cotización lista.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#061433">
 <link rel="icon" type="image/png" href="img/favicon.png">
-<meta property="og:title" content="Arma tu cotización de CONTPAQi Colabora® en 1 minuto">
-<meta property="og:description" content="Implementación, configuración y capacitación por TFGRUPO, distribuidor certificado CONTPAQi. Paquete Básico desde $3,900 + IVA.">
+<meta property="og:title" content="¿Colabora o Tempo Control? Arma tu cotización en 1 minuto">
+<meta property="og:description" content="Te decimos qué te conviene para cumplir la ley de checadas y te mandamos la cotización al instante. Implementación por TFGRUPO, distribuidor certificado CONTPAQi.">
 <meta property="og:image" content="https://gjsm90-lab.github.io/checadas/img/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,6 +76,13 @@ header p b{color:#fff}
 .tot .t{font-weight:800;color:var(--navy);font-size:15px;border-top:1.5px solid var(--line);margin-top:6px;padding-top:8px}
 .notas{padding:0 22px 14px;font-size:12.5px;color:#0B2E5E}
 .notas p{margin:0 0 6px;padding:8px 10px;border-radius:9px;background:#EEF5FF}
+.razones{margin:12px 22px 0;padding:10px 12px;border-radius:10px;background:#E8F8F0;border-left:4px solid var(--ok);font-size:12.5px;color:#0B3D2A}
+.razones p{margin:0 0 4px}
+.alt{margin:0 22px 14px;padding:10px 12px;border-radius:10px;background:#F1F5F9;font-size:13px;color:var(--slate);display:flex;justify-content:space-between;gap:10px}
+.alt b{color:var(--navy);white-space:nowrap}
+.dos-paq{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.dos-paq h2{font-size:15.5px}
+@media (max-width:640px){.dos-paq{grid-template-columns:1fr}}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:17px;padding:15px 20px;border-radius:13px;background:var(--gold);color:var(--n950);box-shadow:0 10px 24px -8px rgba(242,177,1,.7);text-decoration:none}
 .btn:hover{background:#FFC21A}
 .btn[disabled]{opacity:.7;cursor:wait}
@@ -103,38 +110,69 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
       <a href="index.html">← Página del webinar</a>
     </div>
     <span class="badge">Cotización al instante · sin compromiso</span>
-    <h1 id="titulo">Arma tu cotización de <span>CONTPAQi Colabora®</span> en 1 minuto</h1>
-    <p>Responde estas preguntas y te mandamos la cotización a tu correo <b>al momento</b>. Nosotros dejamos Colabora funcionando en tu empresa: configuración, conexión con tu nómina y capacitación. <b>Si ya tienes CONTPAQi Nóminas, Colabora viene incluido</b>; cotizamos el servicio de implementación.</p>
+    <h1 id="titulo">¿<span>Colabora</span> o <span>Tempo Control</span>? Arma tu cotización en 1 minuto</h1>
+    <p>Responde estas preguntas y te decimos <b>qué te conviene más</b> para el registro electrónico de jornada: <b>CONTPAQi Colabora®</b> (checan desde el celular con geocerca, incluido con Nóminas) o <b>Tempo Control</b> (reloj biométrico de huella y rostro en la entrada). La cotización te llega a tu correo <b>al momento</b>. Nosotros lo dejamos funcionando: configuración, conexión con tu nómina y capacitación.</p>
   </div>
 </header>
 
 <main class="wrap grid">
   <form id="form" novalidate>
-    <div class="incluye">
-      <h2>🎁 Todo parte del Paquete Básico · <span id="precioBase">$3,900</span> + IVA</h2>
-      <ul>
-        <li><b>1 empresa</b> en Colabora, conectada con CONTPAQi Nóminas.</li>
-        <li><b>1 centro de trabajo con geocerca</b> y <b>2 horarios</b> con sus tolerancias.</li>
-        <li><b>5 colaboradores configurados contigo</b>: aprendes a dar de alta a los demás (no hay límite de colaboradores en el sistema).</li>
-        <li>Retardos y faltas conectados a tu nómina, validación por huella o rostro (opcional).</li>
-        <li>1 sesión de capacitación remota (2 h) para RH o nómina, guía para colaboradores y 30 días de soporte.</li>
-      </ul>
+    <div class="incluye dos-paq">
+      <div>
+        <h2>📱 CONTPAQi Colabora® · desde <span id="precioBase">$3,900</span> + IVA</h2>
+        <ul>
+          <li>Checan desde <b>su celular</b>, con geocerca y huella o rostro del teléfono. Ideal para campo, home office y sucursales.</li>
+          <li><b>1 empresa</b> conectada a CONTPAQi Nóminas, 1 centro con geocerca, 2 horarios, 5 colaboradores configurados contigo.</li>
+          <li>Retardos y faltas directo a nómina. Vacaciones, recibos y WhatsApp opcionales.</li>
+          <li>El software <b>viene incluido</b> con CONTPAQi Nóminas (no hay licencia extra).</li>
+        </ul>
+      </div>
+      <div>
+        <h2>🕐 Tempo Control · desde <span id="precioBaseTc">$6,400</span> + IVA</h2>
+        <ul>
+          <li><b>Reloj biométrico MB160ID</b> en la entrada: huella, rostro o tarjeta. No depende del celular de nadie.</li>
+          <li><b>1 empresa</b> conectada a CONTPAQi Nóminas, 1 reloj instalado, hasta 3 turnos (rotativos, por horas, abiertos), 5 colaboradores dados de alta contigo.</li>
+          <li>Más el reloj (<span id="precioReloj">$5,800</span>), su habilitación (<span id="precioHab">$1,800</span>) y la <b>licencia anual</b> según tus empleados.</li>
+          <li>Funciona aunque no tengas Nóminas. Precios en dólares convertidos a <span id="tcTxt">$20</span>.</li>
+        </ul>
+      </div>
     </div>
 
     <section class="paso">
-      <h2><i>1</i>¿Tienes CONTPAQi Nóminas?</h2>
+      <h2><i>1</i>¿Dónde y cómo checan tus colaboradores?</h2>
+      <p class="ayuda">Con esto decidimos qué te conviene.</p>
+      <div class="opc" style="margin-bottom:10px">
+        <label><input type="radio" name="lugar" value="fijo" checked>En un lugar fijo<small>Oficina, planta o sucursal</small></label>
+        <label><input type="radio" name="lugar" value="campo">En campo o home office<small>Rutas, obras, vendedores, remoto</small></label>
+        <label><input type="radio" name="lugar" value="mixto">Mixto<small>Unos fijos y otros en campo</small></label>
+      </div>
+      <div class="opc" style="margin-bottom:14px">
+        <label><input type="radio" name="preferencia" value="recomienden" checked>Que me recomienden<small>Según mis respuestas</small></label>
+        <label><input type="radio" name="preferencia" value="reloj">Reloj físico en la entrada<small>Huella, rostro o tarjeta</small></label>
+        <label><input type="radio" name="preferencia" value="celular">Desde su celular<small>App con geocerca</small></label>
+      </div>
+      <div class="num">
+        <label>Colaboradores en total<small>Para calcular la licencia de Tempo Control</small>
+          <div class="cont"><button type="button" data-m="empleados" data-d="-5">−</button><input id="empleados" name="empleados" type="number" min="1" max="5000" value="20"><button type="button" data-m="empleados" data-d="5">+</button></div></label>
+        <label>¿Turnos rotativos, por horas o abiertos?<small>Tempo Control los maneja de forma nativa</small>
+          <div class="opc"><label><input type="radio" name="rotativos" value="no" checked>No</label><label><input type="radio" name="rotativos" value="si">Sí</label></div></label>
+      </div>
+    </section>
+
+    <section class="paso">
+      <h2><i>2</i>¿Tienes CONTPAQi Nóminas?</h2>
       <p class="ayuda">Colabora funciona junto con CONTPAQi Nóminas (de escritorio o en la nube).</p>
       <div class="opc">
         <label><input type="radio" name="nominas" value="actual" checked>Sí, versión actual<small>Colabora ya viene incluido</small></label>
         <label><input type="radio" name="nominas" value="anterior">Sí, versión anterior<small>Hay que actualizarla</small></label>
-        <label><input type="radio" name="nominas" value="no">No<small>Te cotizamos la licencia aparte</small></label>
+        <label><input type="radio" name="nominas" value="no">No<small>Colabora la necesita; Tempo no</small></label>
         <label><input type="radio" name="nominas" value="nose">No sé<small>Lo revisamos contigo</small></label>
       </div>
     </section>
 
     <section class="paso">
-      <h2><i>2</i>Tu operación</h2>
-      <p class="ayuda">Cada empresa incluye 1 centro de trabajo y 2 horarios. Lo que pase de ahí se cotiza por pieza.</p>
+      <h2><i>3</i>Tu operación</h2>
+      <p class="ayuda">Cada empresa incluye 1 centro de trabajo y 2 horarios (3 turnos en Tempo Control). Con Tempo Control, cada centro lleva su propio reloj.</p>
       <div class="num">
         <label>Empresas (RFC) a configurar<small>Razones sociales con nómina</small>
           <div class="cont"><button type="button" data-m="empresas" data-d="-1">−</button><input id="empresas" name="empresas" type="number" min="1" max="20" value="1"><button type="button" data-m="empresas" data-d="1">+</button></div></label>
@@ -146,7 +184,7 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
     </section>
 
     <section class="paso">
-      <h2><i>3</i>¿Cuántos colaboradores quieres que dejemos cargados?</h2>
+      <h2><i>4</i>¿Cuántos colaboradores quieres que dejemos cargados?</h2>
       <p class="ayuda">Alta en Colabora, vinculación con Nóminas e invitación a la app. Con el paquete aprendes a cargar a los demás tú mismo.</p>
       <div class="opc" id="opcColab">
         <label><input type="radio" name="colaboradores" value="5" checked>Solo los 5 del paquete<small>Yo cargo el resto</small></label>
@@ -158,8 +196,8 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
     </section>
 
     <section class="paso">
-      <h2><i>4</i>Módulos adicionales</h2>
-      <p class="ayuda">Marca los que quieras dejar configurados desde el inicio.</p>
+      <h2><i>5</i>Módulos adicionales (solo CONTPAQi Colabora®)</h2>
+      <p class="ayuda">Marca los que quieras dejar configurados desde el inicio. Tempo Control no los tiene.</p>
       <div class="chk">
         <label><input type="checkbox" name="modulos" value="vacaciones"><span><b>Vacaciones y permisos</b><small>Políticas, saldos, flujo de aprobación líder → RH y capacitación.</small></span><span class="precio-tag" data-p="MOD_VACACIONES"></span></label>
         <label><input type="checkbox" name="modulos" value="recibos"><span><b>Recibos de nómina en la app</b><small>Tus colaboradores ven y descargan sus CFDI 24/7.</small></span><span class="precio-tag" data-p="MOD_RECIBOS"></span></label>
@@ -169,7 +207,7 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
     </section>
 
     <section class="paso">
-      <h2><i>5</i>Capacitación y modalidad</h2>
+      <h2><i>6</i>Capacitación y modalidad</h2>
       <p class="ayuda">El paquete incluye 1 sesión remota para RH. Agrega sesiones para líderes o para colaboradores, o pide que vayamos a tu empresa.</p>
       <div class="num" style="margin-bottom:14px">
         <label>Sesiones adicionales de capacitación<small>1.5 h cada una, remotas</small>
@@ -186,7 +224,7 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
     </section>
 
     <section class="paso">
-      <h2><i>6</i>Extras</h2>
+      <h2><i>7</i>Extras</h2>
       <div class="chk">
         <label><input type="checkbox" name="kit" value="si"><span><b>Kit de evidencia</b><small>Formato de aceptación del método de registro para firma de colaboradores (así el registro hace prueba plena) y reporte de asistencia listo para la autoridad.</small></span><span class="precio-tag" data-p="KIT_EVIDENCIA"></span></label>
       </div>
@@ -213,11 +251,13 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
   </form>
 
   <aside class="resumen" id="resumen">
-    <div class="cab"><small>Tu inversión estimada</small><b id="total">$4,524.00</b><span>MXN, IVA incluido · <span id="subtotalTxt">$3,900.00 + IVA</span></span></div>
+    <div class="cab"><small id="recLbl">Te va mejor · CONTPAQi Colabora®</small><b id="total">$4,524.00</b><span>MXN, IVA incluido · <span id="subtotalTxt">$3,900.00 + IVA</span></span></div>
     <div id="vivo">
+      <div class="razones" id="razones"></div>
       <div class="lineas" id="lineas"></div>
       <div class="tot"><div><span>Subtotal</span><span id="st">$3,900.00</span></div><div><span>IVA <span id="ivaPct">16</span>%</span><span id="iv">$624.00</span></div><div class="t"><span>Total</span><span id="tt">$4,524.00</span></div><div id="recurrente" style="display:none;color:var(--navy);font-weight:700"></div></div>
       <div class="notas" id="notas"></div>
+      <div class="alt" id="alt"></div>
       <div class="alerta" id="alerta"></div>
       <div style="padding:0 22px 8px"><button class="btn" id="btnEnviar" type="submit" form="form">Enviar mi cotización a mi correo →</button></div>
       <div class="pie-res">🔒 Sin compromiso. Solo usamos tus datos para esta cotización. <a href="https://tfgrupo.com.mx/aviso-de-privacidad/" target="_blank" rel="noopener">Aviso de privacidad</a></div>
@@ -259,9 +299,16 @@ let PRECIOS = {
   KIT_EVIDENCIA: { concepto: 'Kit de evidencia', precio: 900 },
   ACTUALIZACION: { concepto: 'Actualización de CONTPAQi Nóminas', precio: 800 },
   POLIZA_MES: { concepto: 'Póliza de soporte (mensual)', precio: 600 },
-  POLIZA_ANUAL: { concepto: 'Póliza de soporte (anual)', precio: 6000 }
+  POLIZA_ANUAL: { concepto: 'Póliza de soporte (anual)', precio: 6000 },
+  TC_BASE: { concepto: 'Paquete Básico · Implementación de Tempo Control', precio: 6400 },
+  TC_RELOJ_ADIC_INST: { concepto: 'Instalación de reloj adicional', precio: 350 },
+  TC_ENVIO: { concepto: 'Envío de relojes', precio: 450 }
 };
-let IVA = 16;
+let IVA = 16, TC = 20;
+let TEMPO_USD = { RELOJ: 290, HABILITACION: 90,
+  LICENCIA: [[10, 154], [25, 172], [50, 194], [75, 216], [100, 238], [125, 260], [150, 282], [200, 325], [250, 369], [300, 413], [400, 479], [500, 545], [600, 611], [750, 698], [900, 786], [1050, 873], [0, 1339]],
+  RENOVACION: [[10, 115], [25, 130], [50, 145], [75, 162], [100, 179], [125, 195], [150, 212], [200, 244], [250, 278], [300, 310], [400, 360], [500, 409], [600, 458], [750, 524], [900, 590], [1050, 656], [0, 1005]] };
+const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
 
 (function () {
   const $ = s => document.querySelector(s);
@@ -282,7 +329,8 @@ let IVA = 16;
     const fd = new FormData(form);
     const n = (k, min, max) => Math.min(max, Math.max(min, parseInt(fd.get(k), 10) || min));
     return {
-      nominas: fd.get('nominas'), empresas: n('empresas', 1, 20), centros: n('centros', 1, 60), horarios: n('horarios', 1, 60),
+      nominas: fd.get('nominas'), lugar: fd.get('lugar'), preferencia: fd.get('preferencia'), empleados: n('empleados', 1, 5000), rotativos: fd.get('rotativos') === 'si',
+      empresas: n('empresas', 1, 20), centros: n('centros', 1, 60), horarios: n('horarios', 1, 60),
       colaboradores: fd.get('colaboradores'), modulos: fd.getAll('modulos'), sesiones: n('sesiones', 0, 6),
       modalidad: fd.get('modalidad'), dias: n('dias', 1, 5), kit: fd.get('kit') === 'si', poliza: fd.get('poliza')
     };
@@ -318,23 +366,87 @@ let IVA = 16;
     return { lineas, recurrentes, notas, subtotal, iva, total: subtotal + iva };
   }
 
+  const nivel = (tabla, e) => { for (const t of tabla) if (t[0] && e <= t[0]) return t; return tabla[tabla.length - 1]; };
+  const usd = u => Math.round(u * TC * 100) / 100;
+
+  function cotizarTempo(r) {
+    const lineas = [], recurrentes = [], notas = [];
+    const add = (k, c, forzado) => { const p = forzado || PRECIOS[k]; if (p && c) lineas.push({ k, concepto: p.concepto, cantidad: c, importe: p.precio * c }); };
+    add('TC_BASE', 1);
+    if (r.empresas > 1) add('EMPRESA_ADIC', r.empresas - 1);
+    const relojes = Math.max(1, r.centros);
+    add('TC_RELOJ', relojes, { concepto: 'Reloj biométrico MB160ID / ADMS', precio: usd(TEMPO_USD.RELOJ) });
+    add('TC_HABILITACION', relojes, { concepto: 'Habilitación ADMS del reloj', precio: usd(TEMPO_USD.HABILITACION) });
+    if (relojes > 1) add('TC_RELOJ_ADIC_INST', relojes - 1);
+    add('TC_ENVIO', 1);
+    const lic = nivel(TEMPO_USD.LICENCIA, r.empleados), ren = nivel(TEMPO_USD.RENOVACION, r.empleados);
+    const tope = lic[0] ? 'hasta ' + lic[0] + ' empleados' : 'empleados ilimitados';
+    add('TC_LICENCIA', 1, { concepto: 'Licencia anual Tempo Control (' + tope + ')', precio: usd(lic[1]) });
+    recurrentes.push({ concepto: 'Renovación anual de licencia (desde el 2º año)', importe: usd(ren[1]), periodo: 'año' });
+    add('HORARIO_ADIC', Math.max(0, r.horarios - 3 * r.empresas));
+    if (r.colaboradores === '25') add('COLAB_25', 1);
+    if (r.colaboradores === '100') add('COLAB_100', 1);
+    if (r.colaboradores === '300') add('COLAB_300', 1);
+    if (r.colaboradores === 'mas') notas.push('Más de 300 colaboradores: la carga se cotiza aparte.');
+    if (r.modulos.length) notas.push('Vacaciones, recibos, comunicados y WhatsApp solo existen en Colabora; no aplican a Tempo Control.');
+    add('CAP_SESION', r.sesiones);
+    if (r.modalidad === 'presencial') add('PRESENCIAL', r.dias);
+    if (r.kit) add('KIT_EVIDENCIA', 1);
+    if (r.nominas === 'anterior') add('ACTUALIZACION', 1);
+    if (r.nominas === 'no') notas.push('Tempo Control funciona sin CONTPAQi Nóminas; si después la adquieres, se integra.');
+    if (r.poliza === 'anual') add('POLIZA_ANUAL', 1);
+    if (r.poliza === 'mensual' && PRECIOS.POLIZA_MES) recurrentes.push({ concepto: PRECIOS.POLIZA_MES.concepto, importe: PRECIOS.POLIZA_MES.precio, periodo: 'mes' });
+    notas.push('Solo instalamos el reloj MB160ID / ADMS; no activamos otros modelos. Dólares a $' + TC + '.');
+    const subtotal = Math.round(lineas.reduce((s, l) => s + l.importe, 0) * 100) / 100;
+    const iva = Math.round(subtotal * IVA) / 100;
+    return { lineas, recurrentes, notas, subtotal, iva, total: Math.round((subtotal + iva) * 100) / 100 };
+  }
+
+  function recomendar(r, cC, cT) {
+    const razones = []; let producto;
+    if (r.lugar === 'campo') { producto = 'colabora'; razones.push('Tu personal checa en campo o home office: con Colabora checan desde el celular con geocerca; un reloj fijo no les serviría.'); }
+    else if (r.preferencia === 'celular') { producto = 'colabora'; razones.push('Prefieres que chequen desde su celular: Colabora valida huella o rostro en el teléfono y la ubicación con geocerca.'); }
+    else if (r.preferencia === 'reloj') { producto = 'tempo'; razones.push('Quieres un reloj biométrico en la entrada: Tempo Control registra huella, rostro o tarjeta sin depender del celular de cada quien.'); }
+    else {
+      let t = 0, c = 0;
+      if (r.lugar === 'fijo') { t += 2; razones.push('Todos checan en un lugar fijo: un reloj biométrico en la puerta es lo más simple.'); }
+      if (r.lugar === 'mixto') { c += 2; razones.push('Tienes personal fijo y en campo: Colabora cubre a ambos desde el celular.'); }
+      if (r.rotativos) { t += 1; razones.push('Manejas turnos rotativos o por horas: Tempo Control los maneja de forma nativa.'); }
+      if (r.nominas === 'no') { t += 1; razones.push('No tienes CONTPAQi Nóminas: Colabora la necesita; Tempo Control funciona solo.'); }
+      if (r.nominas === 'actual') { c += 1; razones.push('Ya tienes CONTPAQi Nóminas: Colabora viene incluido.'); }
+      if (r.modulos.length) { c += 2; razones.push('Quieres vacaciones, recibos o WhatsApp: solo existen en Colabora.'); }
+      if (r.centros >= 3) { c += 1; razones.push('Con ' + r.centros + ' centros, Tempo Control necesita un reloj por sitio y encarece.'); }
+      producto = t > c ? 'tempo' : (c > t ? 'colabora' : (cT.total < cC.total ? 'tempo' : 'colabora'));
+      if (t === c) razones.push('Las dos te quedan; recomendamos la de menor inversión inicial.');
+    }
+    if (producto === 'tempo') razones.push('La licencia de Tempo Control se renueva cada año (en dólares) y el reloj necesita internet.');
+    return { producto, razones };
+  }
+
   function pintar() {
     const r = leer();
     $('#diasBox').style.display = r.modalidad === 'presencial' ? '' : 'none';
-    const c = cotizar(r);
+    const cC = cotizar(r), cT = cotizarTempo(r);
+    const rec = recomendar(r, cC, cT);
+    const c = rec.producto === 'tempo' ? cT : cC, alt = rec.producto === 'tempo' ? cC : cT;
+    $('#recLbl').textContent = 'Te va mejor · ' + NOMBRE[rec.producto];
+    $('#razones').innerHTML = rec.razones.map(x => '<p>✓ ' + x + '</p>').join('');
     $('#lineas').innerHTML = c.lineas.map(l => '<div class="lin"><span>' + l.concepto + (l.cantidad > 1 ? ' × ' + l.cantidad : '') + '</span><span>' + pesos(l.importe) + '</span></div>').join('');
     $('#st').textContent = pesos(c.subtotal); $('#iv').textContent = pesos(c.iva); $('#tt').textContent = pesos(c.total);
     $('#total').textContent = pesos(c.total); $('#subtotalTxt').textContent = pesos(c.subtotal) + ' + IVA';
-    const rec = $('#recurrente');
-    rec.style.display = c.recurrentes.length ? '' : 'none';
-    rec.innerHTML = c.recurrentes.map(l => '<span>' + l.concepto + '</span><span>' + pesos(l.importe) + ' + IVA / mes</span>').join('');
+    const recEl = $('#recurrente');
+    recEl.style.display = c.recurrentes.length ? '' : 'none';
+    recEl.innerHTML = c.recurrentes.map(l => '<div><span>' + l.concepto + '</span><span>' + pesos(l.importe) + ' + IVA / ' + (l.periodo || 'mes') + '</span></div>').join('');
     $('#notas').innerHTML = c.notas.map(n => '<p>ℹ️ ' + n + '</p>').join('');
-    return c;
+    $('#alt').innerHTML = '<span>Alternativa · ' + NOMBRE[rec.producto === 'tempo' ? 'colabora' : 'tempo'] + ' (va en la cotización para comparar)</span><b>' + pesos(alt.total) + '</b>';
+    return { c, rec, cC, cT };
   }
 
   function pintarPrecios() {
     $('#ivaPct').textContent = IVA;
     $('#precioBase').textContent = pesos(PRECIOS.BASE_BASICO.precio).replace('.00', '');
+    if (PRECIOS.TC_BASE) $('#precioBaseTc').textContent = pesos(PRECIOS.TC_BASE.precio).replace('.00', '');
+    $('#precioReloj').textContent = pesos(usd(TEMPO_USD.RELOJ)).replace('.00', ''); $('#precioHab').textContent = pesos(usd(TEMPO_USD.HABILITACION)).replace('.00', ''); $('#tcTxt').textContent = '$' + TC;
     document.querySelectorAll('.precio-tag').forEach(el => { const p = PRECIOS[el.dataset.p]; el.textContent = p ? '+ ' + pesos(p.precio).replace('.00', '') : ''; });
     const t = (id, k, suf) => { const p = PRECIOS[k]; if (p) $(id).textContent = '+ ' + pesos(p.precio).replace('.00', '') + (suf || ''); };
     t('#pColab25', 'COLAB_25'); t('#pColab100', 'COLAB_100'); t('#pColab300', 'COLAB_300');
@@ -346,7 +458,7 @@ let IVA = 16;
   // Precios reales desde la hoja
   if (CONFIG.ENDPOINT) {
     fetch(CONFIG.ENDPOINT + '?accion=precios').then(r => r.json()).then(d => {
-      if (d && d.ok && d.precios && d.precios.BASE_BASICO) { PRECIOS = d.precios; IVA = Number(d.iva) || 16; pintarPrecios(); }
+      if (d && d.ok && d.precios && d.precios.BASE_BASICO) { PRECIOS = d.precios; IVA = Number(d.iva) || 16; TC = Number(d.tipoCambio) || 20; if (d.tempoUsd && d.tempoUsd.LICENCIA) TEMPO_USD = d.tempoUsd; pintarPrecios(); }
     }).catch(() => { /* se quedan los de respaldo */ });
   }
 
@@ -370,7 +482,7 @@ let IVA = 16;
       accion: 'cotizacion', nombre: $('#nombre').value.trim(), empresa: $('#empresa').value.trim(), correo: $('#correo').value.trim().toLowerCase(),
       telefono: $('#telefono').value.trim(), comentarios: $('#comentarios').value.trim(), sitio_web: $('#sitio_web').value, fuente, id: idReg
     });
-    d.modulos = d.modulos.join(','); d.kit = d.kit ? 'si' : 'no';
+    d.modulos = d.modulos.join(','); d.kit = d.kit ? 'si' : 'no'; d.rotativos = d.rotativos ? 'si' : 'no';
     const err = {};
     if (d.nombre.length < 3) err.nombre = 1;
     if (d.empresa.length < 2) err.empresa = 1;
@@ -380,7 +492,7 @@ let IVA = 16;
     const btn = $('#btnEnviar'); btn.disabled = true; btn.textContent = 'Generando tu cotización…';
     try {
       let r;
-      if (!CONFIG.ENDPOINT || DEMO) { await new Promise(x => setTimeout(x, 600)); r = { ok: true, folio: 'COT-CHK-DEMO', total: cotizar(leer()).total, enviado: true, demo: true }; }
+      if (!CONFIG.ENDPOINT || DEMO) { await new Promise(x => setTimeout(x, 600)); const v = pintar(); r = { ok: true, folio: 'COT-CHK-DEMO', producto: v.rec.producto, total: v.c.total, enviado: true, demo: true }; }
       else {
         const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 30000);
         const resp = await fetch(CONFIG.ENDPOINT, { method: 'POST', body: JSON.stringify(d), signal: ctrl.signal });
@@ -389,7 +501,7 @@ let IVA = 16;
       if (r && r.ok) {
         $('#exTitulo').textContent = r.enviado ? '¡Listo! Cotización ' + r.folio : 'Cotización ' + r.folio + ' registrada';
         $('#exTexto').innerHTML = (r.enviado ? 'Te la mandamos a <b>' + d.correo.replace(/</g, '&lt;') + '</b> con el PDF adjunto. ' : 'Hubo un detalle al enviar el correo; te la mandamos nosotros en breve. ')
-          + 'Total estimado: <b>' + pesos(r.total) + ' MXN</b> (IVA incluido). Vigencia 30 días.';
+          + 'Te va mejor <b>' + (NOMBRE[r.producto] || '') + '</b>: <b>' + pesos(r.total) + ' MXN</b> (IVA incluido). La alternativa va en el mismo correo. Vigencia 30 días.';
         $('#btnWa').href = 'https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent('Hola Gabriel, quiero contratar la cotización ' + r.folio + ' (' + d.empresa + ')');
         $('#vivo').style.display = 'none'; $('#exito').classList.add('on');
         $('#resumen').scrollIntoView({ behavior: 'smooth', block: 'start' });
