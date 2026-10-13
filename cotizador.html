@@ -131,9 +131,9 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
         <h2>🕐 Tempo Control · desde <span id="precioBaseTc">$6,400</span> + IVA</h2>
         <ul>
           <li><b>Reloj biométrico MB160ID</b> en la entrada: huella, rostro o tarjeta. No depende del celular de nadie.</li>
-          <li><b>1 empresa</b> conectada a CONTPAQi Nóminas, 1 reloj instalado, hasta 3 turnos (rotativos, por horas, abiertos), 5 colaboradores dados de alta contigo.</li>
-          <li>Más el reloj (<span id="precioReloj">$5,800</span>), su habilitación (<span id="precioHab">$1,800</span>) y la <b>licencia anual</b> según tus empleados.</li>
-          <li>Funciona aunque no tengas Nóminas. Precios en dólares convertidos a <span id="tcTxt">$20</span>.</li>
+          <li><b>1 empresa</b> conectada a CONTPAQi Nóminas, 1 reloj configurado a distancia, hasta 3 turnos (rotativos, por horas, abiertos), 5 colaboradores dados de alta contigo.</li>
+          <li>Más el reloj (<span id="precioReloj">$5,800</span>, se envía listo para conectarse) y la <b>licencia anual</b> según tus empleados.</li>
+          <li>Funciona aunque no tengas Nóminas. Todo el servicio es remoto.</li>
         </ul>
       </div>
     </div>
@@ -301,11 +301,11 @@ let PRECIOS = {
   POLIZA_MES: { concepto: 'Póliza de soporte (mensual)', precio: 600 },
   POLIZA_ANUAL: { concepto: 'Póliza de soporte (anual)', precio: 6000 },
   TC_BASE: { concepto: 'Paquete Básico · Implementación de Tempo Control', precio: 6400 },
-  TC_RELOJ_ADIC_INST: { concepto: 'Instalación de reloj adicional', precio: 350 },
+  TC_RELOJ_ADIC_INST: { concepto: 'Configuración remota de reloj adicional', precio: 350 },
   TC_ENVIO: { concepto: 'Envío de relojes', precio: 450 }
 };
 let IVA = 16, TC = 20;
-let TEMPO_USD = { RELOJ: 290, HABILITACION: 90,
+let TEMPO_USD = { RELOJ: 290,
   LICENCIA: [[10, 154], [25, 172], [50, 194], [75, 216], [100, 238], [125, 260], [150, 282], [200, 325], [250, 369], [300, 413], [400, 479], [500, 545], [600, 611], [750, 698], [900, 786], [1050, 873], [0, 1339]],
   RENOVACION: [[10, 115], [25, 130], [50, 145], [75, 162], [100, 179], [125, 195], [150, 212], [200, 244], [250, 278], [300, 310], [400, 360], [500, 409], [600, 458], [750, 524], [900, 590], [1050, 656], [0, 1005]] };
 const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
@@ -376,7 +376,6 @@ const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
     if (r.empresas > 1) add('EMPRESA_ADIC', r.empresas - 1);
     const relojes = Math.max(1, r.centros);
     add('TC_RELOJ', relojes, { concepto: 'Reloj biométrico MB160ID / ADMS', precio: usd(TEMPO_USD.RELOJ) });
-    add('TC_HABILITACION', relojes, { concepto: 'Habilitación ADMS del reloj', precio: usd(TEMPO_USD.HABILITACION) });
     if (relojes > 1) add('TC_RELOJ_ADIC_INST', relojes - 1);
     add('TC_ENVIO', 1);
     const lic = nivel(TEMPO_USD.LICENCIA, r.empleados), ren = nivel(TEMPO_USD.RENOVACION, r.empleados);
@@ -396,7 +395,7 @@ const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
     if (r.nominas === 'no') notas.push('Tempo Control funciona sin CONTPAQi Nóminas; si después la adquieres, se integra.');
     if (r.poliza === 'anual') add('POLIZA_ANUAL', 1);
     if (r.poliza === 'mensual' && PRECIOS.POLIZA_MES) recurrentes.push({ concepto: PRECIOS.POLIZA_MES.concepto, importe: PRECIOS.POLIZA_MES.precio, periodo: 'mes' });
-    notas.push('Solo instalamos el reloj MB160ID / ADMS; no activamos otros modelos. Dólares a $' + TC + '.');
+    notas.push('Todo el servicio es remoto: el reloj se envía a tu domicilio y lo configuramos a distancia. Solo vendemos y configuramos el MB160ID / ADMS.');
     const subtotal = Math.round(lineas.reduce((s, l) => s + l.importe, 0) * 100) / 100;
     const iva = Math.round(subtotal * IVA) / 100;
     return { lineas, recurrentes, notas, subtotal, iva, total: Math.round((subtotal + iva) * 100) / 100 };
@@ -420,7 +419,7 @@ const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
       (producto === 'tempo' ? rt : rc).forEach(x => razones.push(x));
       if (t === c) razones.push('Las dos te quedan; recomendamos la de menor inversión inicial.');
     }
-    if (producto === 'tempo') razones.push('La licencia de Tempo Control se renueva cada año (en dólares) y el reloj necesita internet.');
+    if (producto === 'tempo') razones.push('La licencia de Tempo Control se renueva cada año y el reloj necesita internet.');
     return { producto, razones };
   }
 
@@ -447,7 +446,7 @@ const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
     $('#ivaPct').textContent = IVA;
     $('#precioBase').textContent = pesos(PRECIOS.BASE_BASICO.precio).replace('.00', '');
     if (PRECIOS.TC_BASE) $('#precioBaseTc').textContent = pesos(PRECIOS.TC_BASE.precio).replace('.00', '');
-    $('#precioReloj').textContent = pesos(usd(TEMPO_USD.RELOJ)).replace('.00', ''); $('#precioHab').textContent = pesos(usd(TEMPO_USD.HABILITACION)).replace('.00', ''); $('#tcTxt').textContent = '$' + TC;
+    $('#precioReloj').textContent = pesos(usd(TEMPO_USD.RELOJ)).replace('.00', '');
     document.querySelectorAll('.precio-tag').forEach(el => { const p = PRECIOS[el.dataset.p]; el.textContent = p ? '+ ' + pesos(p.precio).replace('.00', '') : ''; });
     const t = (id, k, suf) => { const p = PRECIOS[k]; if (p) $(id).textContent = '+ ' + pesos(p.precio).replace('.00', '') + (suf || ''); };
     t('#pColab25', 'COLAB_25'); t('#pColab100', 'COLAB_100'); t('#pColab300', 'COLAB_300');
