@@ -297,7 +297,7 @@ let PRECIOS = {
   CAP_SESION: { concepto: 'Sesión adicional de capacitación (1.5 h)', precio: 900 },
   PRESENCIAL: { concepto: 'Visita presencial (CDMX), por día', precio: 1500 },
   KIT_EVIDENCIA: { concepto: 'Kit de evidencia', precio: 900 },
-  ACTUALIZACION: { concepto: 'Actualización de CONTPAQi Nóminas', precio: 800 },
+  ACTUALIZACION: { concepto: 'Actualización de CONTPAQi Nóminas a la versión actual', precio: 800 },
   POLIZA_MES: { concepto: 'Póliza de soporte (mensual)', precio: 600 },
   POLIZA_ANUAL: { concepto: 'Póliza de soporte (anual)', precio: 6000 },
   TC_BASE: { concepto: 'Paquete Básico · Implementación de Tempo Control', precio: 6400 },
@@ -408,15 +408,16 @@ const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
     else if (r.preferencia === 'celular') { producto = 'colabora'; razones.push('Prefieres que chequen desde su celular: Colabora valida huella o rostro en el teléfono y la ubicación con geocerca.'); }
     else if (r.preferencia === 'reloj') { producto = 'tempo'; razones.push('Quieres un reloj biométrico en la entrada: Tempo Control registra huella, rostro o tarjeta sin depender del celular de cada quien.'); }
     else {
-      let t = 0, c = 0;
-      if (r.lugar === 'fijo') { t += 2; razones.push('Todos checan en un lugar fijo: un reloj biométrico en la puerta es lo más simple.'); }
-      if (r.lugar === 'mixto') { c += 2; razones.push('Tienes personal fijo y en campo: Colabora cubre a ambos desde el celular.'); }
-      if (r.rotativos) { t += 1; razones.push('Manejas turnos rotativos o por horas: Tempo Control los maneja de forma nativa.'); }
-      if (r.nominas === 'no') { t += 1; razones.push('No tienes CONTPAQi Nóminas: Colabora la necesita; Tempo Control funciona solo.'); }
-      if (r.nominas === 'actual') { c += 1; razones.push('Ya tienes CONTPAQi Nóminas: Colabora viene incluido.'); }
-      if (r.modulos.length) { c += 2; razones.push('Quieres vacaciones, recibos o WhatsApp: solo existen en Colabora.'); }
-      if (r.centros >= 3) { c += 1; razones.push('Con ' + r.centros + ' centros, Tempo Control necesita un reloj por sitio y encarece.'); }
+      let t = 0, c = 0; const rt = [], rc = [];
+      if (r.lugar === 'fijo') { t += 2; rt.push('Todos checan en un lugar fijo: un reloj biométrico en la puerta es lo más simple.'); }
+      if (r.lugar === 'mixto') { c += 2; rc.push('Tienes personal fijo y en campo: Colabora cubre a ambos desde el celular.'); }
+      if (r.rotativos) { t += 1; rt.push('Manejas turnos rotativos o por horas: Tempo Control los maneja de forma nativa.'); }
+      if (r.nominas === 'no') { t += 1; rt.push('No tienes CONTPAQi Nóminas: Colabora la necesita; Tempo Control funciona solo.'); }
+      if (r.nominas === 'actual') { c += 1; rc.push('Ya tienes CONTPAQi Nóminas: Colabora viene incluido.'); }
+      if (r.modulos.length) { c += 2; rc.push('Quieres vacaciones, recibos o WhatsApp: solo existen en Colabora.'); }
+      if (r.centros >= 3) { c += 1; rc.push('Con ' + r.centros + ' centros, Tempo Control necesita un reloj por sitio y encarece.'); }
       producto = t > c ? 'tempo' : (c > t ? 'colabora' : (cT.total < cC.total ? 'tempo' : 'colabora'));
+      (producto === 'tempo' ? rt : rc).forEach(x => razones.push(x));
       if (t === c) razones.push('Las dos te quedan; recomendamos la de menor inversión inicial.');
     }
     if (producto === 'tempo') razones.push('La licencia de Tempo Control se renueva cada año (en dólares) y el reloj necesita internet.');
