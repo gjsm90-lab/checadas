@@ -71,6 +71,11 @@ header p b{color:#fff}
 .datos input:focus,.datos textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,94,184,.14);background:#fff}
 .datos .err input{border-color:var(--bad);background:#FFF7F7}
 .errmsg{color:#B42318;font-size:12.5px;font-weight:600}
+.regimen{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.regimen .lblr{font-weight:700;font-size:13.5px}
+.regimen.err .opc label{border-color:var(--bad);background:#FFF7F7}
+.tot .ret{color:var(--slate)}
+.tot .neto{font-weight:800;color:var(--navy);font-size:15px;border-top:1.5px solid var(--line);margin-top:4px;padding-top:6px}
 .errmsg:empty{display:none}
 .trampa{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
 .resumen{position:sticky;top:16px;background:#fff;border-radius:20px;box-shadow:0 24px 60px -24px rgba(6,20,51,.35);overflow:hidden}
@@ -270,6 +275,13 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
         <div class="c"><label for="telefono">Teléfono (WhatsApp)</label><input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" required></div>
         <div class="c full"><label for="comentarios">¿Algo que debamos saber? (opcional)</label><textarea id="comentarios" name="comentarios" rows="2" maxlength="500" placeholder="Ej. tenemos personal en campo, o usamos Nóminas en la nube"></textarea></div>
       </div>
+      <div class="regimen c">
+        <span class="lblr" id="regimenTxt">¿A quién facturamos?</span>
+        <div class="opc" id="regimen" role="radiogroup" aria-labelledby="regimenTxt" tabindex="-1">
+          <label><input type="radio" name="regimen" value="moral">Persona moral<small>Empresa (S.A., S. de R.L., etc.). Retiene 1.25% de ISR porque somos RESICO</small></label>
+          <label><input type="radio" name="regimen" value="fisica">Persona física<small>Sin retenciones</small></label>
+        </div>
+      </div>
       <div class="trampa" aria-hidden="true"><label for="sitio_web">No llenar</label><input id="sitio_web" name="sitio_web" tabindex="-1" autocomplete="off"></div>
     </section>
   </form>
@@ -279,7 +291,7 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
     <div id="vivo">
       <div class="razones" id="razones"></div>
       <div class="lineas" id="lineas"></div>
-      <div class="tot"><div><span>Subtotal</span><span id="st">$3,900.00</span></div><div><span>IVA <span id="ivaPct">16</span>%</span><span id="iv">$624.00</span></div><div class="t"><span>Total</span><span id="tt">$4,524.00</span></div><div id="recurrente" style="display:none;color:var(--navy);font-weight:700"></div></div>
+      <div class="tot"><div><span>Subtotal</span><span id="st">$3,900.00</span></div><div><span>IVA <span id="ivaPct">16</span>%</span><span id="iv">$624.00</span></div><div class="t"><span>Total</span><span id="tt">$4,524.00</span></div><div id="retRows" style="display:none"></div><span id="netoVal" hidden></span><div id="recurrente" style="display:none;color:var(--navy);font-weight:700"></div></div>
       <div class="notas" id="notas"></div>
       <div class="alt" id="alt"></div>
       <div class="alerta" id="alerta"></div>
@@ -375,7 +387,7 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
       eleccion, nominas: fd.get('nominas'), lugar: fd.get('lugar'), preferencia, empleados, rotativos: fd.get('rotativos') === 'si',
       empresas: n('empresas', 1, 20), centros: n('centros', 1, 60), horarios: n('horarios', 1, 60), relojes: n('relojes', 1, 60),
       colaboradores: fd.get('carga') === 'todos' ? cargaClave(empleados) : '5', modulos: eleccion === 'tempo' ? [] : fd.getAll('modulos'), sesiones: n('sesiones', 0, 6),
-      poliza: fd.get('poliza')
+      poliza: fd.get('poliza'), regimen: fd.get('regimen') || ''
     };
   }
 
@@ -414,7 +426,8 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
   // ¿Tempo Control sin reloj biométrico? Igual que tempoSinReloj_ del servidor: sí si lo pide, si prefiere el celular o si checan en campo; no si pide reloj físico.
   let ELECCION_OK = true;    // false si el servidor publicado aún no entiende «eleccion» (versión < 5)
   let SIN_RELOJ_OK = true;
-  let RELOJES_OK = true;      // false si el servidor publicado aún no cobra por reloj (versión < 6)   // false si el servidor publicado aún no conoce «Tempo Control sin reloj» (su lista de precios no trae TC_BASE_SIN_RELOJ)
+  let RELOJES_OK = true;
+  let RET = { isr: 1.25 };   // retención de ISR a persona moral (RESICO); el servidor manda la de la hoja      // false si el servidor publicado aún no cobra por reloj (versión < 6)   // false si el servidor publicado aún no conoce «Tempo Control sin reloj» (su lista de precios no trae TC_BASE_SIN_RELOJ)
   const sinReloj = r => SIN_RELOJ_OK && (r.preferencia === 'tempo_sin_reloj' || (r.preferencia !== 'reloj' && (r.preferencia === 'celular' || r.lugar === 'campo')));
 
   function cotizarTempo(r) {
@@ -459,6 +472,13 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     const subtotal = Math.round(lineas.reduce((s, l) => s + l.importe, 0) * 100) / 100;
     const iva = Math.round(subtotal * IVA) / 100;
     return { lineas, recurrentes, notas, subtotal, iva, total: Math.round((subtotal + iva) * 100) / 100 };
+  }
+
+  function retenciones(cot, r) {
+    const red = n => Math.round(n * 100) / 100, ret = [];
+    if (r.regimen === 'moral' && RET.isr > 0) ret.push({ concepto: 'Retención de ISR ' + RET.isr + '% (RESICO)', importe: red(cot.subtotal * RET.isr / 100) });
+    cot.retenciones = ret; cot.neto = red(cot.total - ret.reduce((s, x) => s + x.importe, 0));
+    return cot;
   }
 
   function recomendar(r, cC, cT) {
@@ -536,13 +556,17 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     if (!relojesTocado) $('#relojes').value = Math.min(60, Math.max(1, parseInt($('#centros').value, 10) || 1));
     const r = leer();
     vista(r);
-    const cC = cotizar(r), cT = cotizarTempo(r);
+    const cC = retenciones(cotizar(r), r), cT = retenciones(cotizarTempo(r), r);
     const rec = recomendar(r, cC, cT);
     const c = rec.producto === 'tempo' ? cT : cC, alt = rec.producto === 'tempo' ? cC : cT;
     $('#recLbl').textContent = (rec.elegido ? 'Tu elección · ' : 'Te va mejor · ') + NOMBRE[rec.producto];
     $('#razones').innerHTML = rec.razones.map(x => '<p>✓ ' + esc(x) + '</p>').join('');
     $('#lineas').innerHTML = c.lineas.map(l => '<div class="lin"><span>' + esc(l.concepto) + (l.cantidad > 1 ? ' × ' + l.cantidad : '') + '</span><span>' + pesos(l.importe) + '</span></div>').join('');
     $('#st').textContent = pesos(c.subtotal); $('#iv').textContent = pesos(c.iva); $('#tt').textContent = pesos(c.total);
+    $('#netoVal').textContent = pesos(c.neto);
+    $('#retRows').style.display = c.retenciones.length ? '' : 'none';
+    $('#retRows').innerHTML = c.retenciones.map(x => '<div class="ret"><span>' + esc(x.concepto) + '</span><span>- ' + pesos(x.importe) + '</span></div>').join('')
+      + (c.retenciones.length ? '<div class="neto"><span>Total a pagar</span><span>' + pesos(c.neto) + '</span></div>' : '');
     $('#total').textContent = pesos(c.total); $('#subtotalTxt').textContent = pesos(c.subtotal) + ' + IVA';
     const recEl = $('#recurrente');
     recEl.style.display = c.recurrentes.length ? '' : 'none';
@@ -596,6 +620,7 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
         CONFIG.WHATSAPP = d.contacto.whatsapp; if (d.contacto.nombre) CONFIG.CONTACTO = d.contacto.nombre;
         $('#pieWa').href = 'https://wa.me/' + CONFIG.WHATSAPP; $('#pieWa').textContent = telVisible(CONFIG.WHATSAPP); $('#pieContacto').textContent = CONFIG.CONTACTO;
       }
+      if (d && d.retenciones && typeof d.retenciones.isr === 'number') RET = { isr: d.retenciones.isr };
       if (d && d.ok && d.precios && d.precios.BASE_BASICO) { PRECIOS = Object.assign({}, PRECIOS, d.precios); if (!d.precios.TC_ENVIO_ADIC) delete PRECIOS.TC_ENVIO_ADIC; IVA = Number(d.iva) || 16; TC = Number(d.tipoCambio) || 20; if (d.tempoUsd && d.tempoUsd.LICENCIA) { TEMPO_USD = d.tempoUsd; armarEmpleados(); } VIG = Number(d.vigencia) || 30; document.querySelectorAll('.vig').forEach(e => { e.textContent = VIG; }); pintarPrecios(); }
     }).catch(() => { /* se quedan los de respaldo */ });
   }
@@ -607,9 +632,9 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     const i = $('#' + b.dataset.m); i.value = Math.min(+i.max, Math.max(+i.min, (parseInt(i.value, 10) || 0) + (+b.dataset.d))); pintar();
   }));
 
-  const MSG = { nombre: 'Escribe tu nombre completo.', empresa: 'Escribe el nombre de tu empresa.', telefono: 'Escribe un teléfono de 10 dígitos.', correo: 'Revisa tu correo: ahí te llega la cotización.' };
+  const MSG = { regimen: 'Elige si facturamos a persona moral o física (cambia la retención).', nombre: 'Escribe tu nombre completo.', empresa: 'Escribe el nombre de tu empresa.', telefono: 'Escribe un teléfono de 10 dígitos.', correo: 'Revisa tu correo: ahí te llega la cotización.' };
   function marcar(err) {
-    ['nombre', 'empresa', 'correo', 'telefono'].forEach(k => {
+    ['nombre', 'empresa', 'correo', 'telefono', 'regimen'].forEach(k => {
       const i = $('#' + k), c = i.closest('.c');
       let m = c.querySelector('.errmsg');
       if (!m) { m = document.createElement('small'); m.className = 'errmsg'; m.id = 'err-' + k; m.setAttribute('role', 'alert'); c.appendChild(m); i.setAttribute('aria-describedby', m.id); }
@@ -623,6 +648,10 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
   ['nombre', 'empresa', 'correo', 'telefono'].forEach(k => $('#' + k).addEventListener('input', () => {
     const i = $('#' + k), c = i.closest('.c'), m = c.querySelector('.errmsg');
     c.classList.remove('err'); i.setAttribute('aria-invalid', 'false'); if (m) m.textContent = '';
+  }));
+  form.querySelectorAll('input[name=regimen]').forEach(i => i.addEventListener('change', () => {
+    const c = $('#regimen').closest('.c'), m = c.querySelector('.errmsg');
+    c.classList.remove('err'); $('#regimen').setAttribute('aria-invalid', 'false'); if (m) m.textContent = '';
   }));
   let enviado = false;   // después de enviar, Enter no vuelve a mandar la misma cotización
 
@@ -640,11 +669,12 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     if (d.empresa.length < 2) err.empresa = 1;
     if (!/^[A-Za-z0-9][A-Za-z0-9._%+\-]*@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$/.test(d.correo)) err.correo = 1;
     const dig = d.telefono.replace(/\D/g, ''); if (dig.length < 10 || dig.length > 13) err.telefono = 1;
+    if (!d.regimen) err.regimen = 1;
     marcar(err); if (Object.keys(err).length) return;
     const btn = $('#btnEnviar'); btn.disabled = true; btn.textContent = 'Generando tu cotización…';
     try {
       let r;
-      if (!CONFIG.ENDPOINT || DEMO) { await new Promise(x => setTimeout(x, 600)); const v = pintar(); r = { ok: true, folio: 'COT-CHK-DEMO', producto: v.rec.producto, total: v.c.total, enviado: true, demo: true, elegido: !!v.rec.elegido }; }
+      if (!CONFIG.ENDPOINT || DEMO) { await new Promise(x => setTimeout(x, 600)); const v = pintar(); r = { ok: true, folio: 'COT-CHK-DEMO', producto: v.rec.producto, total: v.c.total, neto: v.c.neto, enviado: true, demo: true, elegido: !!v.rec.elegido }; }
       else {
         const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 60000);   // con PDF y copias puede tardar
         const resp = await fetch(CONFIG.ENDPOINT, { method: 'POST', body: JSON.stringify(d), signal: ctrl.signal });
@@ -655,6 +685,7 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
         $('#exTexto').innerHTML = (r.enviado ? 'Te la mandamos a <b>' + esc(d.correo) + '</b> con el PDF adjunto. ' : 'Hubo un detalle al enviar el correo; te la mandamos nosotros en breve. ')
           + (r.elegido ? 'Tu cotización de <b>' : 'Te va mejor <b>') + esc(NOMBRE[r.producto] || '') + '</b>: <b>' + pesos(r.total) + ' MXN</b> (IVA incluido). '
           + (r.elegido ? '' : 'La alternativa va en el mismo correo. ') + 'Vigencia ' + VIG + ' días.' + (r.pdf ? ' También puedes descargarla aquí.' : '')
+          + (r.neto && r.neto !== r.total ? ' Como persona moral retienes ISR: a pagar <b>' + pesos(r.neto) + ' MXN</b>.' : '')
           + '<br><b>Para agendar tu proyecto se paga el 100%</b>; en tu cotización vienen los datos bancarios y el concepto de pago.';
         enviado = true;
         const bp = $('#btnPdf'); bp.style.display = 'none';
