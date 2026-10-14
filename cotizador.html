@@ -295,13 +295,14 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
 </main>
 
 <footer class="wrap">
-  Precios en pesos mexicanos más IVA. Esta cotización cubre el servicio de implementación, configuración y capacitación por TFGRUPO y NUBYTEC; CONTPAQi Colabora® se incluye sin costo adicional con CONTPAQi Nóminas® conforme a las condiciones de licenciamiento vigentes de CONTPAQi (hasta 1,000 colaboradores). CONTPAQi®, CONTPAQi Nóminas® y CONTPAQi Colabora® son marcas registradas de Computación en Acción, S.A. de C.V. Proyecto de TFGRUPO y NUBYTEC · TFGRUPO, Distribuidor certificado CONTPAQi® · WhatsApp 55 6580 5408 · gabriel.salas@tfgrupo.com.mx
+  Precios en pesos mexicanos más IVA. Esta cotización cubre el servicio de implementación, configuración y capacitación por TFGRUPO y NUBYTEC; CONTPAQi Colabora® se incluye sin costo adicional con CONTPAQi Nóminas® conforme a las condiciones de licenciamiento vigentes de CONTPAQi (hasta 1,000 colaboradores). CONTPAQi®, CONTPAQi Nóminas® y CONTPAQi Colabora® son marcas registradas de Computación en Acción, S.A. de C.V. Proyecto de TFGRUPO y NUBYTEC · TFGRUPO, Distribuidor certificado CONTPAQi® · Atención: <span id="pieContacto">Dalia Torres</span>, WhatsApp <a id="pieWa" href="https://wa.me/525621624167">56 2162 4167</a> · clientes@nubytec.com.mx
 </footer>
 
 <script>
 const CONFIG = {
   ENDPOINT: 'https://script.google.com/macros/s/AKfycbyH-sPxHo0JcGnlTXwz-N8QlUoKCYPGURNDhBZoq9cGzH02VbN654IbH-FyH24Zt4u8tw/exec',
-  WHATSAPP: '525565805408'
+  WHATSAPP: '525621624167',          // Dalia Torres (si la hoja trae otro, se usa el de la hoja)
+  CONTACTO: 'Dalia Torres'
 };
 // Precios de respaldo (los reales se leen de la hoja «Precios» al abrir la página)
 let PRECIOS = {
@@ -332,6 +333,7 @@ let TEMPO_USD = { RELOJ: 290,
   RENOVACION: [[10, 115], [25, 130], [50, 145], [75, 162], [100, 179], [125, 195], [150, 212], [200, 244], [250, 278], [300, 310], [400, 360], [500, 409], [600, 458], [750, 524], [900, 590], [1050, 656], [0, 1005]] };
 const NOMBRE = { colabora: 'CONTPAQi Colabora®', tempo: 'Tempo Control' };
 const POLIZAS = { '4h': 'POLIZA_4H', '10h': 'POLIZA_10H', '20h': 'POLIZA_20H' };
+const telVisible = n => { const d = String(n || '').replace(/\D/g, '').slice(-10); return d.length === 10 ? d.slice(0, 2) + ' ' + d.slice(2, 6) + ' ' + d.slice(6) : String(n || ''); };
 const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 'mas');   // carga «a todos» según el rango de empleados
 
 (function () {
@@ -570,6 +572,10 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
         ELECCION_OK = false;
         document.querySelector('input[name=eleccion][value=recomienden]').checked = true; $('#pasoEleccion').style.display = 'none';
       }
+      if (d && d.contacto && /^\d{12,13}$/.test(String(d.contacto.whatsapp || ''))) {   // el contacto de la hoja manda
+        CONFIG.WHATSAPP = d.contacto.whatsapp; if (d.contacto.nombre) CONFIG.CONTACTO = d.contacto.nombre;
+        $('#pieWa').href = 'https://wa.me/' + CONFIG.WHATSAPP; $('#pieWa').textContent = telVisible(CONFIG.WHATSAPP); $('#pieContacto').textContent = CONFIG.CONTACTO;
+      }
       if (d && d.ok && d.precios && d.precios.BASE_BASICO) { PRECIOS = Object.assign({}, PRECIOS, d.precios); IVA = Number(d.iva) || 16; TC = Number(d.tipoCambio) || 20; if (d.tempoUsd && d.tempoUsd.LICENCIA) { TEMPO_USD = d.tempoUsd; armarEmpleados(); } VIG = Number(d.vigencia) || 30; document.querySelectorAll('.vig').forEach(e => { e.textContent = VIG; }); pintarPrecios(); }
     }).catch(() => { /* se quedan los de respaldo */ });
   }
@@ -627,7 +633,8 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
         $('#exTitulo').textContent = r.enviado ? '¡Listo! Cotización ' + r.folio : 'Cotización ' + r.folio + ' registrada';
         $('#exTexto').innerHTML = (r.enviado ? 'Te la mandamos a <b>' + esc(d.correo) + '</b> con el PDF adjunto. ' : 'Hubo un detalle al enviar el correo; te la mandamos nosotros en breve. ')
           + (r.elegido ? 'Tu cotización de <b>' : 'Te va mejor <b>') + esc(NOMBRE[r.producto] || '') + '</b>: <b>' + pesos(r.total) + ' MXN</b> (IVA incluido). '
-          + (r.elegido ? '' : 'La alternativa va en el mismo correo. ') + 'Vigencia ' + VIG + ' días.' + (r.pdf ? ' También puedes descargarla aquí.' : '');
+          + (r.elegido ? '' : 'La alternativa va en el mismo correo. ') + 'Vigencia ' + VIG + ' días.' + (r.pdf ? ' También puedes descargarla aquí.' : '')
+          + '<br><b>Para agendar tu proyecto se paga el 100%</b>; en tu cotización vienen los datos bancarios y el concepto de pago.';
         enviado = true;
         const bp = $('#btnPdf'); bp.style.display = 'none';
         if (r.pdf) {   // el servidor manda el PDF: se descarga sin salir de la página
@@ -640,15 +647,15 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
             bp.style.display = '';
           } catch (e) { bp.style.display = 'none'; }
         }
-        $('#btnWa').href = 'https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent('Hola Gabriel, quiero contratar la cotización ' + r.folio + ' (' + d.empresa + ')');
+        $('#btnWa').href = 'https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent('Hola ' + CONFIG.CONTACTO.split(' ')[0] + ', quiero contratar la cotización ' + r.folio + ' (' + d.empresa + ')');
         $('#vivo').style.display = 'none'; $('#exito').classList.add('on');
         $('#resumen').scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else if (r && MSG[r.error]) { marcar({ [r.error]: 1 }); }
       else if (r && r.error === 'repetida') { alerta.textContent = 'Ya te mandamos una cotización a este correo hace unos minutos. Revisa tu bandeja (y Promociones o Spam); si quieres otra, espera 10 minutos.'; alerta.classList.add('on'); }
       else if (r && r.error === 'ocupado') { alerta.textContent = 'Hay mucha demanda en este momento; intenta de nuevo en unos segundos.'; alerta.classList.add('on'); }
-      else { alerta.textContent = 'No pudimos generar la cotización. Intenta de nuevo o escríbenos por WhatsApp al 55 6580 5408.'; alerta.classList.add('on'); }
+      else { alerta.textContent = 'No pudimos generar la cotización. Intenta de nuevo o escríbenos por WhatsApp al ' + telVisible(CONFIG.WHATSAPP) + '.'; alerta.classList.add('on'); }
     } catch (e) {
-      alerta.textContent = 'No pudimos conectar (revisa tu internet). También puedes escribirnos por WhatsApp al 55 6580 5408.'; alerta.classList.add('on');
+      alerta.textContent = 'No pudimos conectar (revisa tu internet). También puedes escribirnos por WhatsApp al ' + telVisible(CONFIG.WHATSAPP) + '.'; alerta.classList.add('on');
     } finally { btn.disabled = false; btn.textContent = 'Enviar mi cotización a mi correo →'; }
   });
 
