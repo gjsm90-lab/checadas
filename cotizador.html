@@ -128,7 +128,7 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
     </div>
     <span class="badge">Cotización al instante · sin compromiso</span>
     <h1 id="titulo">¿<span>Colabora</span> o <span>Tempo Control</span>? Arma tu cotización en 1 minuto</h1>
-    <p>Responde estas preguntas y te decimos <b>qué te conviene más</b> para el registro electrónico de jornada: <b>CONTPAQi Colabora®</b> (checan desde el celular con geocerca, incluido con Nóminas) o <b>Tempo Control</b> (con o sin reloj biométrico de huella y rostro en la entrada; también checan con app Android, web o WhatsApp). La cotización te llega a tu correo <b>al momento</b>. Nosotros lo dejamos funcionando: configuración, conexión con tu nómina y capacitación.</p>
+    <p>Responde estas preguntas y te decimos <b>qué te conviene más</b> para el registro electrónico de jornada: <b>CONTPAQi Colabora®</b> (checan desde el celular con geocerca, incluido con Nóminas) o <b>Tempo Control</b> (con o sin reloj biométrico de huella y rostro en la entrada; también checan con app Android o web). La cotización te llega a tu correo <b>al momento</b>. Nosotros lo dejamos funcionando: configuración, conexión con tu nómina y capacitación.</p>
   </div>
 </header>
 
@@ -143,8 +143,8 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
         <label><input type="radio" name="eleccion" value="tempo">Quiero Tempo Control<small>Con o sin reloj biométrico</small></label>
       </div>
       <div class="num" id="pregReloj" style="display:none;margin-top:14px">
-        <div class="fld"><span class="lbl" id="relojTxt">¿Con reloj biométrico en la entrada?<small>Con reloj: huella, rostro o tarjeta (MB160ID / ADMS). Sin reloj: checan con la app Android, el checador web o WhatsApp.</small></span>
-          <div class="opc" role="radiogroup" aria-labelledby="relojTxt"><label><input type="radio" name="reloj_tc" value="si" checked>Con reloj<small>Se envía a tu domicilio</small></label><label id="lblSinReloj"><input type="radio" name="reloj_tc" value="no">Sin reloj<small>App Android, web y WhatsApp</small></label></div></div>
+        <div class="fld"><span class="lbl" id="relojTxt">¿Con reloj biométrico en la entrada?<small>Con reloj: huella, rostro o tarjeta (MB160ID / ADMS). Sin reloj: checan con la app Android o el checador web.</small></span>
+          <div class="opc" role="radiogroup" aria-labelledby="relojTxt"><label><input type="radio" name="reloj_tc" value="si" checked>Con reloj<small>Se envía a tu domicilio</small></label><label id="lblSinReloj"><input type="radio" name="reloj_tc" value="no">Sin reloj<small>App Android y web</small></label></div></div>
       </div>
     </section>
 
@@ -161,10 +161,10 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
       <div id="paqTempo">
         <h2>🕐 Tempo Control · desde <span id="precioBaseTc">$6,400</span> + IVA</h2>
         <ul>
-          <li><b>Con o sin reloj biométrico.</b> Con el reloj MB160ID / ADMS en la entrada (huella, rostro o tarjeta) o sin reloj. <b>Funciona con app Android, checador web y WhatsApp</b> (no hay app para iPhone).</li>
+          <li><b>Con o sin reloj biométrico.</b> Con el reloj MB160ID / ADMS en la entrada (huella, rostro o tarjeta) o sin reloj. <b>Funciona con app Android y checador web</b> (no hay app para iPhone).</li>
           <li><b>Incluye:</b> instalación y activación en 1 equipo, checador móvil, 1 reloj vinculado (si lo incluyes), 1 horario normal estándar, interfaz con CONTPAQi Nóminas (hasta 10 empleados), pruebas, capacitación básica y manual web. Hasta 10 horas remotas. Más relojes, empresas u horarios tienen costo adicional.</li>
           <li><b>No incluye</b> instalación física, cableado ni montaje del reloj, ni horarios rotativos o especiales (se cotizan aparte).</li>
-          <li>Más la <b>licencia anual</b> según tus empleados y, si lo quieres, el reloj (<span id="precioReloj">$5,800</span>, se envía a tu domicilio).</li>
+          <li>Más la <b>licencia anual</b> según tus empleados y, si lo quieres, uno o varios relojes (<span id="precioReloj">$5,800</span> c/u; envío <span id="precioEnvio">$490</span> el primero y <span id="precioEnvioAdic">$300</span> cada adicional).</li>
         </ul>
       </div>
     </div>
@@ -181,7 +181,7 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
         <label><input type="radio" name="preferencia" value="recomienden" checked>Que me recomienden<small>Según mis respuestas</small></label>
         <label><input type="radio" name="preferencia" value="reloj">Reloj físico en la entrada<small>Huella, rostro o tarjeta</small></label>
         <label><input type="radio" name="preferencia" value="celular">Desde su celular<small>App con geocerca</small></label>
-        <label><input type="radio" name="preferencia" value="tempo_sin_reloj">Tempo Control sin reloj<small>Solo app Android, web y WhatsApp</small></label>
+        <label><input type="radio" name="preferencia" value="tempo_sin_reloj">Tempo Control sin reloj<small>Solo app Android y web</small></label>
       </div>
       <div class="num">
         <div class="fld"><label class="lbl" for="empleados">Colaboradores en total</label>
@@ -205,7 +205,7 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
 
     <section class="paso">
       <h2><i>4</i>Tu operación</h2>
-      <p class="ayuda">El paquete incluye 1 empresa, 1 centro de trabajo y hasta 3 horarios normales (1 en Tempo Control). Cada empresa adicional suma su centro y su horario; lo demás se cotiza por pieza. Con Tempo Control y reloj biométrico, cada centro lleva su propio reloj; sin reloj, los centros no cuestan más.</p>
+      <p class="ayuda">El paquete incluye 1 empresa, 1 centro de trabajo y hasta 3 horarios normales (1 en Tempo Control). Cada empresa adicional suma su centro y su horario; lo demás se cotiza por pieza. Con Tempo Control con reloj, eliges cuántos relojes llevas (de entrada, uno por centro); sin reloj, los centros no cuestan más.</p>
       <div class="num">
         <div class="fld"><label class="lbl" for="empresas">Empresas (RFC) a configurar<small>Razones sociales con nómina</small></label>
           <div class="cont"><button type="button" data-m="empresas" data-d="-1" aria-label="Menos empresas">−</button><input id="empresas" name="empresas" type="number" min="1" max="20" value="1"><button type="button" data-m="empresas" data-d="1" aria-label="Más empresas">+</button></div></div>
@@ -213,6 +213,9 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
           <div class="cont"><button type="button" data-m="centros" data-d="-1" aria-label="Menos centros de trabajo">−</button><input id="centros" name="centros" type="number" min="1" max="60" value="1"><button type="button" data-m="centros" data-d="1" aria-label="Más centros de trabajo">+</button></div></div>
         <div class="fld"><label class="lbl" for="horarios">Horarios o turnos<small>Distintos entre sí</small></label>
           <div class="cont"><button type="button" data-m="horarios" data-d="-1" aria-label="Menos horarios">−</button><input id="horarios" name="horarios" type="number" min="1" max="60" value="1"><button type="button" data-m="horarios" data-d="1" aria-label="Más horarios">+</button></div></div>
+        <div class="fld" id="fldRelojes"><label class="lbl" for="relojes">Relojes checadores<small>Tempo Control · uno por entrada o sitio</small></label>
+          <div class="cont"><button type="button" data-m="relojes" data-d="-1" aria-label="Menos relojes">−</button><input id="relojes" name="relojes" type="number" min="1" max="60" value="1"><button type="button" data-m="relojes" data-d="1" aria-label="Más relojes">+</button></div>
+          <p class="ayuda" id="relojesTxt" style="margin:8px 0 0" aria-live="polite"></p></div>
       </div>
     </section>
 
@@ -325,7 +328,8 @@ let PRECIOS = {
   TC_BASE: { concepto: 'Paquete Básico · Implementación de Tempo Control', precio: 6400 },
   TC_BASE_SIN_RELOJ: { concepto: 'Paquete Básico · Implementación de Tempo Control (sin reloj)', precio: 6400 },
   TC_RELOJ_ADIC_INST: { concepto: 'Configuración remota de reloj adicional', precio: 350 },
-  TC_ENVIO: { concepto: 'Envío de relojes', precio: 450 }
+  TC_ENVIO: { concepto: 'Envío del primer reloj (dentro de la República)', precio: 490 },
+  TC_ENVIO_ADIC: { concepto: 'Envío de cada reloj adicional', precio: 300 }
 };
 let IVA = 16, TC = 20, VIG = 30;
 let TEMPO_USD = { RELOJ: 290,
@@ -369,7 +373,7 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     const preferencia = eleccion === 'tempo' ? (fd.get('reloj_tc') === 'no' && SIN_RELOJ_OK ? 'tempo_sin_reloj' : 'reloj') : (eleccion === 'colabora' ? 'celular' : fd.get('preferencia'));
     return {
       eleccion, nominas: fd.get('nominas'), lugar: fd.get('lugar'), preferencia, empleados, rotativos: fd.get('rotativos') === 'si',
-      empresas: n('empresas', 1, 20), centros: n('centros', 1, 60), horarios: n('horarios', 1, 60),
+      empresas: n('empresas', 1, 20), centros: n('centros', 1, 60), horarios: n('horarios', 1, 60), relojes: n('relojes', 1, 60),
       colaboradores: fd.get('carga') === 'todos' ? cargaClave(empleados) : '5', modulos: eleccion === 'tempo' ? [] : fd.getAll('modulos'), sesiones: n('sesiones', 0, 6),
       poliza: fd.get('poliza')
     };
@@ -409,7 +413,8 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
 
   // ¿Tempo Control sin reloj biométrico? Igual que tempoSinReloj_ del servidor: sí si lo pide, si prefiere el celular o si checan en campo; no si pide reloj físico.
   let ELECCION_OK = true;    // false si el servidor publicado aún no entiende «eleccion» (versión < 5)
-  let SIN_RELOJ_OK = true;   // false si el servidor publicado aún no conoce «Tempo Control sin reloj» (su lista de precios no trae TC_BASE_SIN_RELOJ)
+  let SIN_RELOJ_OK = true;
+  let RELOJES_OK = true;      // false si el servidor publicado aún no cobra por reloj (versión < 6)   // false si el servidor publicado aún no conoce «Tempo Control sin reloj» (su lista de precios no trae TC_BASE_SIN_RELOJ)
   const sinReloj = r => SIN_RELOJ_OK && (r.preferencia === 'tempo_sin_reloj' || (r.preferencia !== 'reloj' && (r.preferencia === 'celular' || r.lugar === 'campo')));
 
   function cotizarTempo(r) {
@@ -419,14 +424,15 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     add(sr ? 'TC_BASE_SIN_RELOJ' : 'TC_BASE', 1);
     if (r.empresas > 1) add('EMPRESA_ADIC', r.empresas - 1);
     if (!sr) {
-      const relojes = Math.max(1, r.centros);
+      const relojes = RELOJES_OK && r.relojes > 0 ? r.relojes : Math.max(1, r.centros);   // igual que relojesTempo_ del servidor
       add('TC_RELOJ', relojes, { concepto: 'Reloj biométrico MB160ID / ADMS', precio: usd(TEMPO_USD.RELOJ) });
       if (relojes > 1) add('TC_RELOJ_ADIC_INST', relojes - 1);
       add('TC_ENVIO', 1);
+      if (relojes > 1 && RELOJES_OK) add('TC_ENVIO_ADIC', relojes - 1);
     }
     const lic = nivel(TEMPO_USD.LICENCIA, r.empleados), ren = nivel(TEMPO_USD.RENOVACION, r.empleados);
     const tope = lic[0] ? 'hasta ' + lic[0] + ' empleados' : 'empleados ilimitados';
-    add('TC_LICENCIA', 1, { concepto: 'Licencia anual Tempo Control (' + tope + ') · app Android, web y WhatsApp', precio: usd(lic[1]) });
+    add('TC_LICENCIA', 1, { concepto: 'Licencia anual Tempo Control (' + tope + ') · app Android y web', precio: usd(lic[1]) });
     recurrentes.push({ concepto: 'Renovación anual de licencia (desde el 2º año)', importe: usd(ren[1]), periodo: 'año' });
     add('HORARIO_ADIC', Math.max(0, r.horarios - r.empresas));
     if (r.empleados > 10) {   // el paquete de Tempo ya sincroniza hasta 10 empleados
@@ -435,7 +441,7 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
       if (r.colaboradores === '300') add('COLAB_300', 1);
     }
     if (r.colaboradores === 'mas') notas.push('Más de 300 colaboradores: la carga se cotiza aparte.');
-    if (r.modulos.length) notas.push('Vacaciones y permisos, recibos en la app, comunicados y el asistente de WhatsApp de Colabora solo existen en CONTPAQi Colabora®; en Tempo Control, la checada por WhatsApp ya viene con su licencia.');
+    if (r.modulos.length) notas.push('Vacaciones y permisos, recibos en la app, comunicados y el asistente de WhatsApp de Colabora solo existen en CONTPAQi Colabora®.');
     add('CAP_SESION', r.sesiones);
     if (r.nominas === 'anterior') add('ACTUALIZACION', 1);
     if (r.nominas === 'personia') notas.push('La interfaz de este paquete es con CONTPAQi Nóminas®; con Personia la validamos contigo antes de iniciar.');
@@ -445,8 +451,9 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     if (r.empleados > 10 && r.colaboradores === '5') notas.push('El paquete sincroniza hasta 10 empleados; la carga del resto la haces tú o la cotizamos aparte (opción «Carga de colaboradores»).');
     if (r.empleados <= 10 && r.colaboradores !== '5') notas.push('Tus empleados (hasta 10) ya van incluidos en el paquete; no se cobra carga adicional.');
     if (POLIZAS[r.poliza]) add(POLIZAS[r.poliza], 1);
+    notas.push('Aviso de Tempo Control: la checada por WhatsApp está pausada temporalmente, hasta nuevo aviso del proveedor.');
     if (sr) {
-      notas.push('Cotizado sin reloj biométrico: tus colaboradores checan con la app Android de Tempo Control, el checador web o WhatsApp (no hay app para iPhone). Si más adelante quieres reloj, solo vendemos y configuramos el MB160ID / ADMS y se cotiza por separado.');
+      notas.push('Cotizado sin reloj biométrico: tus colaboradores checan con la app Android de Tempo Control o el checador web (no hay app para iPhone). Si más adelante quieres reloj, solo vendemos y configuramos el MB160ID / ADMS y se cotiza por separado.');
       notas.push('Todo el servicio es remoto: la configuración y la capacitación se hacen por videollamada y acceso remoto.');
     } else notas.push('Todo el servicio es remoto: el reloj se envía a tu domicilio y lo configuramos a distancia. Solo vendemos y configuramos el MB160ID / ADMS.');
     const subtotal = Math.round(lineas.reduce((s, l) => s + l.importe, 0) * 100) / 100;
@@ -463,8 +470,8 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     }
     if (r.eleccion === 'tempo') {
       const sinR = sinReloj(r);
-      razones.push(sinR ? 'Elegiste Tempo Control sin reloj: tu personal checa con la app Android, el checador web o WhatsApp (no hay app para iPhone).'
-                        : 'Elegiste Tempo Control con reloj biométrico MB160ID / ADMS en la entrada; también pueden checar con la app Android, el checador web o WhatsApp.');
+      razones.push(sinR ? 'Elegiste Tempo Control sin reloj: tu personal checa con la app Android o el checador web (no hay app para iPhone).'
+                        : 'Elegiste Tempo Control con reloj biométrico MB160ID / ADMS en la entrada; también pueden checar con la app Android o el checador web.');
       if (r.rotativos) razones.push('Tus turnos rotativos se manejan en Tempo Control; su configuración avanzada se cotiza aparte.');
       razones.push(sinR ? 'Toma en cuenta: la licencia de Tempo Control se renueva cada año.' : 'Toma en cuenta: la licencia de Tempo Control se renueva cada año y el reloj requiere internet en el sitio.');
       return { producto: 'tempo', razones, elegido: true };
@@ -477,21 +484,22 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     else {
       let t = 0, c = 0; const rt = [], rc = [];
       const sr = sinReloj(r);
-      if (r.lugar === 'fijo') { t += 2; rt.push(sr ? 'Todos checan en un lugar fijo: Tempo Control les sirve con su app Android, el checador web o WhatsApp.' : 'Todos checan en un lugar fijo: un reloj biométrico en la puerta es lo más simple.'); }
-      if (r.lugar === 'campo') rt.push('Tu personal checa en campo: con Tempo Control sin reloj lo hace desde la app Android, el checador web o WhatsApp.');
+      if (r.lugar === 'fijo') { t += 2; rt.push(sr ? 'Todos checan en un lugar fijo: Tempo Control les sirve con su app Android o el checador web.' : 'Todos checan en un lugar fijo: un reloj biométrico en la puerta es lo más simple.'); }
+      if (r.lugar === 'campo') rt.push('Tu personal checa en campo: con Tempo Control sin reloj lo hace desde la app Android o el checador web.');
       if (r.preferencia === 'celular') { c += 1; rc.push('Prefieres el celular: Colabora tiene app para Android e iOS; Tempo Control solo para Android.'); }
       if (r.lugar === 'mixto') { c += 2; rc.push('Tienes personal fijo y en campo: Colabora cubre a ambos desde el celular.'); }
       if (r.nominas === 'no') { t += 1; rt.push('No tienes CONTPAQi Nóminas: Tempo Control funciona solo (Colabora se incluye con Nóminas o Personia).'); }
       if (r.nominas === 'actual') { c += 1; rc.push('Ya tienes CONTPAQi Nóminas: Colabora viene incluido.'); }
       if (r.nominas === 'personia') { c += 1; rc.push('Ya tienes CONTPAQi Personia: Colabora se incluye y se integra con ella.'); }
       if (r.modulos.length) { c += 2; rc.push('Quieres vacaciones y permisos, recibos en la app o el asistente de WhatsApp de Colabora: solo existen en Colabora.'); }
-      if (r.centros >= 3 && !sr) { c += 1; rc.push('Con ' + r.centros + ' centros, Tempo Control necesita un reloj por sitio y encarece.'); }
+      const nRel = sr ? 0 : (RELOJES_OK && r.relojes > 0 ? r.relojes : Math.max(1, r.centros));   // igual que relojesTempo_
+      if (nRel >= 3) { c += 1; rc.push('Con ' + nRel + ' relojes checadores, Tempo Control encarece: cada reloj suma equipo, activación y envío.'); }
       producto = t > c ? 'tempo' : (c > t ? 'colabora' : (cT.total < cC.total ? 'tempo' : 'colabora'));
       (producto === 'tempo' ? rt : rc).forEach(x => razones.push(x));
       if (t === c) razones.push('Las dos te quedan; recomendamos la de menor inversión inicial.');
     }
-    if (producto === 'tempo' && sinReloj(r)) razones.push('Tu personal checa con la app Android de Tempo Control, el checador web o WhatsApp, sin reloj físico (no hay app para iPhone).');
-    else if (producto === 'tempo' && r.lugar !== 'fijo') razones.push('Tu personal que no checa en el reloj puede hacerlo con la app Android de Tempo Control, el checador web o WhatsApp (no hay app para iPhone).');
+    if (producto === 'tempo' && sinReloj(r)) razones.push('Tu personal checa con la app Android de Tempo Control o el checador web, sin reloj físico (no hay app para iPhone).');
+    else if (producto === 'tempo' && r.lugar !== 'fijo') razones.push('Tu personal que no checa en el reloj puede hacerlo con la app Android de Tempo Control o el checador web (no hay app para iPhone).');
     if (producto === 'tempo') razones.push(sinReloj(r) ? 'La licencia de Tempo Control se renueva cada año.' : 'La licencia de Tempo Control se renueva cada año y el reloj necesita internet.');
     return { producto, razones };
   }
@@ -513,6 +521,7 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     $('#paqColabora').style.display = e === 'tempo' ? 'none' : '';
     $('#paqTempo').style.display = e === 'colabora' ? 'none' : '';
     $('#paquetes').classList.toggle('uno', e !== 'recomienden');
+    $('#fldRelojes').style.display = RELOJES_OK && e !== 'colabora' && !sinReloj(r) ? '' : 'none';   // solo cuando se cotiza Tempo con reloj
     let k = 0;   // numera solo los pasos visibles
     document.querySelectorAll('#form section.paso').forEach(sec => {
       const i = sec.querySelector('h2 i');
@@ -520,7 +529,11 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     });
   }
 
+  let relojesTocado = false;   // mientras el cliente no los mueva, va un reloj por centro
+  $('#relojes').addEventListener('input', () => { relojesTocado = true; });
+
   function pintar() {
+    if (!relojesTocado) $('#relojes').value = Math.min(60, Math.max(1, parseInt($('#centros').value, 10) || 1));
     const r = leer();
     vista(r);
     const cC = cotizar(r), cT = cotizarTempo(r);
@@ -539,6 +552,8 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     $('#pCargaTodos').textContent = r.empleados >= 5000 ? 'Más de 1,050 colaboradores: propuesta especial'
       : (kc === 'mas' ? 'Hasta ' + r.empleados + ' colaboradores: propuesta especial' : 'Hasta ' + r.empleados + ' colaboradores: + ' + pesos(pc ? pc.precio : 0).replace('.00', ''))
       + (r.empleados <= 10 && kc !== 'mas' ? ' (en Tempo Control los primeros 10 ya van incluidos)' : '');
+    const pr = k => PRECIOS[k] ? pesos(PRECIOS[k].precio).replace('.00', '') : '';
+    $('#relojesTxt').textContent = 'Reloj ' + pesos(usd(TEMPO_USD.RELOJ)).replace('.00', '') + ' c/u · envío ' + pr('TC_ENVIO') + ' el primero y ' + pr('TC_ENVIO_ADIC') + ' cada adicional · activación de cada reloj adicional ' + pr('TC_RELOJ_ADIC_INST') + ' (más IVA)';
     const cs = PRECIOS.CAP_SESION ? PRECIOS.CAP_SESION.precio : 0;
     $('#capTxt').textContent = r.sesiones > 0 ? '+' + r.sesiones + (r.sesiones === 1 ? ' sesión adicional' : ' sesiones adicionales') + ': + ' + pesos(r.sesiones * cs).replace('.00', '') : 'Sin sesiones adicionales';
     $('#alt').innerHTML = '<span>Alternativa · ' + NOMBRE[rec.producto === 'tempo' ? 'colabora' : 'tempo'] + ' (va en la cotización para comparar)</span><b>' + pesos(alt.total) + '</b>';
@@ -551,6 +566,8 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     $('#precioBase').textContent = pesos(PRECIOS.BASE_BASICO.precio).replace('.00', '');
     if (PRECIOS.TC_BASE) $('#precioBaseTc').textContent = pesos((m => isFinite(m) ? m : 0)(Math.min(...['TC_BASE', 'TC_BASE_SIN_RELOJ'].map(k => PRECIOS[k] && PRECIOS[k].precio > 0 ? PRECIOS[k].precio : Infinity)))).replace('.00', '');
     $('#precioReloj').textContent = pesos(usd(TEMPO_USD.RELOJ)).replace('.00', '');
+    if (PRECIOS.TC_ENVIO) $('#precioEnvio').textContent = pesos(PRECIOS.TC_ENVIO.precio).replace('.00', '');
+    if (PRECIOS.TC_ENVIO_ADIC) $('#precioEnvioAdic').textContent = pesos(PRECIOS.TC_ENVIO_ADIC.precio).replace('.00', '');
     document.querySelectorAll('.precio-tag').forEach(el => { const p = PRECIOS[el.dataset.p]; el.textContent = p ? '+ ' + pesos(p.precio).replace('.00', '') : ''; });
     const t = (id, k, suf) => { const p = PRECIOS[k]; if (p) $(id).textContent = '+ ' + pesos(p.precio).replace('.00', '') + (suf || ''); };
     ['4h', '10h', '20h'].forEach(k => { const p = PRECIOS[POLIZAS[k]]; $('#pPoliza' + k).textContent = p ? pesos(p.precio).replace('.00', '') + ' + IVA' : ''; });
@@ -568,6 +585,9 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
         if (rb) { if (rb.checked) document.querySelector('input[name=preferencia][value=recomienden]').checked = true; rb.closest('label').style.display = 'none'; }
         document.querySelector('input[name=reloj_tc][value=si]').checked = true; $('#lblSinReloj').style.display = 'none';
       }
+      if (d && d.ok && d.precios && d.precios.BASE_BASICO && !(Number(d.version) >= 6 && d.precios.TC_ENVIO_ADIC)) {   // servidor anterior: un reloj por centro
+        RELOJES_OK = false;
+      }
       if (d && d.ok && d.precios && d.precios.BASE_BASICO && !(Number(d.version) >= 5)) {   // servidor anterior: no sabe que el cliente elige
         ELECCION_OK = false;
         document.querySelector('input[name=eleccion][value=recomienden]').checked = true; $('#pasoEleccion').style.display = 'none';
@@ -576,13 +596,14 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
         CONFIG.WHATSAPP = d.contacto.whatsapp; if (d.contacto.nombre) CONFIG.CONTACTO = d.contacto.nombre;
         $('#pieWa').href = 'https://wa.me/' + CONFIG.WHATSAPP; $('#pieWa').textContent = telVisible(CONFIG.WHATSAPP); $('#pieContacto').textContent = CONFIG.CONTACTO;
       }
-      if (d && d.ok && d.precios && d.precios.BASE_BASICO) { PRECIOS = Object.assign({}, PRECIOS, d.precios); IVA = Number(d.iva) || 16; TC = Number(d.tipoCambio) || 20; if (d.tempoUsd && d.tempoUsd.LICENCIA) { TEMPO_USD = d.tempoUsd; armarEmpleados(); } VIG = Number(d.vigencia) || 30; document.querySelectorAll('.vig').forEach(e => { e.textContent = VIG; }); pintarPrecios(); }
+      if (d && d.ok && d.precios && d.precios.BASE_BASICO) { PRECIOS = Object.assign({}, PRECIOS, d.precios); if (!d.precios.TC_ENVIO_ADIC) delete PRECIOS.TC_ENVIO_ADIC; IVA = Number(d.iva) || 16; TC = Number(d.tipoCambio) || 20; if (d.tempoUsd && d.tempoUsd.LICENCIA) { TEMPO_USD = d.tempoUsd; armarEmpleados(); } VIG = Number(d.vigencia) || 30; document.querySelectorAll('.vig').forEach(e => { e.textContent = VIG; }); pintarPrecios(); }
     }).catch(() => { /* se quedan los de respaldo */ });
   }
 
   form.addEventListener('input', pintar);
   form.addEventListener('change', pintar);
   document.querySelectorAll('.cont button').forEach(b => b.addEventListener('click', () => {
+    if (b.dataset.m === 'relojes') relojesTocado = true;
     const i = $('#' + b.dataset.m); i.value = Math.min(+i.max, Math.max(+i.min, (parseInt(i.value, 10) || 0) + (+b.dataset.d))); pintar();
   }));
 
