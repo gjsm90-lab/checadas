@@ -94,6 +94,8 @@ header p b{color:#fff}
 .alt{margin:0 22px 14px;padding:10px 12px;border-radius:10px;background:#F1F5F9;font-size:13px;color:var(--slate);display:flex;justify-content:space-between;gap:10px}
 .alt b{color:var(--navy);white-space:nowrap}
 .dos-paq{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.dos-paq.uno{grid-template-columns:1fr}
+.btn.pdf{margin-top:10px}
 .dos-paq h2{font-size:15.5px}
 @media (max-width:640px){.dos-paq{grid-template-columns:1fr}}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;border:0;cursor:pointer;font:inherit;font-weight:800;font-size:17px;padding:15px 20px;border-radius:13px;background:var(--gold);color:var(--n950);box-shadow:0 10px 24px -8px rgba(242,177,1,.7);text-decoration:none}
@@ -132,8 +134,22 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
 
 <main class="wrap grid">
   <form id="form" novalidate>
-    <div class="incluye dos-paq">
-      <div>
+    <section class="paso" id="pasoEleccion">
+      <h2><i>1</i>¿Ya sabes cuál quieres?</h2>
+      <p class="ayuda">Si ya lo decidiste, te cotizamos solo ese. Si no, comparamos los dos con tus respuestas y te decimos cuál te conviene.</p>
+      <div class="opc">
+        <label><input type="radio" name="eleccion" value="recomienden" checked>Recomiéndame<small>Comparo las dos opciones</small></label>
+        <label><input type="radio" name="eleccion" value="colabora">Quiero Colabora<small>App Android e iOS</small></label>
+        <label><input type="radio" name="eleccion" value="tempo">Quiero Tempo Control<small>Con o sin reloj biométrico</small></label>
+      </div>
+      <div class="num" id="pregReloj" style="display:none;margin-top:14px">
+        <div class="fld"><span class="lbl" id="relojTxt">¿Con reloj biométrico en la entrada?<small>Con reloj: huella, rostro o tarjeta (MB160ID / ADMS). Sin reloj: checan con la app Android, el checador web o WhatsApp.</small></span>
+          <div class="opc" role="radiogroup" aria-labelledby="relojTxt"><label><input type="radio" name="reloj_tc" value="si" checked>Con reloj<small>Se envía a tu domicilio</small></label><label id="lblSinReloj"><input type="radio" name="reloj_tc" value="no">Sin reloj<small>App Android, web y WhatsApp</small></label></div></div>
+      </div>
+    </section>
+
+    <div class="incluye dos-paq" id="paquetes">
+      <div id="paqColabora">
         <h2>📱 CONTPAQi Colabora® · desde <span id="precioBase">$3,900</span> + IVA</h2>
         <ul>
           <li><b>Funciona en celulares Android e iOS</b> (y portal web de administración). Checan con geolocalización: ideal para campo, home office y sucursales.</li>
@@ -142,7 +158,7 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
           <li>El software <b>viene incluido</b> con CONTPAQi Nóminas o Personia, conforme a las condiciones de licenciamiento vigentes de CONTPAQi.</li>
         </ul>
       </div>
-      <div>
+      <div id="paqTempo">
         <h2>🕐 Tempo Control · desde <span id="precioBaseTc">$6,400</span> + IVA</h2>
         <ul>
           <li><b>Con o sin reloj biométrico.</b> Con el reloj MB160ID / ADMS en la entrada (huella, rostro o tarjeta) o sin reloj. <b>Funciona con app Android, checador web y WhatsApp</b> (no hay app para iPhone).</li>
@@ -154,14 +170,14 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
     </div>
 
     <section class="paso">
-      <h2><i>1</i>¿Dónde y cómo checan tus colaboradores?</h2>
-      <p class="ayuda">Con esto decidimos qué te conviene.</p>
+      <h2><i>2</i>¿Dónde y cómo checan tus colaboradores?</h2>
+      <p class="ayuda" id="ayudaLugar">Con esto decidimos qué te conviene.</p>
       <div class="opc" style="margin-bottom:10px">
         <label><input type="radio" name="lugar" value="fijo" checked>En un lugar fijo<small>Oficina, planta o sucursal</small></label>
         <label><input type="radio" name="lugar" value="campo">En campo o home office<small>Rutas, obras, vendedores, remoto</small></label>
         <label><input type="radio" name="lugar" value="mixto">Mixto<small>Unos fijos y otros en campo</small></label>
       </div>
-      <div class="opc" style="margin-bottom:14px">
+      <div class="opc" style="margin-bottom:14px" id="filaPref">
         <label><input type="radio" name="preferencia" value="recomienden" checked>Que me recomienden<small>Según mis respuestas</small></label>
         <label><input type="radio" name="preferencia" value="reloj">Reloj físico en la entrada<small>Huella, rostro o tarjeta</small></label>
         <label><input type="radio" name="preferencia" value="celular">Desde su celular<small>App con geocerca</small></label>
@@ -176,7 +192,7 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
     </section>
 
     <section class="paso">
-      <h2><i>2</i>¿Tienes CONTPAQi Nóminas?</h2>
+      <h2><i>3</i>¿Tienes CONTPAQi Nóminas?</h2>
       <p class="ayuda">Colabora se incluye con CONTPAQi Nóminas o Personia (de escritorio o en la nube). El paquete de Tempo Control se conecta con Nóminas.</p>
       <div class="opc">
         <label><input type="radio" name="nominas" value="actual" checked>Sí, versión actual<small>Colabora ya viene incluido</small></label>
@@ -188,7 +204,7 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
     </section>
 
     <section class="paso">
-      <h2><i>3</i>Tu operación</h2>
+      <h2><i>4</i>Tu operación</h2>
       <p class="ayuda">El paquete incluye 1 empresa, 1 centro de trabajo y hasta 3 horarios normales (1 en Tempo Control). Cada empresa adicional suma su centro y su horario; lo demás se cotiza por pieza. Con Tempo Control y reloj biométrico, cada centro lleva su propio reloj; sin reloj, los centros no cuestan más.</p>
       <div class="num">
         <div class="fld"><label class="lbl" for="empresas">Empresas (RFC) a configurar<small>Razones sociales con nómina</small></label>
@@ -201,7 +217,7 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
     </section>
 
     <section class="paso">
-      <h2><i>4</i>¿Quieres que carguemos a tus colaboradores?</h2>
+      <h2><i>5</i>¿Quieres que carguemos a tus colaboradores?</h2>
       <p class="ayuda">Alta en el sistema, vinculación con Nóminas e invitación a la app. Lo que exceda el paquete lo cargas tú o te lo cotizamos.</p>
       <div class="opc" id="opcColab">
         <label><input type="radio" name="carga" value="paquete" checked>Solo los del paquete<small>3 en Colabora · 10 en Tempo Control. Los demás los cargo yo</small></label>
@@ -209,8 +225,8 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
       </div>
     </section>
 
-    <section class="paso">
-      <h2><i>5</i>Módulos adicionales (solo CONTPAQi Colabora®)</h2>
+    <section class="paso" id="pasoModulos">
+      <h2><i>6</i>Módulos adicionales (solo CONTPAQi Colabora®)</h2>
       <p class="ayuda">El paquete de Colabora ya incluye la revisión de vacaciones, permisos y recibos durante la capacitación; aquí marcas si quieres dejarlos configurados. Tempo Control no los tiene.</p>
       <div class="chk">
         <label><input type="checkbox" name="modulos" value="vacaciones"><span><b>Vacaciones y permisos</b><small>Políticas, saldos, flujo de aprobación líder → RH y capacitación.</small></span><span class="precio-tag" data-p="MOD_VACACIONES"></span></label>
@@ -221,7 +237,7 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
     </section>
 
     <section class="paso">
-      <h2><i>6</i>Capacitación</h2>
+      <h2><i>7</i>Capacitación</h2>
       <p class="ayuda">✓ Tu paquete ya incluye la capacitación básica, dentro de las horas del servicio. Todo es remoto (videollamada y acceso remoto).</p>
       <div class="num">
         <div class="fld"><label class="lbl" for="sesiones">¿Requieres otra capacitación?<small>Cada sesión adicional de 1.5 h para líderes o colaboradores</small></label>
@@ -231,7 +247,7 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
     </section>
 
     <section class="paso">
-      <h2><i>7</i>Póliza de soporte (opcional)</h2>
+      <h2><i>8</i>Póliza de soporte (opcional)</h2>
       <p class="ayuda">Bolsa de horas de soporte remoto posterior a la implementación. Precios más IVA.</p>
       <div class="opc">
         <label><input type="radio" name="poliza" value="ninguna" checked>Sin póliza<small>El soporte posterior se cotiza por separado</small></label>
@@ -271,6 +287,7 @@ footer{color:var(--mute);font-size:12px;padding:0 0 40px;line-height:1.6}
       <div class="palomita">✓</div>
       <h3 id="exTitulo">¡Enviada!</h3>
       <p id="exTexto"></p>
+      <a class="btn pdf" id="btnPdf" style="display:none">Descargar mi cotización (PDF)</a>
       <a class="btn wa" id="btnWa" target="_blank" rel="noopener">Quiero contratar · WhatsApp</a>
       <p style="margin-top:12px;font-size:12.5px">¿Quieres cambiar algo? <a href="#" id="btnOtra">Arma otra cotización</a></p>
     </div>
@@ -345,10 +362,13 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     const fd = new FormData(form);
     const n = (k, min, max) => Math.min(max, Math.max(min, parseInt(fd.get(k), 10) || min));
     const empleados = parseInt(fd.get('empleados'), 10) || 25;
+    // Si el cliente ya eligió el producto: Tempo con o sin reloj (sin módulos, que son de Colabora); Colabora como celular. Igual que respuestasCot_.
+    const eleccion = ELECCION_OK ? (fd.get('eleccion') || 'recomienden') : 'recomienden';
+    const preferencia = eleccion === 'tempo' ? (fd.get('reloj_tc') === 'no' && SIN_RELOJ_OK ? 'tempo_sin_reloj' : 'reloj') : (eleccion === 'colabora' ? 'celular' : fd.get('preferencia'));
     return {
-      nominas: fd.get('nominas'), lugar: fd.get('lugar'), preferencia: fd.get('preferencia'), empleados, rotativos: fd.get('rotativos') === 'si',
+      eleccion, nominas: fd.get('nominas'), lugar: fd.get('lugar'), preferencia, empleados, rotativos: fd.get('rotativos') === 'si',
       empresas: n('empresas', 1, 20), centros: n('centros', 1, 60), horarios: n('horarios', 1, 60),
-      colaboradores: fd.get('carga') === 'todos' ? cargaClave(empleados) : '5', modulos: fd.getAll('modulos'), sesiones: n('sesiones', 0, 6),
+      colaboradores: fd.get('carga') === 'todos' ? cargaClave(empleados) : '5', modulos: eleccion === 'tempo' ? [] : fd.getAll('modulos'), sesiones: n('sesiones', 0, 6),
       poliza: fd.get('poliza')
     };
   }
@@ -386,6 +406,7 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
   const usd = u => Math.round(u * TC * 100) / 100;
 
   // ¿Tempo Control sin reloj biométrico? Igual que tempoSinReloj_ del servidor: sí si lo pide, si prefiere el celular o si checan en campo; no si pide reloj físico.
+  let ELECCION_OK = true;    // false si el servidor publicado aún no entiende «eleccion» (versión < 5)
   let SIN_RELOJ_OK = true;   // false si el servidor publicado aún no conoce «Tempo Control sin reloj» (su lista de precios no trae TC_BASE_SIN_RELOJ)
   const sinReloj = r => SIN_RELOJ_OK && (r.preferencia === 'tempo_sin_reloj' || (r.preferencia !== 'reloj' && (r.preferencia === 'celular' || r.lugar === 'campo')));
 
@@ -433,6 +454,19 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
 
   function recomendar(r, cC, cT) {
     const razones = []; let producto;
+    if (r.eleccion === 'colabora') {   // igual que recomendar_ del servidor
+      razones.push('Elegiste CONTPAQi Colabora®: tus colaboradores checan con la app para Android e iOS, con geolocalización.');
+      if (r.rotativos) razones.push('Ojo: manejas turnos rotativos y el paquete de Colabora incluye solo horarios normales básicos; los rotativos no entran. Si los necesitas, pídenos también la cotización de Tempo Control.');
+      return { producto: 'colabora', razones, elegido: true };
+    }
+    if (r.eleccion === 'tempo') {
+      const sinR = sinReloj(r);
+      razones.push(sinR ? 'Elegiste Tempo Control sin reloj: tu personal checa con la app Android, el checador web o WhatsApp (no hay app para iPhone).'
+                        : 'Elegiste Tempo Control con reloj biométrico MB160ID / ADMS en la entrada; también pueden checar con la app Android, el checador web o WhatsApp.');
+      if (r.rotativos) razones.push('Tus turnos rotativos se manejan en Tempo Control; su configuración avanzada se cotiza aparte.');
+      razones.push(sinR ? 'Toma en cuenta: la licencia de Tempo Control se renueva cada año.' : 'Toma en cuenta: la licencia de Tempo Control se renueva cada año y el reloj requiere internet en el sitio.');
+      return { producto: 'tempo', razones, elegido: true };
+    }
     if (r.rotativos) { producto = 'tempo'; razones.push('Manejas turnos rotativos, por horas o abiertos: Tempo Control los maneja; el paquete de Colabora incluye solo horarios normales básicos. La configuración avanzada de turnos se cotiza aparte.'); }
     else if (r.preferencia === 'tempo_sin_reloj') { producto = 'tempo'; razones.push('Elegiste Tempo Control sin reloj físico: lo cotizamos con su licencia y su paquete de implementación, sin reloj ni envío.'); }
     else if (r.lugar === 'campo' && r.nominas !== 'no') { producto = 'colabora'; razones.push('Tu personal checa en campo o home office: con Colabora checan desde el celular con geocerca; un reloj fijo no les serviría.'); }
@@ -466,12 +500,31 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     sel.value = [...sel.options].some(o => o.value === previo) ? previo : '25';
   }
 
+  // Solo se muestra lo que aplica al producto elegido
+  function vista(r) {
+    const e = r.eleccion;
+    $('#pregReloj').style.display = e === 'tempo' ? '' : 'none';
+    $('#lblSinReloj').style.display = SIN_RELOJ_OK ? '' : 'none';
+    $('#filaPref').style.display = e === 'recomienden' ? '' : 'none';
+    $('#ayudaLugar').textContent = e === 'recomienden' ? 'Con esto decidimos qué te conviene.' : 'Lo usamos para armar tu cotización.';
+    $('#pasoModulos').style.display = e === 'tempo' ? 'none' : '';
+    $('#paqColabora').style.display = e === 'tempo' ? 'none' : '';
+    $('#paqTempo').style.display = e === 'colabora' ? 'none' : '';
+    $('#paquetes').classList.toggle('uno', e !== 'recomienden');
+    let k = 0;   // numera solo los pasos visibles
+    document.querySelectorAll('#form section.paso').forEach(sec => {
+      const i = sec.querySelector('h2 i');
+      if (i && i.textContent !== '✓' && sec.style.display !== 'none') i.textContent = ++k;
+    });
+  }
+
   function pintar() {
     const r = leer();
+    vista(r);
     const cC = cotizar(r), cT = cotizarTempo(r);
     const rec = recomendar(r, cC, cT);
     const c = rec.producto === 'tempo' ? cT : cC, alt = rec.producto === 'tempo' ? cC : cT;
-    $('#recLbl').textContent = 'Te va mejor · ' + NOMBRE[rec.producto];
+    $('#recLbl').textContent = (rec.elegido ? 'Tu elección · ' : 'Te va mejor · ') + NOMBRE[rec.producto];
     $('#razones').innerHTML = rec.razones.map(x => '<p>✓ ' + esc(x) + '</p>').join('');
     $('#lineas').innerHTML = c.lineas.map(l => '<div class="lin"><span>' + esc(l.concepto) + (l.cantidad > 1 ? ' × ' + l.cantidad : '') + '</span><span>' + pesos(l.importe) + '</span></div>').join('');
     $('#st').textContent = pesos(c.subtotal); $('#iv').textContent = pesos(c.iva); $('#tt').textContent = pesos(c.total);
@@ -487,6 +540,7 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     const cs = PRECIOS.CAP_SESION ? PRECIOS.CAP_SESION.precio : 0;
     $('#capTxt').textContent = r.sesiones > 0 ? '+' + r.sesiones + (r.sesiones === 1 ? ' sesión adicional' : ' sesiones adicionales') + ': + ' + pesos(r.sesiones * cs).replace('.00', '') : 'Sin sesiones adicionales';
     $('#alt').innerHTML = '<span>Alternativa · ' + NOMBRE[rec.producto === 'tempo' ? 'colabora' : 'tempo'] + ' (va en la cotización para comparar)</span><b>' + pesos(alt.total) + '</b>';
+    $('#alt').style.display = rec.elegido ? 'none' : '';   // si eligió, la cotización no lleva alternativa
     return { c, rec, cC, cT };
   }
 
@@ -510,6 +564,11 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
         SIN_RELOJ_OK = false;
         const rb = document.querySelector('input[name=preferencia][value=tempo_sin_reloj]');
         if (rb) { if (rb.checked) document.querySelector('input[name=preferencia][value=recomienden]').checked = true; rb.closest('label').style.display = 'none'; }
+        document.querySelector('input[name=reloj_tc][value=si]').checked = true; $('#lblSinReloj').style.display = 'none';
+      }
+      if (d && d.ok && d.precios && d.precios.BASE_BASICO && !(Number(d.version) >= 5)) {   // servidor anterior: no sabe que el cliente elige
+        ELECCION_OK = false;
+        document.querySelector('input[name=eleccion][value=recomienden]').checked = true; $('#pasoEleccion').style.display = 'none';
       }
       if (d && d.ok && d.precios && d.precios.BASE_BASICO) { PRECIOS = Object.assign({}, PRECIOS, d.precios); IVA = Number(d.iva) || 16; TC = Number(d.tipoCambio) || 20; if (d.tempoUsd && d.tempoUsd.LICENCIA) { TEMPO_USD = d.tempoUsd; armarEmpleados(); } VIG = Number(d.vigencia) || 30; document.querySelectorAll('.vig').forEach(e => { e.textContent = VIG; }); pintarPrecios(); }
     }).catch(() => { /* se quedan los de respaldo */ });
@@ -558,17 +617,29 @@ const cargaClave = e => (e <= 25 ? '25' : e <= 100 ? '100' : e <= 300 ? '300' : 
     const btn = $('#btnEnviar'); btn.disabled = true; btn.textContent = 'Generando tu cotización…';
     try {
       let r;
-      if (!CONFIG.ENDPOINT || DEMO) { await new Promise(x => setTimeout(x, 600)); const v = pintar(); r = { ok: true, folio: 'COT-CHK-DEMO', producto: v.rec.producto, total: v.c.total, enviado: true, demo: true }; }
+      if (!CONFIG.ENDPOINT || DEMO) { await new Promise(x => setTimeout(x, 600)); const v = pintar(); r = { ok: true, folio: 'COT-CHK-DEMO', producto: v.rec.producto, total: v.c.total, enviado: true, demo: true, elegido: !!v.rec.elegido }; }
       else {
-        const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 30000);
+        const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 60000);   // con PDF y copias puede tardar
         const resp = await fetch(CONFIG.ENDPOINT, { method: 'POST', body: JSON.stringify(d), signal: ctrl.signal });
         clearTimeout(t); r = await resp.json();
       }
       if (r && r.ok && r.folio) {
         $('#exTitulo').textContent = r.enviado ? '¡Listo! Cotización ' + r.folio : 'Cotización ' + r.folio + ' registrada';
         $('#exTexto').innerHTML = (r.enviado ? 'Te la mandamos a <b>' + esc(d.correo) + '</b> con el PDF adjunto. ' : 'Hubo un detalle al enviar el correo; te la mandamos nosotros en breve. ')
-          + 'Te va mejor <b>' + esc(NOMBRE[r.producto] || '') + '</b>: <b>' + pesos(r.total) + ' MXN</b> (IVA incluido). La alternativa va en el mismo correo. Vigencia ' + VIG + ' días.';
+          + (r.elegido ? 'Tu cotización de <b>' : 'Te va mejor <b>') + esc(NOMBRE[r.producto] || '') + '</b>: <b>' + pesos(r.total) + ' MXN</b> (IVA incluido). '
+          + (r.elegido ? '' : 'La alternativa va en el mismo correo. ') + 'Vigencia ' + VIG + ' días.' + (r.pdf ? ' También puedes descargarla aquí.' : '');
         enviado = true;
+        const bp = $('#btnPdf'); bp.style.display = 'none';
+        if (r.pdf) {   // el servidor manda el PDF: se descarga sin salir de la página
+          try {
+            const bin = atob(r.pdf), u8 = new Uint8Array(bin.length);
+            for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+            if (bp.href && bp.href.startsWith('blob:')) URL.revokeObjectURL(bp.href);
+            bp.href = URL.createObjectURL(new Blob([u8], { type: 'application/pdf' }));
+            bp.download = r.pdfNombre || ('Cotizacion_' + r.folio + '.pdf');
+            bp.style.display = '';
+          } catch (e) { bp.style.display = 'none'; }
+        }
         $('#btnWa').href = 'https://wa.me/' + CONFIG.WHATSAPP + '?text=' + encodeURIComponent('Hola Gabriel, quiero contratar la cotización ' + r.folio + ' (' + d.empresa + ')');
         $('#vivo').style.display = 'none'; $('#exito').classList.add('on');
         $('#resumen').scrollIntoView({ behavior: 'smooth', block: 'start' });
